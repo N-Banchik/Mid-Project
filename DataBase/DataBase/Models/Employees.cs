@@ -33,11 +33,6 @@ namespace DataBase.Models
         [DataType("smalldatetime")]
         public DateTime Hire_Date { get; set; }
         [Required]
-        [Column("Address")]
-        [DataType("nvarchar")]
-        [MaxLength(50)]
-        public string Address{ get; set; }
-        [Required]
         [Column("Phone number")]
         [DataType("nvarchar")]
         [MaxLength(15)]
@@ -47,6 +42,7 @@ namespace DataBase.Models
         [Column("Manager")]
         [DataType("int")]
         public int Is_Manager{ get; set; }
+        public Address Address{ get; set; }
 
         [NotMapped]
         bool Manager;

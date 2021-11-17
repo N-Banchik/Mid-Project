@@ -22,21 +22,20 @@ namespace DataBase.Models
         [DataType("nvarchar")]
         [MaxLength(25)]
         public string First_Name { get; set; }
+
         [Required]
         [Column("Last Name")]
         [DataType("nvarchar")]
         [MaxLength(25)]
         public string last_Name { get; set; }
+
         [Required]
         [Column("BirthDate")]
         [DataType("smalldatetime")]
         public DateTime Birthdate { get; set; }
 
-        [Required]
-        [Column("Address")]
-        [DataType("nvarchar")]
-        [MaxLength(50)]
-        public string Address { get; set; }
+        public Address Address { get; set; }
+
 
     }
 }

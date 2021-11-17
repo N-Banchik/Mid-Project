@@ -9,5 +9,9 @@ namespace DataBase.Models
 {
     class Orders
     {
+        [Key]
+        [Column("Order Number")]
+        public int Order_ID { get; set; }
+
     }
 }
