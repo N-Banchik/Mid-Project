@@ -14,7 +14,6 @@ namespace DataBase.Models
     {
         [Key]
         [Column("ID")]
-        [DataMember]
         public int Costumer_ID { get; set; }
 
         [Required]
@@ -34,7 +33,9 @@ namespace DataBase.Models
         [DataType("smalldatetime")]
         public DateTime Birthdate { get; set; }
 
-        public Address Address { get; set; }
+        public string Email { get; set; }
+        public string Phone_Number { get; set; }
+        public ICollection<Address_Costumers> Address { get; set; }
 
 
     }

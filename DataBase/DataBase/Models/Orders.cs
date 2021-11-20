@@ -11,15 +11,20 @@ namespace DataBase.Models
     {
         [Key]
         [Column("Order Number")]
-        public int Order_ID { get; set; }
+        public string Order_ID { get; set; }
+
         [ForeignKey("Costumer ID")]
         [Column("Costumer ID")]
         public int Costumer_ID { get; set; }
         [ForeignKey("Employee ID")]
         [Column("Employee ID")]
         public int Employee_ID { get; set; }
-
+        public DateTime Order_Date { get; set; }
+        public DateTime Ship_Date { get; set; }
+        public double Total_Cost { get; set; }
+        public double Total_Weiget { get; set; }
         public string Costumer_Address { get; set; }
+        public ICollection<Orderitems> items { get; set; }
 
 
 

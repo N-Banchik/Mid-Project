@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 
 namespace DataBase
 {
@@ -6,7 +7,6 @@ namespace DataBase
     {
         static void Main(string[] args)
         {
-            
         }
     }
 }
