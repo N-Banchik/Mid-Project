@@ -9,15 +9,11 @@ namespace DataBase.Models
 {
     class Orders
     {
-        [Key]
-        [Column("Order Number")]
-        public string Order_ID { get; set; }
+       
+        public int Order_ID { get; set; }
 
-        [ForeignKey("Costumer ID")]
-        [Column("Costumer ID")]
         public int Costumer_ID { get; set; }
-        [ForeignKey("Employee ID")]
-        [Column("Employee ID")]
+      
         public int Employee_ID { get; set; }
         public DateTime Order_Date { get; set; }
         public DateTime Ship_Date { get; set; }

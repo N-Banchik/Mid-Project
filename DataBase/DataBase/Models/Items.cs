@@ -12,8 +12,8 @@ namespace DataBase.Models
         [Key]
         public int Item_ID { get; set; }
         public string Item_Name { get; set; }
-        public string Category_Id { get; set; }
-        public string Brand_Id{ get; set; }
+        public int Category_Id { get; set; }
+        public int Brand_Id{ get; set; }
         public double Weight { get; set; }
         public int Units_In_Inventory { get; set; }
         public int Minimum_Units_In_Inventory { get; set; }
