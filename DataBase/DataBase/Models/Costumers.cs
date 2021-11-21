@@ -12,30 +12,16 @@ namespace DataBase.Models
     
     class Costumers
     {
-        [Key]
-        [Column("ID")]
+        
         public int Costumer_ID { get; set; }
-
-        [Required]
-        [Column("First Name")]
-        [DataType("nvarchar")]
-        [MaxLength(25)]
         public string First_Name { get; set; }
-
-        [Required]
-        [Column("Last Name")]
-        [DataType("nvarchar")]
-        [MaxLength(25)]
         public string last_Name { get; set; }
-
-        [Required]
-        [Column("BirthDate")]
-        [DataType("smalldatetime")]
         public DateTime Birthdate { get; set; }
-
         public string Email { get; set; }
+        public string Password { get; set; }
         public string Phone_Number { get; set; }
         public ICollection<Address_Costumers> Address { get; set; }
+        public ICollection<Orders> Orders { get; set; }
 
 
     }

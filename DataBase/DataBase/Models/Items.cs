@@ -12,11 +12,11 @@ namespace DataBase.Models
         [Key]
         public int Item_ID { get; set; }
         public string Item_Name { get; set; }
-        [ForeignKey("Category Id")]
         public string Category_Id { get; set; }
+        public string Brand_Id{ get; set; }
         public double Weight { get; set; }
         public int Units_In_Inventory { get; set; }
-        [DataType("money")]
+        public int Minimum_Units_In_Inventory { get; set; }
         public double Price { get; set; }
 
         public Categories Category { get; set; }

@@ -17,11 +17,12 @@ namespace DataBase.Models
         public DateTime Birthdate{ get; set; }
         public DateTime Hire_Date { get; set; }
         public string Phone_Number { get; set; }
+        public string Password { get; set; }
         public int Is_Manager{ get; set; }
         bool Manager;
         public ICollection<Shifts> Shifts { get; set; }
         public Address_Employees Address{ get; set; }
-        [NotMapped]
+        public ICollection<Orders> Orders { get; set; }
 
 
     }

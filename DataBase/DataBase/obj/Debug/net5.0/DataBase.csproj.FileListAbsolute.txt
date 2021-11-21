@@ -63,3 +63,4 @@ D:\Hackeru\Mid Project\DataBase\DataBase\obj\Debug\net5.0\DataBase.dll
 D:\Hackeru\Mid Project\DataBase\DataBase\obj\Debug\net5.0\ref\DataBase.dll
 D:\Hackeru\Mid Project\DataBase\DataBase\obj\Debug\net5.0\DataBase.pdb
 D:\Hackeru\Mid Project\DataBase\DataBase\obj\Debug\net5.0\DataBase.genruntimeconfig.cache
+D:\Hackeru\Mid Project\DataBase\DataBase\bin\Debug\net5.0\DataBase.dll.config

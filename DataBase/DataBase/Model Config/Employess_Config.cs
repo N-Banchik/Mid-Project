@@ -20,6 +20,7 @@ namespace DataBase.Model_Config
             builder.Property(c => c.Hire_Date).IsRequired().HasColumnType("smalldatetime").HasColumnName("Hire Date");
             builder.Property(c => c.Phone_Number).IsRequired().HasColumnName("Phone number");
             builder.Property(c => c.Is_Manager).HasColumnType("smallint").IsRequired();
+            builder.Property(c => c.Password).IsRequired().HasMaxLength(100);
             builder.HasOne(a => a.Address).WithOne(a => a.employee);
             builder.HasMany(s => s.Shifts).WithOne(e => e.Emplyee).HasForeignKey(e => e.Employee_ID);
 

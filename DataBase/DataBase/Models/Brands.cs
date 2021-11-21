@@ -10,8 +10,8 @@ namespace DataBase.Models
     {
         public int Brand_Id { get; set; }
         public string Brand_Name { get; set; }
-        public string Manufactoring_Country { get; set; }
-        public Items Item_id { get; set; }
+        public string Manufacturing_Country { get; set; }
+        public ICollection<Items> Items { get; set; }
 
     }
 }

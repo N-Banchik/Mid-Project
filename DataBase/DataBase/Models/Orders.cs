@@ -23,13 +23,12 @@ namespace DataBase.Models
         public DateTime Ship_Date { get; set; }
         public double Total_Cost { get; set; }
         public double Total_Weiget { get; set; }
+        public string Costumer_Email { get; set; }
+
         public string Costumer_Address { get; set; }
         public ICollection<Orderitems> items { get; set; }
-
-
-
-        public Employees employee_Id { get; set; }
-        public Costumers costumer_Id { get; set; }
+        public Employees employee { get; set; }
+        public Costumers costumer { get; set; }
 
     }
 }
