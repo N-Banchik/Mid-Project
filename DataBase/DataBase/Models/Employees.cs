@@ -9,19 +9,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DataBase.Models
 {
     [Table("Employees")]
-    class Employees
+   public  class Employees
     {
         public int ID { get; set; }
-        public string First_Name{ get; set; }
+        public string First_Name { get; set; }
         public string last_Name { get; set; }
-        public DateTime Birthdate{ get; set; }
+        public DateTime Birthdate { get; set; }
         public DateTime Hire_Date { get; set; }
         public string Phone_Number { get; set; }
         public string Password { get; set; }
-        public int Is_Manager{ get; set; }
+        public int Is_Manager { get; set; }
         bool Manager;
         public ICollection<Shifts> Shifts { get; set; }
-        public Address_Employees Address{ get; set; }
+        public Address_Employees Address { get; set; }
         public ICollection<Orders> Orders { get; set; }
 
 

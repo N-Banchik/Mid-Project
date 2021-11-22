@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace DataBase.Models
 {
-    class Items
+   public class Items
     {
         [Key]
         public int Item_ID { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataBase.Models
 {
-    class Brands
+   public class Brands
     {
         public int Brand_Id { get; set; }
         public string Brand_Name { get; set; }

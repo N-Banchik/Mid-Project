@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataBase.Models
 {
-    class Shifts
+   public class Shifts
     {
         public int Shift_ID { get; set; }
         public int Employee_ID { get; set; }
@@ -17,7 +17,7 @@ namespace DataBase.Models
         public double Total_Time { get; set; }
 
 
-        public Employees Emplyee { get; set; }
+        public Employees Employee { get; set; }
 
 
     }

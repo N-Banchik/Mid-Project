@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using DataBase.Models;
 using DataBase.Model_Config;
 
-namespace DataBase.Data_Access_Layer
+namespace DataBase.Context
 {
-    class FactoryDbContext : DbContext
+     public class FactoryDbContext : DbContext
     {
         public DbSet<Address_Employees>address_Employees { get; set; }
         public DbSet<Address_Costumers>Address_Costumers{ get; set; }

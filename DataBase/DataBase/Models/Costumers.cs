@@ -10,7 +10,7 @@ using System.Runtime.Serialization;
 namespace DataBase.Models
 {
     
-    class Costumers
+  public  class Costumers
     {
         
         public int Costumer_ID { get; set; }

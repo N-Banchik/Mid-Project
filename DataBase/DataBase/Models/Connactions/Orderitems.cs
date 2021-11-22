@@ -7,7 +7,7 @@ using DataBase.Models;
 
 namespace DataBase.Models
 {
-    class Orderitems
+   public class Orderitems
     {
         public int Itme_Id { get; set; }
         public Items Item { get; set; }

@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataBase.Models
 {
-    class Address_Costumers
+    public class Address_Costumers
     {
         public int Address_ID { get; set; }
         public int Costumer_ID { get; set; }
