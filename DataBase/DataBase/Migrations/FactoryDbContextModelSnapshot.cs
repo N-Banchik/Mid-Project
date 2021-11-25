@@ -275,15 +275,25 @@ namespace DataBase.Migrations
 
             modelBuilder.Entity("DataBase.Models.Orderitems", b =>
                 {
-                    b.Property<int>("Order_id")
-                        .HasColumnType("int");
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Itme_Id")
                         .HasColumnType("int");
 
-                    b.HasKey("Order_id", "Itme_Id");
+                    b.Property<int>("Order_id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
 
                     b.HasIndex("Itme_Id");
+
+                    b.HasIndex("Order_id");
 
                     b.ToTable("Orderitems");
                 });
@@ -448,13 +458,13 @@ namespace DataBase.Migrations
 
             modelBuilder.Entity("DataBase.Models.Shifts", b =>
                 {
-                    b.HasOne("DataBase.Models.Employees", "Emplyee")
+                    b.HasOne("DataBase.Models.Employees", "Employee")
                         .WithMany("Shifts")
                         .HasForeignKey("Employee_ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Emplyee");
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("DataBase.Models.Address_Employees", b =>

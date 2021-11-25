@@ -17,7 +17,7 @@ namespace DataBase.Model_Config
             builder.Property(t => t.Total_Time).HasColumnName("Shift Time");
             builder.Property(ss => ss.Shift_Start).HasColumnName("Shift start time").HasColumnType("smalldatetime");
             builder.Property(se => se.Shift_Start).HasColumnName("Shift end time").HasColumnType("smalldatetime");
-            builder.HasOne(e => e.Emplyee)
+            builder.HasOne(e => e.Employee)
                 .WithMany(s => s.Shifts)
                 .HasForeignKey(e => e.Employee_ID);
         }

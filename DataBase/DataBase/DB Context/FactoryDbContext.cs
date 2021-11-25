@@ -20,6 +20,7 @@ namespace DataBase.Context
         public DbSet<Items> Items { get; set; }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Shifts> Shifts { get; set; }
+        public DbSet<Orderitems> Orderitems { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

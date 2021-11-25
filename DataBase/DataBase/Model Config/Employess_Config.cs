@@ -22,7 +22,7 @@ namespace DataBase.Model_Config
             builder.Property(c => c.Is_Manager).HasColumnType("smallint").IsRequired();
             builder.Property(c => c.Password).IsRequired().HasMaxLength(100);
             builder.HasOne(a => a.Address).WithOne(a => a.employee);
-            builder.HasMany(s => s.Shifts).WithOne(e => e.Emplyee).HasForeignKey(e => e.Employee_ID);
+            builder.HasMany(s => s.Shifts).WithOne(e => e.Employee).HasForeignKey(e => e.Employee_ID);
 
         }
     }

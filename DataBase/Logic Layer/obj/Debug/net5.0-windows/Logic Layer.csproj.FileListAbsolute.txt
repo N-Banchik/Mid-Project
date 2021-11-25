@@ -1,0 +1,20 @@
+D:\Hackeru\Mid Project\DataBase\Logic Layer\obj\Debug\net5.0-windows\Logic Layer.csproj.AssemblyReference.cache
+D:\Hackeru\Mid Project\DataBase\Logic Layer\obj\Debug\net5.0-windows\Logic Layer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Hackeru\Mid Project\DataBase\Logic Layer\obj\Debug\net5.0-windows\Logic Layer.AssemblyInfoInputs.cache
+D:\Hackeru\Mid Project\DataBase\Logic Layer\obj\Debug\net5.0-windows\Logic Layer.AssemblyInfo.cs
+D:\Hackeru\Mid Project\DataBase\Logic Layer\obj\Debug\net5.0-windows\Logic Layer.csproj.CoreCompileInputs.cache
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\DataBase.deps.json
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\DataBase.runtimeconfig.json
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\DataBase.runtimeconfig.dev.json
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\DataBase.exe
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\Logic Layer.deps.json
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\Logic Layer.dll
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\ref\Logic Layer.dll
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\Logic Layer.pdb
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\DataBase.dll
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\DataBase.pdb
+D:\Hackeru\Mid Project\DataBase\Logic Layer\bin\Debug\net5.0-windows\DataBase.dll.config
+D:\Hackeru\Mid Project\DataBase\Logic Layer\obj\Debug\net5.0-windows\Logic Layer.csproj.CopyComplete
+D:\Hackeru\Mid Project\DataBase\Logic Layer\obj\Debug\net5.0-windows\Logic Layer.dll
+D:\Hackeru\Mid Project\DataBase\Logic Layer\obj\Debug\net5.0-windows\ref\Logic Layer.dll
+D:\Hackeru\Mid Project\DataBase\Logic Layer\obj\Debug\net5.0-windows\Logic Layer.pdb
