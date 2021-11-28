@@ -9,7 +9,7 @@ namespace DataBase.Models
 {
    public class Items
     {
-        [Key]
+        
         public int Item_ID { get; set; }
         public string Item_Name { get; set; }
         public int Category_Id { get; set; }

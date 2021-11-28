@@ -7,7 +7,9 @@ using DataBase.Models;
 
 namespace Logic_Layer.DataAccess.Interfaces
 {
-    interface IorderItems : IGenericDataRepository<Orders>
+    interface IorderRepository : IGenericDataRepository<Orders>
     {
+        public Task NewOrderAsync(int costumer,double totalcost,double weight,string cosemail);
+        public Task UpdateOrderforEMPAsync(int orderid, int emp);
     }
 }

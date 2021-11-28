@@ -15,5 +15,12 @@ namespace Logic_Layer.DataAccess.Access
         {
 
         }
+
+        public async Task AddnewCostumer(string first,string last,DateTime Birth,string email,string Pass,string phone) 
+        {
+           
+            Costumers Toadd = new Costumers {First_Name = first,last_Name = last,Birthdate = Birth,Email = email,Password = Pass,Phone_Number = phone};
+           await base.Add(Toadd);
+        }
     }
 }

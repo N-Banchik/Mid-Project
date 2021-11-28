@@ -9,11 +9,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Logic_Layer.DataAccess.Access
 {
-    public class OrdersRepository : GenericDataRepository<Orders>, IorderItems
+    public class OrdersRepository : GenericDataRepository<Orders>, IorderRepository
     {
         public OrdersRepository(DbContext context) : base(context)
         {
 
+        }
+
+        public async Task NewOrderAsync(int costumer, double totalcost, double weight, string cosemail)
+        {
+            await base.Add(new Orders {Costumer_ID = costumer,Total_Cost =totalcost,Total_Weiget = totalcost,Costumer_Email = cosemail,Order_Date = DateTime.Now});
+        }
+
+        public async Task UpdateOrderforEMPAsync(int orderid,int emp)
+        {
+            Orders update = await GetById(orderid);
+                update.Ship_Date = DateTime.Now;
+                update.Employee_ID = emp;
+                await base.Upsert(update);
         }
     }
 }

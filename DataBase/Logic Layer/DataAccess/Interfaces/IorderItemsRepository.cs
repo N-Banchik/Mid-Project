@@ -11,7 +11,9 @@ namespace Logic_Layer.DataAccess.Interfaces
     interface IorderItemsRepository:IGenericDataRepository<Orderitems>
     {
         public Task<Dictionary<int, int>> GetorderandItemswithQuantityAsync(int orderid);
-        public Task<bool> AddNewOrderItemsAsync(List<int> itemid, int quantity, int orderid);
+        public Task<bool> AddNewOrderItemsAsync(ConcurrentDictionary<int, int> itemsquantity, int orderid);
+        public Task<double> GetTotalCostAsync(int orderid);
+        public Task<double> GetTotalWeightAsync(int orderid);
 
     }
 }

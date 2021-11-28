@@ -15,5 +15,64 @@ namespace Logic_Layer.DataAccess.Access
         {
 
         }
+
+        public async Task AddNewItemAsync(string name, int category, int brand, double Wight, int Unitsinv, int unitsmin, double price)
+        {
+            try
+            {
+
+                await base.Add(new Items { Item_Name = name, Category_Id = category, Brand_Id = brand, Weight = Wight, Units_In_Inventory = Unitsinv, Minimum_Units_In_Inventory = unitsmin, Price = price });
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Cannot add item");
+            }
+
+        }
+
+        public async Task<IEnumerable<Items>> GetItemsInstockAsync()
+        {
+            try
+            {
+                return await GetByCondition(i => i.Units_In_Inventory > 0);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        
+
+        public async Task<IEnumerable<Items>> GetItemsToOrderAsync()
+        {
+            try
+            {
+                return await GetByCondition(i => i.Units_In_Inventory < i.Minimum_Units_In_Inventory);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task UpdateInventoryAsync(int itemid, int unitstoadd)
+        {
+            try
+            {
+                Items update = await GetById(itemid);
+                update.Units_In_Inventory += unitstoadd;
+                await base.Upsert(update);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

@@ -7,8 +7,8 @@ using DataBase.Models;
 
 namespace Logic_Layer.DataAccess.Interfaces
 {
-    interface INewAddress
+    interface INewAddress<T> where T :class
     {
-        public Task AddNewAddressAsync(int ID,string streetname,int housenumber,int apt,int zipcode,string city);
+        public Task<T> AddNewAddressAsync(int ID,string streetname,int housenumber,int apt,int zipcode,string city);
     }
 }

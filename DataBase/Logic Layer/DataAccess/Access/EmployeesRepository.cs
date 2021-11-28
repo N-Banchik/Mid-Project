@@ -15,5 +15,11 @@ namespace Logic_Layer.DataAccess.Access
         {
 
         }
+        public async Task AddnewEmployee(string first, string last, DateTime Birth, string email, string Pass, string phone,bool manager)
+        {
+
+            Employees Toadd = new Employees { First_Name = first, last_Name = last, Birthdate = Birth, Password = Pass, Phone_Number = phone,Is_Manager= manager?1:0 };
+            await base.Add(Toadd);
+        }
     }
 }

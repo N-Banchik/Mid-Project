@@ -15,5 +15,18 @@ namespace Logic_Layer.DataAccess.Access
         {
 
         }
+
+        public async Task AddNewCategoryAsync(string Cname, string disc)
+        {
+            try
+            {
+                await dbSet.AddAsync(new Categories { Category_Name = Cname, Description = disc});
+            }
+            catch (Exception )
+            {
+
+                throw ;
+            }
+        }
     }
 }

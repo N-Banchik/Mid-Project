@@ -9,5 +9,6 @@ namespace Logic_Layer.DataAccess.Interfaces
 {
   public  interface ICostumerRepository : IGenericDataRepository<Costumers>
     {
+        public Task AddnewCostumer(string first, string last, DateTime Birth, string email, string Pass, string phone);
     }
 }

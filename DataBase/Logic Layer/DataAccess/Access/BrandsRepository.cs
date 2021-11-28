@@ -15,6 +15,17 @@ namespace Logic_Layer.DataAccess.Access
         {
         }
 
-        
+        public async Task AddNewBrandAsync(string Brandname, string countryName)
+        {
+            try
+            {
+                 await dbSet.AddAsync(new Brands { Brand_Name = Brandname, Manufacturing_Country = countryName });
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Problem in adding brand");
+            }
+        }
     }
 }

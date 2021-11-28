@@ -16,12 +16,13 @@ namespace Logic_Layer.DataAccess.Access
 
         }
 
-        public async Task AddNewAddressAsync(int ID, string streetname, int housenumber, int apt, int zipcode, string city)
+        public async Task<Address_Employees> AddNewAddressAsync(int ID, string streetname, int housenumber, int apt, int zipcode, string city)
         {
             try
             {
                 var newAdd = new Address_Employees { Employee_ID = ID, Street_Name = streetname, House_Number = housenumber, Apartment_Number = apt, Zipcode = zipcode, City = city };
                 await dbSet.AddAsync(newAdd);
+                return newAdd;
             }
             catch (Exception)
             {
@@ -43,5 +44,7 @@ namespace Logic_Layer.DataAccess.Access
                 throw new Exception("Problem in Providing the Data");
             }
         }
+
+        
     }
 }

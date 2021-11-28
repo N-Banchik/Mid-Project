@@ -7,7 +7,7 @@ using DataBase.Models;
 
 namespace Logic_Layer.DataAccess.Interfaces
 {
-    interface IAddressEmployeeRepository :IGenericDataRepository<Address_Employees> , INewAddress
+    interface IAddressEmployeeRepository :IGenericDataRepository<Address_Employees> , INewAddress<Address_Employees>
     {
         public Task<IEnumerable<Address_Employees>> GetAddresses_ByCity(string city);
 

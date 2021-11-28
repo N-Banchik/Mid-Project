@@ -29,7 +29,7 @@ namespace Logic_Layer.DataAccess.Access
         public ICategoryRepository category { get; private set; }
         public ICostumerRepository costumer { get; private set; }
         public IItemsRepository items { get; private set; }
-        public IorderItems orders { get; private set; }
+        public IorderRepository orders { get; private set; }
 
         public IorderItemsRepository orderitems { get; private set; }
 
@@ -37,7 +37,7 @@ namespace Logic_Layer.DataAccess.Access
         {
             await context.SaveChangesAsync();
         }
-
+        
         public async ValueTask DisposeAsync()
         {
             await DisposeAsync();
