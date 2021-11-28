@@ -7,7 +7,7 @@ using DataBase.Models;
 
 namespace Logic_Layer.DataAccess.Interfaces
 {
-    interface IordersRepository : IGenericDataRepository<Orders>
+    interface IorderItems : IGenericDataRepository<Orders>
     {
     }
 }

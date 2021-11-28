@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Logic_Layer.DataAccess.Access
 {
-    public class OrdersRepository : GenericDataRepository<Orders>, IordersRepository
+    public class OrdersRepository : GenericDataRepository<Orders>, IorderItems
     {
         public OrdersRepository(DbContext context) : base(context)
         {

@@ -14,7 +14,8 @@ namespace Logic_Layer.DataAccess.Interfaces
         ICategoryRepository category { get; }
         ICostumerRepository costumer { get; }
         IItemsRepository items { get; }
-        IordersRepository orders { get; }
+        IorderItems orders { get; }
+        IorderItemsRepository orderitems { get; }
 
         Task CompleteAsync();
         

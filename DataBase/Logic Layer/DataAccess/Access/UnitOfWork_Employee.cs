@@ -22,6 +22,7 @@ namespace Logic_Layer.DataAccess.Access
             this.items = new ItemsRepository(context);
             this.orders = new OrdersRepository(context);
             this.shifts = new ShiftsRepository(context);
+            this.orderitems = new OrderitemsRepository(context);
         }
 
         public IAddressEmployeeRepository addressEmployee { get; private set; }
@@ -29,10 +30,10 @@ namespace Logic_Layer.DataAccess.Access
         public ICategoryRepository category { get; private set; }
         public IEmployeeRepository employee { get; private set; }
         public IItemsRepository items { get; private set; }
-        public IordersRepository orders { get; private set; }
+        public IorderItems orders { get; private set; }
         public IShiftsRepository shifts { get; private set; }
 
-
+        public IorderItemsRepository orderitems { get; private set; }
 
         public async Task CompleteAsync()
         {
