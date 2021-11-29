@@ -13,8 +13,9 @@ namespace Logic_Layer.DataAccess.Interfaces
         IBrandsRepository brands { get; }
         ICategoryRepository category { get; }
         IEmployeeRepository employee { get; }
+        ICostumerRepository costumer { get; }
         IItemsRepository items { get; }
-        IorderItems orders { get; }
+        IorderRepository orders { get; }
         IShiftsRepository shifts { get; }
         IorderItemsRepository orderitems { get; }
 

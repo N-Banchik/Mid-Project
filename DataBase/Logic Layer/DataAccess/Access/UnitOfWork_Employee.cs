@@ -30,7 +30,7 @@ namespace Logic_Layer.DataAccess.Access
         public ICategoryRepository category { get; private set; }
         public IEmployeeRepository employee { get; private set; }
         public IItemsRepository items { get; private set; }
-        public IorderItems orders { get; private set; }
+        public IorderRepository orders { get; private set; }
         public IShiftsRepository shifts { get; private set; }
 
         public IorderItemsRepository orderitems { get; private set; }
