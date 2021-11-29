@@ -11,7 +11,7 @@ namespace Logic_Layer.DataAccess.Access
 {
     public class CategoryRepository : GenericDataRepository<Categories>, ICategoryRepository
     {
-        public CategoryRepository(DbContext context) :base(context)
+        public CategoryRepository(DbContext context) : base(context)
         {
 
         }
@@ -20,12 +20,18 @@ namespace Logic_Layer.DataAccess.Access
         {
             try
             {
-                await dbSet.AddAsync(new Categories { Category_Name = Cname, Description = disc});
+                Categories add = new Categories { Category_Name = Cname, Description = disc };
+                if (dbSet.FirstOrDefaultAsync(i => i == add) == null)
+                {
+                    await base.Add(add);
+
+                }
+                else { throw new Exception("Item already exists"); }
             }
-            catch (Exception )
+            catch (Exception)
             {
 
-                throw ;
+                throw;
             }
         }
     }

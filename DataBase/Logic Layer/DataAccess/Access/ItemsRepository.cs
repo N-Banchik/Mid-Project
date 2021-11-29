@@ -20,8 +20,13 @@ namespace Logic_Layer.DataAccess.Access
         {
             try
             {
+                Items add = new Items { Item_Name = name, Category_Id = category, Brand_Id = brand, Weight = Wight, Units_In_Inventory = Unitsinv, Minimum_Units_In_Inventory = unitsmin, Price = price }
+                if (await dbSet.FirstOrDefaultAsync(i =>i.Item_Name ==add.Item_Name)==null)
+                {
 
-                await base.Add(new Items { Item_Name = name, Category_Id = category, Brand_Id = brand, Weight = Wight, Units_In_Inventory = Unitsinv, Minimum_Units_In_Inventory = unitsmin, Price = price });
+                    await base.Add(add);
+                }
+                else { throw new Exception("Item already exists"); }
             }
             catch (Exception)
             {
@@ -35,6 +40,7 @@ namespace Logic_Layer.DataAccess.Access
         {
             try
             {
+
                 return await GetByCondition(i => i.Units_In_Inventory > 0);
 
             }
@@ -44,7 +50,7 @@ namespace Logic_Layer.DataAccess.Access
                 throw;
             }
         }
-        
+
 
         public async Task<IEnumerable<Items>> GetItemsToOrderAsync()
         {

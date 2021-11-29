@@ -19,9 +19,15 @@ namespace Logic_Layer.DataAccess.Access
         {
             try
             {
-                 await dbSet.AddAsync(new Brands { Brand_Name = Brandname, Manufacturing_Country = countryName });
+                Brands add = new Brands { Brand_Name = Brandname, Manufacturing_Country = countryName };
+                if (dbSet.FirstOrDefaultAsync(i => i == add) == null)
+                {
+                    await dbSet.AddAsync(add);
+
+                }
+                else { throw new Exception("Item already exists"); }
             }
-            catch (Exception)
+            catch (Exception )
             {
 
                 throw new Exception("Problem in adding brand");

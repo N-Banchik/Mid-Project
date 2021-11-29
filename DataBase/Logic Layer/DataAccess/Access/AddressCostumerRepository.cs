@@ -20,9 +20,13 @@ namespace Logic_Layer.DataAccess.Access
         {
             try
             {
-                var newAdd = new Address_Costumers { Costumer_ID = ID, Street_Name = streetname, House_Number = housenumber, Apartment_Number = apt, Zipcode = zipcode, City = city };
-                await base.Add(newAdd);
-                return newAdd;
+                Address_Costumers newAdd = new Address_Costumers { Costumer_ID = ID, Street_Name = streetname, House_Number = housenumber, Apartment_Number = apt, Zipcode = zipcode, City = city };
+                if (!await dbSet.AnyAsync(i => i.Equals(newAdd)))
+                {
+                    await base.Add(newAdd);
+                    return newAdd;
+                }
+                else { return null; }
 
 
             }
@@ -49,5 +53,24 @@ namespace Logic_Layer.DataAccess.Access
 
 
 
+        public async Task UpdateAddressAsync(Address_Costumers address, string streetname, int housenumber, int apt, int zipcode, string city)
+        {
+            try
+            {
+                address.Street_Name = streetname;
+                address.House_Number = housenumber;
+                address.Apartment_Number = apt;
+                address.Zipcode = zipcode;
+                address.City = city;
+
+                dbSet.Update(address);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

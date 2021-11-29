@@ -9,18 +9,52 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Logic_Layer.DataAccess.Access
 {
-    public class CostumerRepository : GenericDataRepository<Costumers>, ICostumerRepository
+    public class CostumerRepository : GenericDataRepository<Costumers>, ICostumerRepository,IPassword
     {
         public CostumerRepository(DbContext context) : base(context)
         {
 
         }
 
-        public async Task AddnewCostumer(string first,string last,DateTime Birth,string email,string Pass,string phone) 
+        public async Task AddnewCostumer(string first, string last, DateTime Birth, string email, string Pass, string phone)
         {
-           
-            Costumers Toadd = new Costumers {First_Name = first,last_Name = last,Birthdate = Birth,Email = email,Password = Pass,Phone_Number = phone};
-           await base.Add(Toadd);
+            try
+            {
+                Costumers Toadd = new Costumers { First_Name = first, last_Name = last, Birthdate = Birth, Email = email, Password = Pass, Phone_Number = phone };
+                if (dbSet.FirstOrDefaultAsync(i => i.Email == Toadd.Email) == null)
+                {
+
+                    await base.Add(Toadd);
+                }
+                else { throw new Exception("Costumer already exists"); }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public async Task UpdatePasswordAsync(int id, string newpass)
+        {
+            try
+            {
+
+                Costumers user = await GetById(id);
+                if (user.Password != newpass)
+                {
+                    user.Password = newpass;
+                }
+                else
+                {
+                    throw new Exception("Password cannot be the same");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
