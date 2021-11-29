@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataBase.Context;
 
 namespace Logic_Layer.DataAccess.Access
 {
@@ -12,9 +13,10 @@ namespace Logic_Layer.DataAccess.Access
     {
         private readonly DbContext context;
 
-        public UnitOfWork_Costumer(DbContext context)
+        public UnitOfWork_Costumer()
         {
-            this.context = context;
+            
+            this.context = new FactoryDbContext();
             this.brands = new BrandsRepository(context);
             this.category = new CategoryRepository(context);
             this.items = new ItemsRepository(context);

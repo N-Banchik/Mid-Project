@@ -9,6 +9,7 @@ namespace Logic_Layer.DataAccess.Interfaces
 {
   public  interface ICostumerRepository : IGenericDataRepository<Costumers>
     {
-        public Task AddnewCostumer(string first, string last, DateTime Birth, string email, string Pass, string phone);
+        public Task AddnewCostumer(string first, string last, DateTime Birth, string email, string Pass, string phone, List<Address_Costumers> address);
+        public Task UpdatePasswordAsync(int id, string newpass);
     }
 }

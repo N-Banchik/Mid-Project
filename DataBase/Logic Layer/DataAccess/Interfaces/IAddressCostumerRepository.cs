@@ -7,7 +7,7 @@ using DataBase.Models;
 
 namespace Logic_Layer.DataAccess.Interfaces
 {
-    interface IAddressCostumerRepository:IGenericDataRepository<Address_Costumers>,INewAddress<Address_Costumers>
+    interface IAddressCostumerRepository:IGenericDataRepository<Address_Costumers>,INewAddressCostumer<Address_Costumers>
     {
         public Task<IEnumerable<Address_Costumers>> GetAddresses_ByCity(string city);
         public Task UpdateAddressAsync(Address_Costumers address, string streetname, int housenumber, int apt, int zipcode, string city);

@@ -8,5 +8,12 @@ namespace Logic_Layer.Log_in
 {
     interface Ilogin
     {
+        public Task<bool> LogInAsync(string Username, string password);
+        public Task<bool> ChackIfExsistsAsync(string Username);
+        public Task RegistarAsync(string streetname, int housenumber, int apt, int zipcode, string city, string first, string last, DateTime Birth, string Pass, string phone, bool manager,string? email);
+        public Task<string> Enscryption(string password);
+        public Task ChangePasswordasync(string email,string newpass);
+        
+
     }
 }

@@ -17,5 +17,6 @@ namespace Logic_Layer.DataAccess.Interfaces
         Task<bool> Delete(int id);
         Task<bool> Upsert(T entity);
         Task<IEnumerable<T>> GetByCondition(Expression<Func<T, bool>> predicate);
+        Task<T> GetOneByCondition(Expression<Func<T, bool>> predicate);
     }
 }

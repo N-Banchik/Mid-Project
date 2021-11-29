@@ -48,6 +48,11 @@ namespace Logic_Layer.DataAccess.Access
             return await dbSet.FindAsync(Id);
         }
 
+        public async Task<T> GetOneByCondition(Expression<Func<T, bool>> predicate)
+        {
+            return await dbSet.Where(predicate).FirstOrDefaultAsync();
+        }
+
         public virtual async Task<bool> Upsert(T entity)
         {
             return false;

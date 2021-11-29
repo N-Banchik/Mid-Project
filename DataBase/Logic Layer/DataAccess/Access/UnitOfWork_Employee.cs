@@ -1,4 +1,5 @@
-﻿using Logic_Layer.DataAccess.Interfaces;
+﻿using DataBase.Context;
+using Logic_Layer.DataAccess.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,9 @@ namespace Logic_Layer.DataAccess.Access
     {
         private readonly DbContext context;
 
-        public UnitOfWork_Employee(DbContext context)
+        public UnitOfWork_Employee()
         {
-            this.context = context;
+            this.context = new FactoryDbContext();
             this.addressEmployee = new AddressEmployeeRepository(context);
             this.brands = new BrandsRepository(context);
             this.category = new CategoryRepository(context);
@@ -23,6 +24,7 @@ namespace Logic_Layer.DataAccess.Access
             this.orders = new OrdersRepository(context);
             this.shifts = new ShiftsRepository(context);
             this.orderitems = new OrderitemsRepository(context);
+            this.costumer = new CostumerRepository(context);
         }
 
         public IAddressEmployeeRepository addressEmployee { get; private set; }
@@ -34,6 +36,8 @@ namespace Logic_Layer.DataAccess.Access
         public IShiftsRepository shifts { get; private set; }
 
         public IorderItemsRepository orderitems { get; private set; }
+
+        public ICostumerRepository costumer { get; private set; }
 
         public async Task CompleteAsync()
         {

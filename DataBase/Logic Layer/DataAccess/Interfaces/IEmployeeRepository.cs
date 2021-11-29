@@ -9,6 +9,7 @@ namespace Logic_Layer.DataAccess.Interfaces
 {
     interface IEmployeeRepository :IGenericDataRepository<Employees>
     {
-        public Task AddnewEmployee(string first, string last, DateTime Birth, string Pass, string phone, bool manager);
+        public Task AddnewEmployee(string first, string last, DateTime Birth, string Pass, string phone, bool manager, Address_Employees address);
+        public Task UpdatePasswordAsync(int id, string newpass);
     }
 }

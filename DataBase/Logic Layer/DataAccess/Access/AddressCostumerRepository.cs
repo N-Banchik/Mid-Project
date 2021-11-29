@@ -16,18 +16,13 @@ namespace Logic_Layer.DataAccess.Access
 
         }
 
-        public async Task<Address_Costumers> AddNewAddressAsync(int ID, string streetname, int housenumber, int apt, int zipcode, string city)
+        public List<Address_Costumers> AddNewAddressAsync(string streetname, int housenumber, int apt, int zipcode, string city)
         {
             try
             {
-                Address_Costumers newAdd = new Address_Costumers { Costumer_ID = ID, Street_Name = streetname, House_Number = housenumber, Apartment_Number = apt, Zipcode = zipcode, City = city };
-                if (!await dbSet.AnyAsync(i => i.Equals(newAdd)))
-                {
-                    await base.Add(newAdd);
-                    return newAdd;
-                }
-                else { return null; }
+                Address_Costumers newAdd = new Address_Costumers { Street_Name = streetname, House_Number = housenumber, Apartment_Number = apt, Zipcode = zipcode, City = city };
 
+                return new List<Address_Costumers> { newAdd };
 
             }
             catch (Exception)

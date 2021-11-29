@@ -15,10 +15,10 @@ namespace Logic_Layer.DataAccess.Access
         {
 
         }
-        public async Task AddnewEmployee(string first, string last, DateTime Birth, string Pass, string phone, bool manager)
+        public async Task AddnewEmployee(string first, string last, DateTime Birth, string Pass, string phone, bool manager,Address_Employees address)
         {
 
-            Employees Toadd = new Employees { First_Name = first, last_Name = last, Birthdate = Birth, Password = Pass, Phone_Number = phone, Is_Manager = manager ? 1 : 0 };
+            Employees Toadd = new Employees { First_Name = first, last_Name = last, Birthdate = Birth, Password = Pass, Phone_Number = phone, Is_Manager = manager ? 1 : 0,Address =address };
             if (dbSet.FirstOrDefaultAsync(i => i == Toadd) == null)
             {
 
@@ -37,6 +37,7 @@ namespace Logic_Layer.DataAccess.Access
                 if (user.Password != newpass)
                 {
                     user.Password = newpass;
+                   await Upsert(user);
                 }
                 else
                 {
@@ -49,5 +50,6 @@ namespace Logic_Layer.DataAccess.Access
                 throw;
             }
         }
+
     }
 }
