@@ -1,4 +1,5 @@
 ﻿using Logic_Layer.DataAccess.Access;
+using Logic_Layer.Encrypt;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -77,9 +78,10 @@ namespace Logic_Layer.Log_in
             await employee.employee.AddnewEmployee(first, last, Birth, Pass, phone, manager, employee.addressEmployee.AddNewAddressAsync(streetname, housenumber, apt, zipcode, city));
         }
 
-        public Task<string> Enscryption(string password)
+        public string Enscryption(string password, string salt)
         {
-            throw new NotImplementedException();
+            return new ToHash().HashString(password, salt);
+
         }
     }
 }

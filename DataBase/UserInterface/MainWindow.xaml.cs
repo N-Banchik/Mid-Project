@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Logic_Layer.Log_in;
+using UserInterface.LogIn;
+
 
 namespace UserInterface
 {
@@ -23,6 +26,24 @@ namespace UserInterface
         public MainWindow()
         {
             InitializeComponent();
+            
+
+            
+        }
+
+        private void EmployeeLogInButton_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeLogin employeeLogin = new EmployeeLogin();
+            employeeLogin.Show();
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void CostumerLogInButton_Click(object sender, RoutedEventArgs e)
+        {
+            CostumerLogin costumerLogin = new CostumerLogin();
+            costumerLogin.Show();
+            this.WindowState = WindowState.Minimized;
+
         }
     }
 }

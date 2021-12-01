@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\Hackeru\Mid Project\DataBase\UserInterface\App.xaml
-11407045341
+3-152947062
 
-3-1233169557
-193-1891726104
-MainWindow.xaml;
+5-149351449
+216-521221235
+LogIn\CostumerLogin.xaml;LogIn\EmployeeLogin.xaml;MainWindow.xaml;
 
 False
 

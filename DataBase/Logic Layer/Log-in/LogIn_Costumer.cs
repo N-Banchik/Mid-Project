@@ -1,4 +1,5 @@
 ﻿using Logic_Layer.DataAccess.Access;
+using Logic_Layer.Encrypt;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -49,14 +50,14 @@ namespace Logic_Layer.Log_in
             }
         }
 
-        public async Task RegistarAsync(string streetname, int housenumber, int apt, int zipcode, string city, string first, string last, DateTime Birth, string Pass, string phone, bool manager,string?email)
+        public async Task RegistarAsync(string streetname, int housenumber, int apt, int zipcode, string city, string first, string last, DateTime Birth, string Pass, string phone, bool manager, string? email)
         {
-            await costumer.costumer.AddnewCostumer(first, last, Birth, email!=null?email:string.Empty, Pass, phone, costumer.addressCostumer.AddNewAddressAsync(streetname, housenumber, apt, zipcode, city));
+            await costumer.costumer.AddnewCostumer(first, last, Birth, email != null ? email : throw new Exception("Email Cannot be empty"), Pass, phone, costumer.addressCostumer.AddNewAddressAsync(streetname, housenumber, apt, zipcode, city));
         }
 
-        public Task<string> Enscryption(string password)
+        public string Enscryption(string password, string salt)
         {
-            throw new NotImplementedException();
+            return new ToHash().HashString(password, salt);
         }
 
         public async Task ChangePasswordasync(string email, string newpass)

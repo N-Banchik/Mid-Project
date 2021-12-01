@@ -20,7 +20,7 @@ namespace Logic_Layer.DataAccess.Access
         {
             try
             {
-                Items add = new Items { Item_Name = name, Category_Id = category, Brand_Id = brand, Weight = Wight, Units_In_Inventory = Unitsinv, Minimum_Units_In_Inventory = unitsmin, Price = price }
+                Items add = new Items { Item_Name = name, Category_Id = category, Brand_Id = brand, Weight = Wight, Units_In_Inventory = Unitsinv, Minimum_Units_In_Inventory = unitsmin, Price = price };
                 if (await dbSet.FirstOrDefaultAsync(i =>i.Item_Name ==add.Item_Name)==null)
                 {
 

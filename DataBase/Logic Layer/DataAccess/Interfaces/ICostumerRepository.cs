@@ -11,5 +11,6 @@ namespace Logic_Layer.DataAccess.Interfaces
     {
         public Task AddnewCostumer(string first, string last, DateTime Birth, string email, string Pass, string phone, List<Address_Costumers> address);
         public Task UpdatePasswordAsync(int id, string newpass);
+        
     }
 }
