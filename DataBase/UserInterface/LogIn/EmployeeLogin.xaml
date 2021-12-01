@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface"
         mc:Ignorable="d"
-        Title="EmployeeLogin" Height="250" Width="224" WindowStartupLocation="CenterScreen">
+        Title="EmployeeLogin" Height="450" Width="192" WindowStartupLocation="CenterScreen">
     <Grid>
         <PasswordBox x:Name="passwordText" PasswordChar="*"  HorizontalAlignment="Center" Margin="0,122,0,0" VerticalAlignment="Top" Width="120" ToolTip="Password Cannot Must be between 8-12 characters"/>
         <TextBox x:Name="UsernameText" HorizontalAlignment="Center" Margin="0,64,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

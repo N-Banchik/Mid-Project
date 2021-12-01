@@ -63,7 +63,7 @@ namespace Logic_Layer.Log_in
             {
 
                 return int.TryParse(Username, out int id)
-                    ? await employee.employee.GetOneByCondition(i => i.ID == id && i.Password == password) != null
+                    ? await employee.employee.GetOneByCondition(i => i.ID == id && i.Password == Enscryption(password, Username)) != null
                     : throw new Exception("ID not a number!");
             }
             catch (Exception)
@@ -73,9 +73,10 @@ namespace Logic_Layer.Log_in
             }
         }
 
-        public async Task RegistarAsync(string streetname, int housenumber, int apt, int zipcode, string city, string first, string last, DateTime Birth, string Pass, string phone, bool manager,string?email)
+        public async Task RegistarAsync(string streetname, int housenumber, int apt, int zipcode, string city, string first, string last, DateTime Birth, string Pass, string phone, bool manager, string email)
         {
             await employee.employee.AddnewEmployee(first, last, Birth, Pass, phone, manager, employee.addressEmployee.AddNewAddressAsync(streetname, housenumber, apt, zipcode, city));
+            await employee.CompleteAsync();
         }
 
         public string Enscryption(string password, string salt)

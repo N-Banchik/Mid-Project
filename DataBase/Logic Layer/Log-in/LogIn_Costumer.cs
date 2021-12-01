@@ -23,10 +23,10 @@ namespace Logic_Layer.Log_in
             try
             {
 
-                return int.TryParse(Username, out int id)
-                    ? await costumer.costumer.GetOneByCondition(i => i.Costumer_ID == id && i.Password == password) != null
-                    : throw new Exception("ID not a number!");
+                return await costumer.costumer.GetOneByCondition(i => i.Email == Username && i.Password == Enscryption(password, Username)) != null;
+
             }
+
             catch (Exception)
             {
 
@@ -38,9 +38,8 @@ namespace Logic_Layer.Log_in
         {
             try
             {
-                return int.TryParse(Username, out int id)
-                    ? await costumer.costumer.GetById(int.Parse(Username)) != null
-                    : throw new Exception("ID not a number!");
+
+                return await costumer.costumer.GetOneByCondition(i => i.Email == Username) != null;
 
             }
             catch (Exception)
@@ -50,9 +49,11 @@ namespace Logic_Layer.Log_in
             }
         }
 
-        public async Task RegistarAsync(string streetname, int housenumber, int apt, int zipcode, string city, string first, string last, DateTime Birth, string Pass, string phone, bool manager, string? email)
+        public async Task RegistarAsync(string streetname, int housenumber, int apt, int zipcode, string city, string first, string last, DateTime Birth, string Pass, string phone, bool manager, string email)
         {
-            await costumer.costumer.AddnewCostumer(first, last, Birth, email != null ? email : throw new Exception("Email Cannot be empty"), Pass, phone, costumer.addressCostumer.AddNewAddressAsync(streetname, housenumber, apt, zipcode, city));
+            await costumer.costumer.AddnewCostumer(first, last, Birth, email, Enscryption(Pass, email), phone, costumer.addressCostumer.AddNewAddressAsync(streetname, housenumber, apt, zipcode, city));
+            await costumer.CompleteAsync();
+
         }
 
         public string Enscryption(string password, string salt)

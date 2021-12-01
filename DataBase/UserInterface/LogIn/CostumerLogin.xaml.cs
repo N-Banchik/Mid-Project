@@ -28,7 +28,8 @@ namespace UserInterface.LogIn
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-
+            CostumerReg reg = new();
+            reg.Show();
         }
         private async void Login_Click(object sender, RoutedEventArgs e)
         {
@@ -47,7 +48,7 @@ namespace UserInterface.LogIn
                     {
                         //add Costumer main screen
                         this.Close();
-
+                        
                     }
                     else
                     {

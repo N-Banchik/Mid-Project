@@ -20,13 +20,12 @@ namespace Logic_Layer.DataAccess.Access
         {
             try
             {
-                Costumers Toadd = new Costumers { First_Name = first, last_Name = last, Birthdate = Birth, Email = email, Password = Pass, Phone_Number = phone,Address=address };
-                if (dbSet.FirstOrDefaultAsync(i => i.Email == Toadd.Email) == null)
-                {
+                Costumers Toadd = new Costumers { First_Name = first, last_Name = last, Birthdate = Birth, Email = email, Password = Pass, Phone_Number = phone, Address = address };
 
-                    await base.Add(Toadd);
-                }
-                else { throw new Exception("Costumer already exists"); }
+                await base.Add(Toadd);
+
+
+                
 
             }
             catch (Exception)
