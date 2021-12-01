@@ -7,7 +7,7 @@ using DataBase.Models;
 
 namespace Logic_Layer.DataAccess.Interfaces
 {
-    interface IShiftsRepository : IGenericDataRepository<Shifts>
+ public   interface IShiftsRepository : IGenericDataRepository<Shifts>
     {
         public Task<bool> UpdateLastShiftAsync(int id);
         public Task NewShiftAsync(int id);

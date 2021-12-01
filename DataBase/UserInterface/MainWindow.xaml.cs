@@ -16,6 +16,7 @@ using Logic_Layer.Log_in;
 using UserInterface.LogIn;
 
 
+
 namespace UserInterface
 {
     /// <summary>
@@ -26,24 +27,29 @@ namespace UserInterface
         public MainWindow()
         {
             InitializeComponent();
-            
 
-            
+
+
         }
 
         private void EmployeeLogInButton_Click(object sender, RoutedEventArgs e)
         {
-            EmployeeLogin employeeLogin = new EmployeeLogin();
+            EmployeeLogin employeeLogin = new();
             employeeLogin.Show();
             this.WindowState = WindowState.Minimized;
         }
 
         private void CostumerLogInButton_Click(object sender, RoutedEventArgs e)
         {
-            CostumerLogin costumerLogin = new CostumerLogin();
+            CostumerLogin costumerLogin = new();
             costumerLogin.Show();
             this.WindowState = WindowState.Minimized;
+        }
 
+        private void Regemp_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeReg reg = new();
+            reg.Show();
         }
     }
 }

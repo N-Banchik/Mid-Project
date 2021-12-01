@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Logic_Layer.Log_in;
+using UserInterface.Main;
 
 namespace UserInterface.LogIn
 {
@@ -44,7 +45,8 @@ namespace UserInterface.LogIn
 
                     if (await log.LogInAsync(UsernameText.Text, passwordText.Password))
                     {
-                        //add employee main screen
+                       
+                        EmployeeMain main = new(log.employee, await log.employee.employee.GetOneByCondition(i => i.Email == UsernameText.Text));
                         this.Close();
 
                     }

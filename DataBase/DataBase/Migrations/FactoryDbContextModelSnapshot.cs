@@ -194,6 +194,9 @@ namespace DataBase.Migrations
                     b.Property<DateTime>("Birthdate")
                         .HasColumnType("smalldatetime");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("First_Name")
                         .IsRequired()
                         .HasMaxLength(25)

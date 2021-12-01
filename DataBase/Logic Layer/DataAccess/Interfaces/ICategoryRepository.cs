@@ -7,7 +7,7 @@ using DataBase.Models;
 
 namespace Logic_Layer.DataAccess.Interfaces
 {
-    interface ICategoryRepository :IGenericDataRepository<Categories>
+  public  interface ICategoryRepository :IGenericDataRepository<Categories>
     {
         public Task AddNewCategoryAsync(string Cname, string disc);
     }

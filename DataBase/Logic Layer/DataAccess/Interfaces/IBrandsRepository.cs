@@ -7,7 +7,7 @@ using DataBase.Models;
 
 namespace Logic_Layer.DataAccess.Interfaces
 {
-    interface IBrandsRepository :IGenericDataRepository<Brands>
+   public interface IBrandsRepository :IGenericDataRepository<Brands>
     {
         public Task AddNewBrandAsync(string Brandname, string countryName);
     }

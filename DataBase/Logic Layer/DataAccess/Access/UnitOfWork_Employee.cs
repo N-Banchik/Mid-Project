@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Logic_Layer.DataAccess.Access
 {
-    class UnitOfWork_Employee : IunitOfWork_Employee, IAsyncDisposable
+   public class UnitOfWork_Employee : IunitOfWork_Employee, IAsyncDisposable
     {
         private readonly DbContext context;
 

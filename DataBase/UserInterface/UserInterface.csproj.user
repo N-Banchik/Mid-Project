@@ -16,6 +16,18 @@
     <Compile Update="LogIn\EmployeeLogin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="LogIn\EmployeeReg.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Main\CostumerMain.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Main\EmployeeMain.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Main\ManagerMain.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="LogIn\CostumerLogin.xaml">
@@ -27,7 +39,19 @@
     <Page Update="LogIn\EmployeeLogin.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="LogIn\EmployeeReg.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Main\CostumerMain.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Main\EmployeeMain.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Main\ManagerMain.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

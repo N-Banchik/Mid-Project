@@ -74,3 +74,11 @@ D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\LogIn\Cos
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\LogIn\CostumerReg.baml
 D:\Hackeru\Mid Project\DataBase\UserInterface\bin\Debug\net5.0-windows\Humanizer.dll
 D:\Hackeru\Mid Project\DataBase\UserInterface\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\LogIn\EmployeeReg.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\Main\CostumerMain.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\LogIn\EmployeeReg.baml
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\Main\CostumerMain.baml
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\Main\EmployeeMain.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\Main\ManagerMain.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\Main\EmployeeMain.baml
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\Main\ManagerMain.baml

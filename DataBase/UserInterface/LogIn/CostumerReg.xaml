@@ -28,7 +28,7 @@
         <Label Content="Zipcode" HorizontalAlignment="Left" Height="31" Margin="30,323,0,0" VerticalAlignment="Top" Width="89"/>
         <TextBox x:Name="Zip" HorizontalAlignment="Left" Margin="30,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Height="26"/>
         <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="389,160,0,0" VerticalAlignment="Top" Width="156" Height="26"/>
-        <DatePicker x:Name="Bdate" HorizontalAlignment="Left" Margin="215,160,0,0" VerticalAlignment="Top" Width="157" Height="26" IsDropDownOpen="True"/>
+        <DatePicker x:Name="Bdate" HorizontalAlignment="Left" Margin="215,160,0,0" VerticalAlignment="Top" Width="157" Height="26"/>
         <Button x:Name="submit" Click="submit_Click" Content="Done" HorizontalAlignment="Left" Margin="467,361,0,0" VerticalAlignment="Top" Height="53" Width="121"/>
 
     </Grid>
