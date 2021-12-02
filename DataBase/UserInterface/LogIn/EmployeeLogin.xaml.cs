@@ -42,17 +42,26 @@ namespace UserInterface.LogIn
             {
                 try
                 {
-
-                    if (await log.LogInAsync(UsernameText.Text, passwordText.Password))
+                    var employee = await log.LogInAsync(UsernameText.Text, passwordText.Password);
+                    if (employee != null)
                     {
-                       
-                        EmployeeMain main = new(log.employee, await log.employee.employee.GetOneByCondition(i => i.Email == UsernameText.Text));
+                        if (employee.Is_Manager == 1)
+                        {
+                            ManagerMain Mng_Main = new(log.employee, employee);
+                            Mng_Main.Show();
+                        }
+                        else
+                        {
+                            EmployeeMain Emp_main = new(log.employee, employee);
+                            Emp_main.Show();
+
+                        }
                         this.Close();
 
                     }
                     else
                     {
-                        MessageBox.Show("Username and Password combination is incorrect,please try again","Information Error",MessageBoxButton.OK);
+                        MessageBox.Show("Username and Password combination is incorrect,please try again", "Information Error", MessageBoxButton.OK);
                     }
                 }
                 catch (Exception ex)

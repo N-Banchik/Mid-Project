@@ -11,12 +11,12 @@ namespace Logic_Layer.DataAccess.Interfaces
 {
    public interface IGenericDataRepository<T> where T: class 
     {
-        Task<IEnumerable<T>> GetAllAsync();
+        Task<ICollection<T>> GetAllAsync();
         Task<T> GetById(int Id);
         Task<bool> Add(T entity);
         Task<bool> Delete(int id);
         Task<bool> Upsert(T entity);
-        Task<IEnumerable<T>> GetByCondition(Expression<Func<T, bool>> predicate);
+        Task<ICollection<T>> GetByCondition(Expression<Func<T, bool>> predicate);
         Task<T> GetOneByCondition(Expression<Func<T, bool>> predicate);
     }
 }

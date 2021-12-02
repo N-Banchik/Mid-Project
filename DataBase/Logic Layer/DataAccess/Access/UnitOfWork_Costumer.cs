@@ -9,7 +9,7 @@ using DataBase.Context;
 
 namespace Logic_Layer.DataAccess.Access
 {
-    class UnitOfWork_Costumer: IunitOfWork_Costumer
+   public  class UnitOfWork_Costumer: IunitOfWork_Costumer
     {
         private readonly DbContext context;
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Logic_Layer.Log_in;
+using UserInterface.Main;
 
 namespace UserInterface.LogIn
 {
@@ -43,10 +44,11 @@ namespace UserInterface.LogIn
             {
                 try
                 {
-
-                    if (await log.LogInAsync(UsernameText.Text, passwordText.Password))
+                    var costumer = await log.LogInAsync(UsernameText.Text, passwordText.Password);
+                    if (costumer!=null)
                     {
-                        //add Costumer main screen
+                        CostumerMain main = new(log.costumer, costumer);
+                        main.Show();
                         this.Close();
                         
                     }

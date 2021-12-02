@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataBase.Models;
+using Logic_Layer.DataAccess.Access;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,16 @@ namespace UserInterface.Main
     /// </summary>
     public partial class ManagerMain : Window
     {
-        public ManagerMain()
+        private UnitOfWork_Employee Uow_Employee;
+        private Employees _employee;
+
+        public ManagerMain(UnitOfWork_Employee UoWemployee, Employees employee)
         {
             InitializeComponent();
+            Uow_Employee = UoWemployee;
+            _employee = employee;
+
         }
+        
     }
 }

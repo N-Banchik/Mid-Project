@@ -22,7 +22,7 @@ namespace Logic_Layer.DataAccess.Access
             {
                 await dbSet.AddAsync(new Shifts { Employee_ID = id, Shift_Start = DateTime.Now });
             }
-            catch (Exception ex)
+            catch (Exception )
             {
 
                 throw new Exception("Cannot Add new shift ");
@@ -45,7 +45,7 @@ namespace Logic_Layer.DataAccess.Access
                 }
 
             }
-            catch (AggregateException ex)
+            catch (AggregateException )
             {
 
                 return false;

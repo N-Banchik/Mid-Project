@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataBase.Models;
+using System.ComponentModel;
 
 namespace UserInterface.Main
 {
@@ -26,22 +27,47 @@ namespace UserInterface.Main
         private Employees _employee;
 
 
-
-        public EmployeeMain()
-        {
-            InitializeComponent();
-        }
         public EmployeeMain(UnitOfWork_Employee UoWemployee, Employees employee)
         {
             InitializeComponent();
             Uow_Employee = UoWemployee;
             _employee = employee;
+            Closing += onClose;
 
         }
 
-        private void Helloboxinfo()
+        private void onClose(object sender, CancelEventArgs e)
         {
-            HelloBox.Text = $"Hello {_employee.First_Name}, Last Shift was on {_employee.Shifts.Last().Shift_Start.Day}";
+            Uow_Employee.shifts.UpdateLastShiftAsync(_employee.ID);
+        }
+
+        private async void HelloBox_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            HelloBox.Text = $"Hello {_employee.First_Name}";
+            await Uow_Employee.shifts.NewShiftAsync(_employee.ID);
+            await Uow_Employee.CompleteAsync();
+        }
+
+        private async void GetShifts_Click(object sender, RoutedEventArgs e)
+        {
+            if (_employee.Shifts == null)
+            {
+                _employee.Shifts = await Uow_Employee.shifts.GetByCondition(i => i.Employee_ID == _employee.ID);
+
+            }
+            Shiftdata.ItemsSource = _employee.Shifts;
+            Shiftdata.AutoGenerateColumns = true;
+        }
+
+        private void Orderwork_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

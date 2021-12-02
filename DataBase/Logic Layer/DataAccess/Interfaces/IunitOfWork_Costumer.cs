@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logic_Layer.DataAccess.Interfaces
 {
-    interface IunitOfWork_Costumer :IAsyncDisposable
+   public interface IunitOfWork_Costumer :IAsyncDisposable
     {
         IAddressCostumerRepository addressCostumer { get;  }
         IBrandsRepository brands { get; }

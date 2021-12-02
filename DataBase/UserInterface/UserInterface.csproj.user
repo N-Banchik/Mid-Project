@@ -28,6 +28,12 @@
     <Compile Update="Main\ManagerMain.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserAbilitys\OrderShow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserAbilitys\User_viewOrders.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="LogIn\CostumerLogin.xaml">
@@ -52,6 +58,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Main\ManagerMain.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserAbilitys\OrderShow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserAbilitys\User_viewOrders.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using Logic_Layer.DataAccess.Access;
+﻿using DataBase.Models;
+using Logic_Layer.DataAccess.Access;
 using Logic_Layer.Encrypt;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,21 +10,21 @@ using System.Threading.Tasks;
 
 namespace Logic_Layer.Log_in
 {
-    public class LogIn_costumer : Ilogin
+    public class LogIn_costumer : Ilogin<Costumers>
     {
-        internal UnitOfWork_Costumer costumer { get; private set; }
+        public UnitOfWork_Costumer costumer { get; private set; }
 
         public LogIn_costumer()
         {
             this.costumer = new UnitOfWork_Costumer();
         }
 
-        public async Task<bool> LogInAsync(string Username, string password)
+        public async Task<Costumers> LogInAsync(string Username, string password)
         {
             try
             {
 
-                return await costumer.costumer.GetOneByCondition(i => i.Email == Username && i.Password == Enscryption(password, Username)) != null;
+                return await costumer.costumer.GetOneByCondition(i => i.Email == Username && i.Password == Enscryption(password, Username));
 
             }
 

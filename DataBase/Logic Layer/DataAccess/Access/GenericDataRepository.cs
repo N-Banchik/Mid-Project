@@ -33,12 +33,12 @@ namespace Logic_Layer.DataAccess.Access
             return  false;
         }
 
-        public virtual async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<ICollection<T>> GetAllAsync()
         {
             return await dbSet.ToListAsync();
         }
 
-        public virtual async Task<IEnumerable<T>> GetByCondition(Expression<Func<T, bool>> predicate)
+        public virtual async Task<ICollection<T>> GetByCondition(Expression<Func<T, bool>> predicate)
         {
             return await dbSet.Where(predicate).ToListAsync();
         }

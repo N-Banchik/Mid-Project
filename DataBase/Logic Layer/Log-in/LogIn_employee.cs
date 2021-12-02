@@ -1,4 +1,5 @@
-﻿using Logic_Layer.DataAccess.Access;
+﻿using DataBase.Models;
+using Logic_Layer.DataAccess.Access;
 using Logic_Layer.Encrypt;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Logic_Layer.Log_in
 {
-    public class LogIn_employee : Ilogin
+    public class LogIn_employee : Ilogin<Employees>
     {
         public UnitOfWork_Employee employee { get; private set; }
 
@@ -57,12 +58,12 @@ namespace Logic_Layer.Log_in
             }
         }
 
-        public async Task<bool> LogInAsync(string Username, string password)
+        public async Task<Employees> LogInAsync(string Username, string password)
         {
             try
             {
-                return await employee.employee.GetOneByCondition(i => i.Email == Username && i.Password == Enscryption(password,Username)) != null;
-                
+                return await employee.employee.GetOneByCondition(i => i.Email == Username && i.Password == Enscryption(password, Username));
+
             }
             catch (Exception)
             {
@@ -73,7 +74,7 @@ namespace Logic_Layer.Log_in
 
         public async Task RegistarAsync(string streetname, int housenumber, int apt, int zipcode, string city, string first, string last, DateTime Birth, string Pass, string phone, bool manager, string email)
         {
-            await employee.employee.AddnewEmployee(first, last, Birth, Enscryption(Pass,email), phone, manager, employee.addressEmployee.AddNewAddressAsync(email, housenumber, apt, zipcode, city),email);
+            await employee.employee.AddnewEmployee(first, last, Birth, Enscryption(Pass, email), phone, manager, employee.addressEmployee.AddNewAddressAsync(email, housenumber, apt, zipcode, city), email);
             await employee.CompleteAsync();
         }
 
