@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Logic_Layer.DataAccess.Access
 {
-   public class GenericDataRepository<T> : IGenericDataRepository<T> where T : class
+   public class GenericDataRepository<T> :DbContext, IGenericDataRepository<T> where T : class
     {
         protected DbContext context;
         internal DbSet<T> dbSet;
@@ -28,9 +28,11 @@ namespace Logic_Layer.DataAccess.Access
             return true;
         }
 
-        public virtual async Task<bool> Delete(int id)
+        public virtual async Task Delete(int id)
         {
-            return  false;
+
+            dbSet.Remove(await dbSet.FindAsync(id));
+            
         }
 
         public virtual async Task<ICollection<T>> GetAllAsync()
@@ -55,6 +57,7 @@ namespace Logic_Layer.DataAccess.Access
 
         public virtual async Task<bool> Upsert(T entity)
         {
+            dbSet.Update(entity);
             return false;
         }
     }

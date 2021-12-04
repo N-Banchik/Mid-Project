@@ -14,7 +14,7 @@ namespace Logic_Layer.DataAccess.Interfaces
         Task<ICollection<T>> GetAllAsync();
         Task<T> GetById(int Id);
         Task<bool> Add(T entity);
-        Task<bool> Delete(int id);
+        Task Delete(int id);
         Task<bool> Upsert(T entity);
         Task<ICollection<T>> GetByCondition(Expression<Func<T, bool>> predicate);
         Task<T> GetOneByCondition(Expression<Func<T, bool>> predicate);

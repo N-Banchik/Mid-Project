@@ -7,7 +7,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="EmployeeAbilitys\Manager\Itemmenu.xaml.cs">
+    <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\Itemadd.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\Itemmenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\ItemUpdate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\NewBrand.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\NewCategory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EmployeeAbilitys\Manager\OrderMenu.xaml.cs">
@@ -48,7 +60,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="EmployeeAbilitys\Manager\Itemmenu.xaml">
+    <Page Update="EmployeeAbilitys\Manager\ItemsMenu\Itemadd.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\ItemsMenu\Itemmenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\ItemsMenu\ItemUpdate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\ItemsMenu\NewBrand.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\ItemsMenu\NewCategory.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EmployeeAbilitys\Manager\OrderMenu.xaml">

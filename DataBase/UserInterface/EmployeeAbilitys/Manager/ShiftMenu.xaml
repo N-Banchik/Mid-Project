@@ -7,7 +7,28 @@
         mc:Ignorable="d"
         Title="ShiftMenu" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="ShiftShow" Margin="0,151,0,0" FontSize="14" />
+        <DataGrid x:Name="ShiftShow" Margin="0,151,0,0" FontSize="14" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Employee.ID}" />
+                <DataGridTextColumn Header="First Name" Binding="{Binding Employee.First_Name}" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding Employee.last_Name}" />
+                <DataGridTextColumn Header="Shift Start" Binding="{Binding Shift_Start}" />
+                <DataGridTextColumn Header="Shift End" Binding="{Binding Shift_End}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="Employeeinfo" Content="Show Employee info" Click="Employeeinfo_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
         <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Width="113"/>
         <DatePicker x:Name="EndDate" HorizontalAlignment="Left" Margin="142,58,0,0" VerticalAlignment="Top" Width="113"/>
         <TextBox x:Name="ById" HorizontalAlignment="Left" Margin="280,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21"/>

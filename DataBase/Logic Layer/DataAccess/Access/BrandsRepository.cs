@@ -20,7 +20,7 @@ namespace Logic_Layer.DataAccess.Access
             try
             {
                 Brands add = new Brands { Brand_Name = Brandname, Manufacturing_Country = countryName };
-                if (dbSet.FirstOrDefaultAsync(i => i == add) == null)
+                if (dbSet.FirstOrDefaultAsync(i => i.Brand_Name == add.Brand_Name) == null)
                 {
                     await dbSet.AddAsync(add);
 

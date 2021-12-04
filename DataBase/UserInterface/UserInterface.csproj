@@ -24,4 +24,15 @@
     <Folder Include="EmployeeAbilitys\Employee\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\Itemadd - Copy - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>Itemadd - Copy.xaml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\Itemadd - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>Itemadd.xaml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

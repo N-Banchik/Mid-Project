@@ -22,7 +22,7 @@ namespace Logic_Layer.DataAccess.Access
             try
             {
                 Categories add = new Categories { Category_Name = Cname, Description = disc };
-                if (dbSet.FirstOrDefaultAsync(i => i == add) == null)
+                if (dbSet.FirstOrDefaultAsync(i => i.Category_Name == add.Category_Name) == null)
                 {
                     await base.Add(add);
 

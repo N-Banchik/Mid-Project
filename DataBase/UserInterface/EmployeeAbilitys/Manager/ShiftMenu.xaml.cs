@@ -23,7 +23,6 @@ namespace UserInterface.EmployeeAbilitys.Manager
     {
         private UnitOfWork_Employee Uow_Employee;
         private Employees _employee;
-        private Shifts _shifts;
         public ShiftMenu(UnitOfWork_Employee UoWemployee, Employees employee)
         {
             InitializeComponent();
@@ -39,7 +38,7 @@ namespace UserInterface.EmployeeAbilitys.Manager
 
             try
             {
-                ShiftShow.ItemsSource = await Uow_Employee.shifts.GetByCondition(i => i.Shift_Start.Date == DateTime.Today);
+                ShiftShow.ItemsSource = await Uow_Employee.shifts.GetByCondition(i => i.Shift_Start.Date == DateTime.Today && i.Shift_End < i.Shift_Start);
             }
             catch (Exception ex)
             {
@@ -72,6 +71,12 @@ namespace UserInterface.EmployeeAbilitys.Manager
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Employeeinfo_Click(object sender, RoutedEventArgs e)
+        {
+            
+            //show employee info screen
         }
     }
 }

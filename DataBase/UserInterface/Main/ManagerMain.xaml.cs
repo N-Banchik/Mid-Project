@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UserInterface.EmployeeAbilitys.Manager.ItemsMenu;
 using UserInterface.EmployeeAbilitys.Manager;
 
 namespace UserInterface.Main
@@ -70,6 +71,11 @@ namespace UserInterface.Main
             await Uow_Employee.shifts.UpdateLastShiftAsync(_employee.ID);
             await Uow_Employee.CompleteAsync();
             Close();
+        }
+
+        private void BrnadCategory_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
