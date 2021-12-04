@@ -15,6 +15,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using UserInterface.EmployeeAbilitys.Manager.ItemsMenu;
 using UserInterface.EmployeeAbilitys.Manager;
+using UserInterface.EmployeeAbilitys.Manager.BCMenu;
+using UserInterface.EmployeeAbilitys.Manager.Employeemenu;
 
 namespace UserInterface.Main
 {
@@ -44,7 +46,7 @@ namespace UserInterface.Main
 
         private void OrderMenu_Click(object sender, RoutedEventArgs e)
         {
-            OrderMenu orderMenu = new(Uow_Employee, _employee);
+            OrderMenu orderMenu = new(Uow_Employee);
             orderMenu.ShowDialog();
         }
 
@@ -56,14 +58,25 @@ namespace UserInterface.Main
 
         private void UsersMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            UserMenu userMenu = new(Uow_Employee);
+            userMenu.ShowDialog();
+        }
+        private void BrnadCategory_Click(object sender, RoutedEventArgs e)
+        {
+            BrandCategoryMenu brandCategory = new(Uow_Employee);
+            brandCategory.Show();
         }
 
         private async void HelloBox_Loaded(object sender, RoutedEventArgs e)
         {
-            HelloBox.Text = $"Hello {_employee.First_Name}";
+            HelloBox.Text = $"Hello {_employee.First_Name}+{_employee.last_Name}";
             await Uow_Employee.shifts.NewShiftAsync(_employee.ID);
             await Uow_Employee.CompleteAsync();
+        }
+        private void EmployeeMenubtn_Click(object sender, RoutedEventArgs e)
+        {
+            EmpMenu empMenu = new(Uow_Employee);
+            empMenu.Show();
         }
 
         private async void Close_Click(object sender, RoutedEventArgs e)
@@ -73,9 +86,5 @@ namespace UserInterface.Main
             Close();
         }
 
-        private void BrnadCategory_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

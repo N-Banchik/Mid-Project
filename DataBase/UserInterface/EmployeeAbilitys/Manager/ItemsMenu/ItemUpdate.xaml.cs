@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UserInterface.EmployeeAbilitys.Manager.BCMenu;
 
 namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
 {
@@ -49,8 +50,6 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
                 {
                     _Item.Category = (Categories)Categorybox.SelectedValue;
                 }
-
-
                 await Uow_Employee.items.Upsert(_Item);
                 await Uow_Employee.CompleteAsync();
                 MessageBox.Show("Item Updated.");
@@ -86,14 +85,18 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
             }
         }
 
-        private void NewBrand_Click(object sender, RoutedEventArgs e)
+        private async void NewBrand_Click(object sender, RoutedEventArgs e)
         {
-
+            CategoryAdd categoryAdd = new(Uow_Employee, new());
+            categoryAdd.ShowDialog();
+            Categorybox.ItemsSource = await Uow_Employee.category.GetAllAsync();
         }
 
-        private void NewCategory_Click(object sender, RoutedEventArgs e)
+        private async void NewCategory_Click(object sender, RoutedEventArgs e)
         {
-
+            BrandAdd BrandAdd = new(Uow_Employee, new());
+            BrandAdd.ShowDialog();
+            Brandbox.ItemsSource = await Uow_Employee.brands.GetAllAsync();
         }
     }
 }

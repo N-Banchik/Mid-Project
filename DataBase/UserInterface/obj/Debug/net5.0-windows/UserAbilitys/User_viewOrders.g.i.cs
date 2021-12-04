@@ -61,7 +61,7 @@ namespace UserInterface.UserAbilitys {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserInterface;component/userabilitys/user_vieworders.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserInterface;V1.0.0.0;component/userabilitys/user_vieworders.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserAbilitys\User_viewOrders.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

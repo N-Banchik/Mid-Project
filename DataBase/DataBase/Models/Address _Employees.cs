@@ -23,7 +23,10 @@ namespace DataBase.Models
         public Employees employee { get; set; }
 
 
-       
+        public override string ToString()
+        {
+            return $"{Street_Name} {House_Number} {Apartment_Number}, {Zipcode} {City} ";
+        }
 
     }
 }

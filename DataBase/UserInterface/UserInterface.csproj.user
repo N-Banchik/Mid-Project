@@ -7,6 +7,24 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="EmployeeAbilitys\Manager\BCMenu\BrandAdd.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\BCMenu\BrandCategoryMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\BCMenu\BrandUpdate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\BCMenu\CategoryAdd.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\BCMenu\CategoryUpdate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\Employeemenu\EmpMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\Itemadd.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -14,12 +32,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\ItemUpdate.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\NewBrand.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\NewCategory.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EmployeeAbilitys\Manager\OrderMenu.xaml.cs">
@@ -31,6 +43,9 @@
     <Compile Update="EmployeeAbilitys\Manager\ShiftMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\UserMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LogIn\CostumerLogin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,7 +55,7 @@
     <Compile Update="LogIn\EmployeeLogin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LogIn\EmployeeReg.xaml.cs">
+    <Compile Update="EmployeeAbilitys\Manager\Employeemenu\EmployeeReg.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Main\CostumerMain.xaml.cs">
@@ -60,6 +75,24 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="EmployeeAbilitys\Manager\BCMenu\BrandAdd.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\BCMenu\BrandCategoryMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\BCMenu\BrandUpdate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\BCMenu\CategoryAdd.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\BCMenu\CategoryUpdate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\Employeemenu\EmpMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="EmployeeAbilitys\Manager\ItemsMenu\Itemadd.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -67,12 +100,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EmployeeAbilitys\Manager\ItemsMenu\ItemUpdate.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="EmployeeAbilitys\Manager\ItemsMenu\NewBrand.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="EmployeeAbilitys\Manager\ItemsMenu\NewCategory.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EmployeeAbilitys\Manager\OrderMenu.xaml">
@@ -84,6 +111,9 @@
     <Page Update="EmployeeAbilitys\Manager\ShiftMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="EmployeeAbilitys\Manager\UserMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LogIn\CostumerLogin.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -93,7 +123,7 @@
     <Page Update="LogIn\EmployeeLogin.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="LogIn\EmployeeReg.xaml">
+    <Page Update="EmployeeAbilitys\Manager\Employeemenu\EmployeeReg.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

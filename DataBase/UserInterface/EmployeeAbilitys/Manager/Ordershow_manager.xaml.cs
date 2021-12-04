@@ -21,28 +21,25 @@ namespace UserInterface.EmployeeAbilitys.Manager
     /// </summary>
     public partial class Ordershow_manager : Window
     {
-        private Orders order;
+        private Orders _order;
         private UnitOfWork_Employee unit;
 
         public Ordershow_manager(UnitOfWork_Employee _unit, Orders order)
         {
             unit = _unit;
-            this.order = order;
+            _order = order;
             InitializeComponent();
-            Orderoutput.Loaded += PrintDetails;
+
+
         }
-        private async void PrintDetails(object sender, RoutedEventArgs e)
+        private async void PrintDetails(object sender, EventArgs e)
         {
-            order.items = await unit.orderitems.GetByCondition(i => i.Order_id == order.Order_ID);
-            order.Total_Cost = await unit.orderitems.GetTotalCostAsync(order.Order_ID);
-            order.Total_Weiget = await unit.orderitems.GetTotalWeightAsync(order.Order_ID);
-            Orderoutput.Text = $"Order-ID - {order.Order_ID}\n" +
-                $"Order Date - {order.Order_Date}\n" +
-                $"Shipping Date -{(order.Ship_Date < order.Ship_Date ? "Not Shipped yet" : order.Ship_Date)}\n" +
-                $"Total Weight -{order.Total_Weiget}\n" +
-                $"Total Cost - {order.Total_Cost}\n" +
-                $"Address - {order.Costumer_Address}\n";
-            ItemsShow.ItemsSource = order.items;
+            _order.items = await unit.orderitems.GetByCondition(i => i.Order_id == _order.Order_ID);
+            _order.Total_Cost = await unit.orderitems.GetTotalCostAsync(_order.Order_ID);
+            _order.Total_Weiget = await unit.orderitems.GetTotalWeightAsync(_order.Order_ID);
+            ItemsShow.ItemsSource = _order.items;
         }
+
+        
     }
 }

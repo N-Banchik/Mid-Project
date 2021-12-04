@@ -21,8 +21,11 @@ namespace DataBase.Models
 
         public Costumers costumer { get; set; }
 
+        public override string ToString()
+        {
+            return $"{Street_Name} {House_Number} {Apartment_Number}, {Zipcode} {City} ";
+        }
 
-       
 
     }
 }

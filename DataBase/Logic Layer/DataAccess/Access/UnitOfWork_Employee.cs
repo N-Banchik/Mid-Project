@@ -25,6 +25,7 @@ namespace Logic_Layer.DataAccess.Access
             this.shifts = new ShiftsRepository(context);
             this.orderitems = new OrderitemsRepository(context);
             this.costumer = new CostumerRepository(context);
+            this.addressCostumer = new AddressCostumerRepository(context);
         }
 
         public IAddressEmployeeRepository addressEmployee { get; private set; }
@@ -39,7 +40,9 @@ namespace Logic_Layer.DataAccess.Access
 
         public ICostumerRepository costumer { get; private set; }
 
-        public async Task CompleteAsync()
+        public IAddressCostumerRepository addressCostumer { get; private set; }
+
+    public async Task CompleteAsync()
         {
             await context.SaveChangesAsync();
         }

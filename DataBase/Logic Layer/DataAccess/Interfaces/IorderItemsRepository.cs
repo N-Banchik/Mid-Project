@@ -14,6 +14,7 @@ namespace Logic_Layer.DataAccess.Interfaces
         public Task<bool> AddNewOrderItemsAsync(ConcurrentDictionary<int, int> itemsquantity, int orderid);
         public Task<double> GetTotalCostAsync(int orderid);
         public Task<double> GetTotalWeightAsync(int orderid);
+        public Task<List<Orders>> GetTotalsAsync(List<Orders> orders);
 
     }
 }

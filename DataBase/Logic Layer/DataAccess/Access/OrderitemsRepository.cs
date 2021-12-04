@@ -34,6 +34,16 @@ namespace Logic_Layer.DataAccess.Access
             }
         }
 
+        public async Task<List<Orders>> GetTotalsAsync(List<Orders> orders)
+        {
+            foreach (Orders order in orders)
+            {
+                order.Total_Cost = await GetTotalCostAsync(order.Order_ID);
+                order.Total_Weiget = await GetTotalWeightAsync(order.Order_ID);
+            }
+            return orders;
+        }
+
         public async Task<Dictionary<int, int>> GetorderandItemswithQuantityAsync(int orderid)
         {
             try

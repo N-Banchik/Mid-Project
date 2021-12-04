@@ -22,46 +22,35 @@ namespace UserInterface.EmployeeAbilitys.Manager
     public partial class OrderMenu : Window
     {
         private UnitOfWork_Employee Uow_Employee;
-        private Employees _employee;
-        private Orders _order;
-        public OrderMenu(UnitOfWork_Employee UoWemployee, Employees employee)
+        public OrderMenu(UnitOfWork_Employee UoWemployee)
         {
             InitializeComponent();
             Uow_Employee = UoWemployee;
-            _employee = employee;
-            Style rowStyle = new Style(typeof(DataGridRow));
-            rowStyle.Setters.Add(new EventSetter(DataGridRow.MouseDoubleClickEvent,
-                                     new MouseButtonEventHandler(Row_DoubleClick)));
-            OrderShow.RowStyle = rowStyle;
+        }
 
-        }
-        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            Orders order = sender as Orders;
-            Ordershow_manager os = new Ordershow_manager(Uow_Employee,order);
-            os.ShowDialog();
-        }
         private async void Search_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                List<Orders> orders = await Uow_Employee.orders.GetAllAsync() as List<Orders>;
+                orders = await Uow_Employee.orderitems.GetTotalsAsync(orders);
                 DateTime? dateTimestart = StartDate.SelectedDate == null ? StartDate.SelectedDate = DateTime.MinValue : StartDate.SelectedDate.Value;
                 DateTime? dateTimeend = EndDate.SelectedDate == null ? dateTimestart : EndDate.SelectedDate.Value;
 
                 if (ById.Text != string.Empty)
                 {
 
-                    OrderShow.ItemsSource = await Uow_Employee.orders.GetByCondition(i => i.Order_Date.Date >= dateTimestart && i.Order_Date <= dateTimeend && i.Costumer_ID == int.Parse(ById.Text));
+                    OrderShow.ItemsSource = orders.Where(i => i.Order_Date.Date >= dateTimestart && i.Order_Date <= dateTimeend && i.Costumer_ID == int.Parse(ById.Text));
 
                 }
                 else if (orderid.Text != string.Empty)
                 {
-                    OrderShow.ItemsSource = await Uow_Employee.orders.GetByCondition(i => i.Order_Date.Date >= dateTimestart && i.Order_Date <= dateTimeend && i.Order_ID == int.Parse(orderid.Text));
+                    OrderShow.ItemsSource = orders.Where(i => i.Order_Date.Date >= dateTimestart && i.Order_Date <= dateTimeend && i.Order_ID == int.Parse(orderid.Text));
 
                 }
                 else
                 {
-                    OrderShow.ItemsSource = await Uow_Employee.orders.GetByCondition(i => i.Order_Date.Date >= dateTimestart && i.Order_Date <= dateTimeend);
+                    OrderShow.ItemsSource = orders.Where(i => i.Order_Date.Date >= dateTimestart && i.Order_Date <= dateTimeend);
 
                 }
             }
@@ -70,6 +59,13 @@ namespace UserInterface.EmployeeAbilitys.Manager
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void ShowOrderDetails_Click(object sender, RoutedEventArgs e)
+        {
+            Ordershow_manager os = new(Uow_Employee, OrderShow.SelectedItem as Orders);
+            os.ShowDialog();
+
         }
     }
 }

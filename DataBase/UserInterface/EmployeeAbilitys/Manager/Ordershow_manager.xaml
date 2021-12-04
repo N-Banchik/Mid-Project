@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager"
         mc:Ignorable="d"
-        Title="Ordershow_manager" Height="450" Width="800">
+        Title="Ordershow_manager" Height="350" Width="800" ContentRendered="PrintDetails">
     <Grid>
-        <TextBox x:Name="Orderoutput" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Width="468" Height="450" FontSize="16" HorizontalContentAlignment="Left"/>
-        <DataGrid x:Name="ItemsShow" Margin="468,0,0,0" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="ItemsShow" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Item_Id}" />
                 <DataGridTextColumn Header="Item Name" Binding="{Binding Item.Item_Name}" />

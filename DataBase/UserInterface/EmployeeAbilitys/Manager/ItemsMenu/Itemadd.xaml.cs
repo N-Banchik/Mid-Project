@@ -1,4 +1,5 @@
 ﻿using DataBase.Models;
+using UserInterface.EmployeeAbilitys.Manager.BCMenu;
 using Logic_Layer.DataAccess.Access;
 using System;
 using System.Collections.Generic;
@@ -61,13 +62,18 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
             Brandbox.ItemsSource = await Uow_Employee.brands.GetAllAsync();
         }
 
-        private void NewCategory_Click(object sender, RoutedEventArgs e)
+        private async void NewCategory_Click(object sender, RoutedEventArgs e)
         {
-
+            CategoryAdd categoryAdd = new(Uow_Employee, new());
+            categoryAdd.ShowDialog();
+            Categorybox.ItemsSource = await Uow_Employee.category.GetAllAsync();
         }
 
-        private void NewBrand_Click(object sender, RoutedEventArgs e)
+        private async void NewBrand_Click(object sender, RoutedEventArgs e)
         {
+            BrandAdd BrandAdd = new(Uow_Employee, new());
+            BrandAdd.ShowDialog();
+            Brandbox.ItemsSource = await Uow_Employee.brands.GetAllAsync();
 
         }
     }

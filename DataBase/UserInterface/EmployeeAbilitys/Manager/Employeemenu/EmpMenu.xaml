@@ -1,0 +1,50 @@
+﻿<Window x:Class="UserInterface.EmployeeAbilitys.Manager.Employeemenu.EmpMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager.Employeemenu"
+        mc:Ignorable="d"
+        Title="EmpMenu" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="UserShow" Margin="0,140,0,0" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Costumer_ID}" />
+                <DataGridTextColumn Header="First Name" Binding="{Binding First_Name}" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding last_Name}"/>
+                <DataGridTextColumn Header="Date of Birth" Binding="{Binding Birthdate}"/>
+                <DataGridTextColumn Header="Hire Date" Binding="{Binding Hire_Date}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone_Number}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="EmpOrders" Content="View Employee orders" Click="EmpOrders_Click" />
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="ShowUers" Click="ShowUers_Click" Content="Show Users" HorizontalAlignment="Left" Margin="647,88,0,0" VerticalAlignment="Top" Height="34" Width="87"/>
+        <Label Content="By Id:" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top" Height="27" Width="105" FontSize="14"/>
+        <TextBox x:Name="IDBox" HorizontalAlignment="Left" Margin="29,42,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Height="23" FontSize="14"/>
+        <Label Content="By Name:" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top" Height="27" Width="105" FontSize="14"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Margin="183,42,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Height="23" FontSize="14"/>
+        <Label Content="By Phone number:" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="27" Width="128" FontSize="14"/>
+        <TextBox x:Name="Phonebox" HorizontalAlignment="Center" Margin="0,42,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Height="23" FontSize="14"/>
+        <Label Content="By Email:" HorizontalAlignment="Left" Margin="486,10,0,0" VerticalAlignment="Top" Height="27" Width="128" FontSize="14"/>
+        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="486,42,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Height="23" FontSize="14"/>
+        <Button x:Name="NewEmp" Click="NewEmp_Click" Content="Show Users" HorizontalAlignment="Left" Margin="550,88,0,0" VerticalAlignment="Top" Height="34" Width="87"/>
+
+    </Grid>
+</Window>

@@ -46,10 +46,6 @@ namespace UserInterface
             this.WindowState = WindowState.Minimized;
         }
 
-        private void Regemp_Click(object sender, RoutedEventArgs e)
-        {
-            EmployeeReg reg = new();
-            reg.Show();
-        }
+        
     }
 }

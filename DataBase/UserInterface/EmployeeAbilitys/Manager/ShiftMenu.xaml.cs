@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UserInterface.EmployeeAbilitys.Manager.Employeemenu;
 
 namespace UserInterface.EmployeeAbilitys.Manager
 {
@@ -73,10 +74,12 @@ namespace UserInterface.EmployeeAbilitys.Manager
             }
         }
 
-        private void Employeeinfo_Click(object sender, RoutedEventArgs e)
+        private async void Employeeinfo_Click(object sender, RoutedEventArgs e)
         {
-            
-            //show employee info screen
+
+            EmpMenu empMenu = new(Uow_Employee);
+            empMenu.IDBox.Text = (ShiftShow.SelectedItem as Employees).ID.ToString();
+            empMenu.UserShow.ItemsSource = (await Uow_Employee.employee.GetByCondition(i => i.ID == (ShiftShow.SelectedItem as Employees).ID));
         }
     }
 }
