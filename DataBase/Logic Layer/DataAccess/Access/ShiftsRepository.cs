@@ -33,14 +33,18 @@ namespace Logic_Layer.DataAccess.Access
         {
             try
             {
-                Shifts temp = await dbSet.Where(e => e.Employee_ID == id).LastOrDefaultAsync();
+                Shifts temp = await dbSet.Where(e => e.Employee_ID == id).OrderBy(i=>i.Shift_Start).LastOrDefaultAsync();
                 if (temp == null)
                 {
                     return false;
                 }
                 else
                 {
+                    
                     temp.Shift_End = DateTime.Now;
+                    temp.Total_Time = temp.Shift_End.Subtract(temp.Shift_Start).Duration().TotalMinutes / 60;
+
+
                     return true;
                 }
 

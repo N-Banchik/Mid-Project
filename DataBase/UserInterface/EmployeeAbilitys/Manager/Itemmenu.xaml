@@ -1,0 +1,22 @@
+﻿<Window x:Class="UserInterface.EmployeeAbilitys.Manager.Itemmenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager"
+        mc:Ignorable="d"
+        Title="Itemmenu" Height="450" Width="800">
+    <Grid>
+        <ComboBox x:Name="Categorybox" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="120" Loaded="Categorybox_Loaded" SelectionChanged="Categorybox_SelectionChanged" DisplayMemberPath="Category_Name" SelectedValuePath="Category_Name" />
+        <Label Content="Category" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Width="93"/>
+        <DataGrid x:Name="ItemsShow" Margin="0,141,0,0">
+
+        </DataGrid>
+        <Label Content="Brand" HorizontalAlignment="Left" Margin="164,18,0,0" VerticalAlignment="Top" Width="67"/>
+        <ComboBox x:Name="Brandbox" HorizontalAlignment="Left" Margin="164,49,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Brandbox_SelectionChanged" DisplayMemberPath="Brand_Name" SelectedValuePath="Brand_Name"/>
+        <Label Content="Item Name" HorizontalAlignment="Left" Margin="333,18,0,0" VerticalAlignment="Top" Width="77"/>
+        <TextBox x:Name="Itemname" HorizontalAlignment="Left" Margin="333,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" BorderBrush="Black"/>
+        <Button x:Name="search" Click="search_Click" Content="search" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

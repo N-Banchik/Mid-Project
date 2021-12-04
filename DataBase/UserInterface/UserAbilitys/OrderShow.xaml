@@ -14,8 +14,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Item_Id}" />
                 <DataGridTextColumn Header="Item Name" Binding="{Binding Item.Item_Name}" />
-                <DataGridTextColumn Header="Quantity" Binding="{Binding Ship_Date}"/>
-                <DataGridTextColumn Header="Total Cost" Binding="{Binding items.Quantity}" />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding items.Quantity}"/>
+                
                 
             </DataGrid.Columns>
         </DataGrid>

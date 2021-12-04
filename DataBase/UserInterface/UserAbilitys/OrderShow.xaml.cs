@@ -36,7 +36,8 @@ namespace UserInterface.UserAbilitys
         private async void PrintDetails(object sender, RoutedEventArgs e)
         {
             order.items = await unit.orderitems.GetByCondition(i => i.Order_id == order.Order_ID);
-
+            order.Total_Cost = await unit.orderitems.GetTotalCostAsync(order.Order_ID);
+            order.Total_Weiget = await unit.orderitems.GetTotalWeightAsync(order.Order_ID);
             Orderoutput.Text = $"Order-ID - {order.Order_ID}\n" +
                 $"Order Date - {order.Order_Date}\n" +
                 $"Shipping Date -{(order.Ship_Date < order.Ship_Date ? "Not Shipped yet" : order.Ship_Date)}\n" +

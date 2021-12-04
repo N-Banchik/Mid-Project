@@ -38,7 +38,6 @@ namespace UserInterface.Main
 
         private void onClose(object sender, CancelEventArgs e)
         {
-            Uow_Employee.shifts.UpdateLastShiftAsync(_employee.ID);
         }
 
         private async void HelloBox_Loaded(object sender, RoutedEventArgs e)
@@ -51,11 +50,10 @@ namespace UserInterface.Main
 
         private async void GetShifts_Click(object sender, RoutedEventArgs e)
         {
-            if (_employee.Shifts == null)
-            {
+            
                 _employee.Shifts = await Uow_Employee.shifts.GetByCondition(i => i.Employee_ID == _employee.ID);
 
-            }
+           
             Shiftdata.ItemsSource = _employee.Shifts;
             Shiftdata.AutoGenerateColumns = true;
         }
@@ -65,8 +63,10 @@ namespace UserInterface.Main
 
         }
 
-        private void Close_Click(object sender, RoutedEventArgs e)
+        private async void Close_Click(object sender, RoutedEventArgs e)
         {
+          await  Uow_Employee.shifts.UpdateLastShiftAsync(_employee.ID);
+           await Uow_Employee.CompleteAsync();
             Close();
         }
     }

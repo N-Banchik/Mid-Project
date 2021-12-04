@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 D:\Hackeru\Mid Project\DataBase\UserInterface\App.xaml
-10-1827526216
+14-1556490529
 
-141149257904
+18558834048
 216-521221235
-LogIn\CostumerLogin.xaml;LogIn\CostumerReg.xaml;LogIn\EmployeeLogin.xaml;LogIn\EmployeeReg.xaml;MainWindow.xaml;Main\CostumerMain.xaml;Main\EmployeeMain.xaml;Main\ManagerMain.xaml;UserAbilitys\OrderShow.xaml;UserAbilitys\User_viewOrders.xaml;
+EmployeeAbilitys\Manager\Itemmenu.xaml;EmployeeAbilitys\Manager\OrderMenu.xaml;EmployeeAbilitys\Manager\Ordershow_manager.xaml;EmployeeAbilitys\Manager\ShiftMenu.xaml;LogIn\CostumerLogin.xaml;LogIn\CostumerReg.xaml;LogIn\EmployeeLogin.xaml;LogIn\EmployeeReg.xaml;MainWindow.xaml;Main\CostumerMain.xaml;Main\EmployeeMain.xaml;Main\ManagerMain.xaml;UserAbilitys\OrderShow.xaml;UserAbilitys\User_viewOrders.xaml;
 
 False
 

@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UserInterface.EmployeeAbilitys.Manager;
 
 namespace UserInterface.Main
 {
@@ -31,6 +32,44 @@ namespace UserInterface.Main
             _employee = employee;
 
         }
-        
+
+
+
+        private void ShiftMenu_Click(object sender, RoutedEventArgs e)
+        {
+            ShiftMenu shift = new(Uow_Employee, _employee);
+            shift.ShowDialog();
+        }
+
+        private void OrderMenu_Click(object sender, RoutedEventArgs e)
+        {
+            OrderMenu orderMenu = new(Uow_Employee, _employee);
+            orderMenu.ShowDialog();
+        }
+
+        private void ItemMenu_Click(object sender, RoutedEventArgs e)
+        {
+            Itemmenu item = new(Uow_Employee);
+            item.ShowDialog();
+        }
+
+        private void UsersMenu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private async void HelloBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            HelloBox.Text = $"Hello {_employee.First_Name}";
+            await Uow_Employee.shifts.NewShiftAsync(_employee.ID);
+            await Uow_Employee.CompleteAsync();
+        }
+
+        private async void Close_Click(object sender, RoutedEventArgs e)
+        {
+            await Uow_Employee.shifts.UpdateLastShiftAsync(_employee.ID);
+            await Uow_Employee.CompleteAsync();
+            Close();
+        }
     }
 }

@@ -86,3 +86,11 @@ D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbili
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\User_viewOrders.g.cs
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\OrderShow.baml
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\User_viewOrders.baml
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\ShiftMenu.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\ShiftMenu.baml
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\Itemmenu.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\OrderMenu.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\Ordershow_manager.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\Itemmenu.baml
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\OrderMenu.baml
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\Ordershow_manager.baml

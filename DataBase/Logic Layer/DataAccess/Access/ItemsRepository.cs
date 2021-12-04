@@ -16,12 +16,17 @@ namespace Logic_Layer.DataAccess.Access
 
         }
 
+        //public async Task<IQueryable> GetItemsAsync()
+        //{
+        //    return dbSet.Include("")
+        //}
+
         public async Task AddNewItemAsync(string name, int category, int brand, double Wight, int Unitsinv, int unitsmin, double price)
         {
             try
             {
                 Items add = new Items { Item_Name = name, Category_Id = category, Brand_Id = brand, Weight = Wight, Units_In_Inventory = Unitsinv, Minimum_Units_In_Inventory = unitsmin, Price = price };
-                if (await dbSet.FirstOrDefaultAsync(i =>i.Item_Name ==add.Item_Name)==null)
+                if (await dbSet.FirstOrDefaultAsync(i => i.Item_Name == add.Item_Name) == null)
                 {
 
                     await base.Add(add);
@@ -36,7 +41,7 @@ namespace Logic_Layer.DataAccess.Access
 
         }
 
-        public async Task<IEnumerable<Items>> GetItemsInstockAsync()
+        public async Task<ICollection<Items>> GetItemsInstockAsync()
         {
             try
             {
@@ -52,7 +57,7 @@ namespace Logic_Layer.DataAccess.Access
         }
 
 
-        public async Task<IEnumerable<Items>> GetItemsToOrderAsync()
+        public async Task<ICollection<Items>> GetItemsToOrderAsync()
         {
             try
             {

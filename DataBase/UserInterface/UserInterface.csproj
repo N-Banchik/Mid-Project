@@ -20,4 +20,8 @@
     <ProjectReference Include="..\Logic Layer\Logic Layer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="EmployeeAbilitys\Employee\" />
+  </ItemGroup>
+
 </Project>

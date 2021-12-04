@@ -7,6 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="EmployeeAbilitys\Manager\Itemmenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\OrderMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\Ordershow_manager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\ShiftMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LogIn\CostumerLogin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -36,6 +48,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="EmployeeAbilitys\Manager\Itemmenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\OrderMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\Ordershow_manager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\ShiftMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LogIn\CostumerLogin.xaml">
       <SubType>Designer</SubType>
     </Page>
