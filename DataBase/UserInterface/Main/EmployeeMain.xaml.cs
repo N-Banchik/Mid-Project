@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DataBase.Models;
 using System.ComponentModel;
+using UserInterface.EmployeeAbilitys;
 
 namespace UserInterface.Main
 {
@@ -24,38 +25,25 @@ namespace UserInterface.Main
     public partial class EmployeeMain : Window
     {
         private UnitOfWork_Employee Uow_Employee;
-        private Employees _employee;
-
+        private Employees ME;
 
         public EmployeeMain(UnitOfWork_Employee UoWemployee, Employees employee)
         {
             InitializeComponent();
             Uow_Employee = UoWemployee;
-            _employee = employee;
-            Closing += onClose;
-
+            ME = employee;
         }
-
-        private void onClose(object sender, CancelEventArgs e)
-        {
-        }
-
         private async void HelloBox_Loaded(object sender, RoutedEventArgs e)
         {
 
-            HelloBox.Text = $"Hello {_employee.First_Name}";
-            await Uow_Employee.shifts.NewShiftAsync(_employee.ID);
+            HelloBox.Text = $"Hello {ME.First_Name}";
+            await Uow_Employee.shifts.NewShiftAsync(ME.ID);
             await Uow_Employee.CompleteAsync();
         }
 
-        private async void GetShifts_Click(object sender, RoutedEventArgs e)
+        private  void GetShifts_Click(object sender, RoutedEventArgs e)
         {
-            
-                _employee.Shifts = await Uow_Employee.shifts.GetByCondition(i => i.Employee_ID == _employee.ID);
-
-           
-            Shiftdata.ItemsSource = _employee.Shifts;
-            Shiftdata.AutoGenerateColumns = true;
+            Shiftdata.ItemsSource = ME.Shifts;
         }
 
         private void Orderwork_Click(object sender, RoutedEventArgs e)
@@ -65,9 +53,15 @@ namespace UserInterface.Main
 
         private async void Close_Click(object sender, RoutedEventArgs e)
         {
-          await  Uow_Employee.shifts.UpdateLastShiftAsync(_employee.ID);
-           await Uow_Employee.CompleteAsync();
+            await Uow_Employee.shifts.UpdateLastShiftAsync(ME.ID);
+            await Uow_Employee.CompleteAsync();
             Close();
+        }
+
+        private void EditInfo_Click(object sender, RoutedEventArgs e)
+        {
+            PersonalInfoEdit_Employee personalInfo = new(Uow_Employee, ME);
+            personalInfo.ShowDialog();
         }
     }
 }

@@ -26,16 +26,17 @@ namespace Logic_Layer.DataAccess.Access
 
         }
 
-        public async Task UpdatePasswordAsync(int id, string newpass)
+        public async Task UpdatePasswordAsync(string email, string newpass)
         {
             try
             {
 
-                Employees user = await GetById(id);
+                Employees user = await GetOneByCondition(i=>i.Email==email);
                 if (user.Password != newpass)
                 {
                     user.Password = newpass;
                     await Upsert(user);
+
                 }
                 else
                 {

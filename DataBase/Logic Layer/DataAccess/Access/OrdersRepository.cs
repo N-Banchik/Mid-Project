@@ -18,7 +18,7 @@ namespace Logic_Layer.DataAccess.Access
 
         public async Task NewOrderAsync(int costumer, double totalcost, double weight, string cosemail)
         {
-            await base.Add(new Orders {Costumer_ID = costumer,Total_Cost =totalcost,Total_Weiget = totalcost,Costumer_Email = cosemail,Order_Date = DateTime.Now});
+            await base.Add(new Orders {Costumer_ID = costumer,Total_Cost =totalcost,Total_Weiget = totalcost,Costumer_Email = cosemail,Ship_Date=DateTime.Now, Order_Date = DateTime.Now,items= new List<Orderitems> { new Orderitems {Itme_Id=2,Quantity=2 } } });
         }
 
         public async Task UpdateOrderforEMPAsync(int orderid,int emp)

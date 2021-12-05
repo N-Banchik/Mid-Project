@@ -48,15 +48,11 @@ namespace Logic_Layer.DataAccess.Access
 
 
 
-        public async Task UpdateAddressAsync(Address_Costumers address, string streetname, int housenumber, int apt, int zipcode, string city)
+        public async Task UpdateAddressAsync(Address_Costumers address)
         {
             try
             {
-                address.Street_Name = streetname;
-                address.House_Number = housenumber;
-                address.Apartment_Number = apt;
-                address.Zipcode = zipcode;
-                address.City = city;
+              
 
                   dbSet.Update(address);
 

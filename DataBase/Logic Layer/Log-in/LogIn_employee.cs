@@ -42,7 +42,7 @@ namespace Logic_Layer.Log_in
                 if (int.TryParse(email, out int id))
                 {
 
-                    await employee.employee.UpdatePasswordAsync(id, newpass);
+                    await employee.employee.UpdatePasswordAsync(email, Enscryption(newpass, email));
 
                 }
                 else

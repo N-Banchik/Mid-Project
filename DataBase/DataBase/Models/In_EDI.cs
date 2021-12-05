@@ -15,7 +15,7 @@ namespace DataBase.Models
         public double Total_Weight { get; set; }
         public int Total_Items { get; set; }
         public string Approved_By { get; set; }
-
+        public ICollection<Items> Items { get; set; }
 
 
 

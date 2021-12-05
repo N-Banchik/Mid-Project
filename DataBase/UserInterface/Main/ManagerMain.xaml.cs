@@ -17,6 +17,7 @@ using UserInterface.EmployeeAbilitys.Manager.ItemsMenu;
 using UserInterface.EmployeeAbilitys.Manager;
 using UserInterface.EmployeeAbilitys.Manager.BCMenu;
 using UserInterface.EmployeeAbilitys.Manager.Employeemenu;
+using UserInterface.EmployeeAbilitys;
 
 namespace UserInterface.Main
 {
@@ -26,13 +27,13 @@ namespace UserInterface.Main
     public partial class ManagerMain : Window
     {
         private UnitOfWork_Employee Uow_Employee;
-        private Employees _employee;
+        private Employees ME;
 
         public ManagerMain(UnitOfWork_Employee UoWemployee, Employees employee)
         {
             InitializeComponent();
             Uow_Employee = UoWemployee;
-            _employee = employee;
+            ME = employee;
 
         }
 
@@ -40,7 +41,7 @@ namespace UserInterface.Main
 
         private void ShiftMenu_Click(object sender, RoutedEventArgs e)
         {
-            ShiftMenu shift = new(Uow_Employee, _employee);
+            ShiftMenu shift = new(Uow_Employee, ME);
             shift.ShowDialog();
         }
 
@@ -64,27 +65,32 @@ namespace UserInterface.Main
         private void BrnadCategory_Click(object sender, RoutedEventArgs e)
         {
             BrandCategoryMenu brandCategory = new(Uow_Employee);
-            brandCategory.Show();
+            brandCategory.ShowDialog();
         }
 
         private async void HelloBox_Loaded(object sender, RoutedEventArgs e)
         {
-            HelloBox.Text = $"Hello {_employee.First_Name}+{_employee.last_Name}";
-            await Uow_Employee.shifts.NewShiftAsync(_employee.ID);
+            HelloBox.Text = $"Hello {ME.First_Name} {ME.last_Name}";
+            await Uow_Employee.shifts.NewShiftAsync(ME.ID);
             await Uow_Employee.CompleteAsync();
         }
         private void EmployeeMenubtn_Click(object sender, RoutedEventArgs e)
         {
             EmpMenu empMenu = new(Uow_Employee);
-            empMenu.Show();
+            empMenu.ShowDialog();
         }
 
         private async void Close_Click(object sender, RoutedEventArgs e)
         {
-            await Uow_Employee.shifts.UpdateLastShiftAsync(_employee.ID);
+            await Uow_Employee.shifts.UpdateLastShiftAsync(ME.ID);
             await Uow_Employee.CompleteAsync();
             Close();
         }
 
+        private void EditInfo_Click(object sender, RoutedEventArgs e)
+        {
+            PersonalInfoEdit_Employee personalInfo = new(Uow_Employee, ME);
+            personalInfo.ShowDialog();
+        }
     }
 }

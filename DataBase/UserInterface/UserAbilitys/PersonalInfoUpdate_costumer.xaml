@@ -1,0 +1,51 @@
+﻿<Window x:Class="UserInterface.UserAbilitys.PersonalInfoUpdate_costumer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface.UserAbilitys"
+        mc:Ignorable="d"
+        Title="PersonalInfoUpdate_costumer" Height="450" Width="800" ContentRendered="Window_ContentRendered">
+    <Grid>
+        <TextBox x:Name="FirstNamebox" HorizontalAlignment="Left" Margin="164,31,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="19"/>
+        <TextBox x:Name="Lastnamebox" HorizontalAlignment="Left" Margin="164,70,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="18"/>
+        <TextBox x:Name="Emailbox" HorizontalAlignment="Left" Margin="164,101,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="18"/>
+        <TextBox x:Name="Phonebox" HorizontalAlignment="Left" Margin="164,134,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="18"/>
+        <Button x:Name="Updatebtn" Click="Updatebtn_Click" Content="Update" HorizontalAlignment="Left" Margin="226,354,0,0" VerticalAlignment="Top" Height="57" Width="132"/>
+        <Label Content="First Name:" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="68"/>
+        <Label Content="Phone number:" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top"/>
+        <Label Content="Addresses:" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="91"/>
+        <Label Content="Last Name:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="Addressgrid"  Margin="10,191,10,106" AutoGenerateColumns="False"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Street Name" Binding="{Binding Street_Name}" />
+                <DataGridTextColumn Header="House number" Binding="{Binding House_Number}" />
+                <DataGridTextColumn Header="Apartment Number" Binding="{Binding Apartment_Number}" />
+                <DataGridTextColumn Header="Zipcode" Binding="{Binding Zipcode}" />
+                <DataGridTextColumn Header="City" Binding="{Binding City}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="insertBtn" Content="Insert" Click="insertBtn_Click" />
+                                <Button x:Name="updateBtn" Content="Update" Click="updateBtn_Click_1" />
+                                <Button x:Name="deleteBtn" Content="Delete" Click="deleteBtn_Click" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <PasswordBox x:Name="Passwordbox" HorizontalAlignment="Left" Margin="575,39,0,0" VerticalAlignment="Top" Width="120" ToolTip="Password Must be between 8-12 characters" PasswordChar="*"/>
+        <PasswordBox x:Name="Repasswordbox" HorizontalAlignment="Left" Margin="575,97,0,0" VerticalAlignment="Top" Width="120" PasswordChar="*"/>
+        <Label Content="Enter Password" HorizontalAlignment="Left" Margin="575,8,0,0" VerticalAlignment="Top"/>
+        <Label Content="Re-Enter Password" HorizontalAlignment="Left" Margin="575,66,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="PassUpdatebtn" Click="PassUpdatebtn_Click" Content="Update Password" HorizontalAlignment="Left" Margin="575,150,0,0" VerticalAlignment="Top" Height="23" Width="90" IsDefault="True"/>
+    </Grid>
+</Window>

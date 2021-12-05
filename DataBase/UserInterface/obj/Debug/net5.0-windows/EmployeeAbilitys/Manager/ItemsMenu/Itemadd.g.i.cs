@@ -133,8 +133,7 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserInterface;V1.0.0.0;component/employeeabilitys/manager/itemsmenu/itemadd.xaml" +
-                    "", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserInterface;component/employeeabilitys/manager/itemsmenu/itemadd.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\EmployeeAbilitys\Manager\ItemsMenu\Itemadd.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

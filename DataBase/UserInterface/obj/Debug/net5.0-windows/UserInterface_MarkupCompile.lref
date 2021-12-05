@@ -5,6 +5,7 @@ FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\BCMenu\B
 FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\BCMenu\BrandUpdate.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\BCMenu\CategoryAdd.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\BCMenu\CategoryUpdate.xaml;;
+FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\Employeemenu\EmployeeReg.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\Employeemenu\EmpMenu.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\ItemsMenu\Itemadd.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\ItemsMenu\Itemmenu.xaml;;
@@ -13,14 +14,16 @@ FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\OrderMen
 FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\Ordershow_manager.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\ShiftMenu.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\Manager\UserMenu.xaml;;
+FD:\Hackeru\Mid Project\DataBase\UserInterface\EmployeeAbilitys\PersonalInfoEdit_Employee.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\LogIn\CostumerLogin.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\LogIn\CostumerReg.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\LogIn\EmployeeLogin.xaml;;
-FD:\Hackeru\Mid Project\DataBase\UserInterface\LogIn\EmployeeReg.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\MainWindow.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\Main\CostumerMain.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\Main\EmployeeMain.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\Main\ManagerMain.xaml;;
+FD:\Hackeru\Mid Project\DataBase\UserInterface\UserAbilitys\Neworder.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\UserAbilitys\OrderShow.xaml;;
+FD:\Hackeru\Mid Project\DataBase\UserInterface\UserAbilitys\PersonalInfoUpdate_costumer.xaml;;
 FD:\Hackeru\Mid Project\DataBase\UserInterface\UserAbilitys\User_viewOrders.xaml;;
 

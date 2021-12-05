@@ -46,6 +46,9 @@
     <Compile Update="EmployeeAbilitys\Manager\UserMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="EmployeeAbilitys\PersonalInfoEdit_Employee.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LogIn\CostumerLogin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,7 +70,13 @@
     <Compile Update="Main\ManagerMain.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserAbilitys\Neworder.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserAbilitys\OrderShow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserAbilitys\PersonalInfoUpdate_costumer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserAbilitys\User_viewOrders.xaml.cs">
@@ -114,6 +123,9 @@
     <Page Update="EmployeeAbilitys\Manager\UserMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="EmployeeAbilitys\PersonalInfoEdit_Employee.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LogIn\CostumerLogin.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -138,7 +150,13 @@
     <Page Update="Main\ManagerMain.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="UserAbilitys\Neworder.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserAbilitys\OrderShow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserAbilitys\PersonalInfoUpdate_costumer.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserAbilitys\User_viewOrders.xaml">

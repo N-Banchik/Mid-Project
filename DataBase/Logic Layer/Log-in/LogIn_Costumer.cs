@@ -66,16 +66,12 @@ namespace Logic_Layer.Log_in
         {
             try
             {
-                if (int.TryParse(email, out int id))
-                {
+                
 
-                    await costumer.costumer.UpdatePasswordAsync(id, newpass);
+                    await costumer.costumer.UpdatePasswordAsync(email, Enscryption(newpass, email));
 
-                }
-                else
-                {
-                    throw new Exception("ID not a number!");
-                }
+                
+                
 
             }
             catch (Exception)

@@ -22,23 +22,24 @@ namespace UserInterface.Main
     /// </summary>
     public partial class CostumerMain : Window
     {
-        private Costumers costumer;
+        private Costumers ME;
         private UnitOfWork_Costumer unitOfWork_;
         public CostumerMain(UnitOfWork_Costumer unit, Costumers costumers)
         {
             InitializeComponent();
-            costumer = costumers;
+            ME = costumers;
             unitOfWork_ = unit;
         }
 
         private void HelloBox_Loaded(object sender, RoutedEventArgs e)
         {
-            HelloBox.Text = $"Hello {costumer.First_Name + " " + costumer.last_Name}";
+            HelloBox.Text = $"Hello {ME.First_Name + " " + ME.last_Name}";
         }
 
         private void Neworder_Click(object sender, RoutedEventArgs e)
         {
-
+            Neworder order = new Neworder(unitOfWork_,ME);
+            order.ShowDialog();
         }
 
         private async void Showorders_Click(object sender, RoutedEventArgs e)
@@ -46,8 +47,8 @@ namespace UserInterface.Main
             try
             {
 
-                costumer.Orders = await unitOfWork_.orders.GetByCondition(i => i.Costumer_ID == costumer.Costumer_ID);
-                User_viewOrders _ViewOrders = new(unitOfWork_, costumer);
+                ME.Orders = await unitOfWork_.orders.GetByCondition(i => i.Costumer_ID == ME.Costumer_ID);
+                User_viewOrders _ViewOrders = new(unitOfWork_, ME);
                 _ViewOrders.ShowDialog();
             }
             catch (Exception ex)
@@ -58,9 +59,11 @@ namespace UserInterface.Main
 
         }
 
-        private async void Editpersonaldata_Click(object sender, RoutedEventArgs e)
+        private  void Editpersonaldata_Click(object sender, RoutedEventArgs e)
         {
 
+            PersonalInfoUpdate_costumer personalInfoUpdate_ = new(unitOfWork_,ME);
+            personalInfoUpdate_.ShowDialog();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)

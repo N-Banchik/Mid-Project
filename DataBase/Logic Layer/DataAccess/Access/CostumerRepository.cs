@@ -25,7 +25,7 @@ namespace Logic_Layer.DataAccess.Access
                 await base.Add(Toadd);
 
 
-                
+
 
             }
             catch (Exception)
@@ -34,12 +34,12 @@ namespace Logic_Layer.DataAccess.Access
                 throw;
             }
         }
-        public async Task UpdatePasswordAsync(int id, string newpass)
+        public async Task UpdatePasswordAsync(string Email, string newpass)
         {
             try
             {
 
-                Costumers user = await GetById(id);
+                Costumers user = await GetOneByCondition(i => i.Email == Email);
                 user.Password = user.Password != newpass ? newpass : throw new Exception("Password cannot be the same");
             }
             catch (Exception)

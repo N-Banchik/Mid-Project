@@ -33,7 +33,6 @@ namespace UserInterface.EmployeeAbilitys.Manager
             try
             {
                 List<Orders> orders = await Uow_Employee.orders.GetAllAsync() as List<Orders>;
-                orders = await Uow_Employee.orderitems.GetTotalsAsync(orders);
                 DateTime? dateTimestart = StartDate.SelectedDate == null ? StartDate.SelectedDate = DateTime.MinValue : StartDate.SelectedDate.Value;
                 DateTime? dateTimeend = EndDate.SelectedDate == null ? dateTimestart : EndDate.SelectedDate.Value;
 
@@ -61,10 +60,13 @@ namespace UserInterface.EmployeeAbilitys.Manager
             }
         }
 
-        private void ShowOrderDetails_Click(object sender, RoutedEventArgs e)
+        private async void ShowOrderDetails_Click(object sender, RoutedEventArgs e)
         {
-            Ordershow_manager os = new(Uow_Employee, OrderShow.SelectedItem as Orders);
-            os.ShowDialog();
+            //Ordershow_manager os = new(Uow_Employee, OrderShow.SelectedItem as Orders);
+            //os.ShowDialog();
+
+           await Uow_Employee.orders.NewOrderAsync(4,0,0,"Aaa");
+           await Uow_Employee.CompleteAsync();
 
         }
     }

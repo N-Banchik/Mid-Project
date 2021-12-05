@@ -8,6 +8,6 @@ namespace Logic_Layer.DataAccess.Interfaces
 {
     interface IPassword
     {
-        public Task UpdatePasswordAsync(int id, string newpass);
+        public Task UpdatePasswordAsync(string email, string newpass);
     }
 }

@@ -26,10 +26,8 @@ namespace UserInterface.EmployeeAbilitys.Manager.Employeemenu
         {
             try
             {
-
-
                 await log.RegistarAsync(Streetname.Text, int.Parse(Housenumber.Text), int.Parse(APT.Text), int.Parse(Zip.Text), City.Text, Firstname.Text, Lastname.Text, Bdate.SelectedDate.Value.Date, Password.Password, Phonenumber.Text, CheckManager.IsChecked.Value, Email.Text);
-                MessageBox.Show($"User Created! Please log in now", "Congratulation", MessageBoxButton.OK);
+                MessageBox.Show($"User Created");
                 Close();
             }
             catch (Exception ex)
