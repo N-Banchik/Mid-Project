@@ -33,10 +33,7 @@ namespace UserInterface.EmployeeAbilitys.Manager
 
         private void UserOrders_Click(object sender, RoutedEventArgs e)
         {
-            OrderMenu orderMenu = new(Uow_Employee);
-            orderMenu.ById.Text = (UserShow.SelectedItem as Costumers).Costumer_ID.ToString();
-            orderMenu.OrderShow.ItemsSource = (UserShow.SelectedItem as Costumers).Orders;
-            orderMenu.Show();
+            
         }
 
         private async void ShowUers_Click(object sender, RoutedEventArgs e)

@@ -47,9 +47,7 @@ namespace UserInterface.Main
             try
             {
 
-                ME.Orders = await unitOfWork_.orders.GetByCondition(i => i.Costumer_ID == ME.Costumer_ID);
-                User_viewOrders _ViewOrders = new(unitOfWork_, ME);
-                _ViewOrders.ShowDialog();
+               
             }
             catch (Exception ex)
             {

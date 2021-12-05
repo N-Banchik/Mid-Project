@@ -21,7 +21,6 @@ namespace DataBase.Models
         public string Password { get; set; }
         public string Phone_Number { get; set; }
         public ICollection<Address_Costumers> Address { get; set; }
-        public ICollection<Orders> Orders { get; set; }
 
 
     }

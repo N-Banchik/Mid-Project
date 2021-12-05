@@ -5,15 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager"
         mc:Ignorable="d"
-        Title="OrderMenu" Height="500" Width="900" SizeToContent="Width" >
+        Title="EDi" Height="500" Width="900" SizeToContent="Width" >
     <Grid>
         <DataGrid x:Name="OrderShow" Margin="0,114,0,0" FontSize="14">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Order ID" Binding="{Binding Order_ID}" />
-                <DataGridTextColumn Header="Costumer Name" Binding="{Binding costumer.Costumer_Name}" />
-                <DataGridTextColumn Header="Order Date" Binding="{Binding Order_Date}" />
-                <DataGridTextColumn Header="Ship Date" Binding="{Binding Ship_Date}" />
-                <DataGridTextColumn Header="Costumer Address" Binding="{Binding Costumer_Address}" />
+                <DataGridTextColumn Header="EDI ID" Binding="{Binding Order_ID}" />
+                <DataGridTextColumn Header="EDI Date" Binding="{Binding Order_Date}" />
                 <DataGridTextColumn Header="Handling Employee" Binding="{Binding Employee_ID}" />
                 <DataGridTextColumn Header="Total Cost" Binding="{Binding Total_Cost}" />
                 <DataGridTextColumn Header="Total Wight" Binding="{Binding Total_Weiget}" />
@@ -26,8 +23,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button x:Name="ShowOrderDetails" Content="Show Items On order" Click="ShowOrderDetails_Click"/>
-                               
+                                <Button x:Name="ShowEDIDetails" Content="Show Items On EDI" Click="ShowEDIDetails_Click"/>
+
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -36,13 +33,12 @@
         </DataGrid>
         <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Margin="2,36,0,0" VerticalAlignment="Top" Width="113" Text=""/>
         <DatePicker x:Name="EndDate" HorizontalAlignment="Left" Margin="134,36,0,0" VerticalAlignment="Top" Width="113"/>
-        <TextBox x:Name="ById" HorizontalAlignment="Left" Margin="272,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21"/>
-        <TextBox x:Name="orderid" HorizontalAlignment="Left" Margin="400,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21"/>
+        <TextBox x:Name="EDIid" HorizontalAlignment="Left" Margin="270,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="21"/>
         <Label Content="From Date:" HorizontalAlignment="Left" Margin="2,0,0,0" VerticalAlignment="Top" Width="113"/>
         <Label Content="To Date:" HorizontalAlignment="Left" Margin="134,0,0,0" VerticalAlignment="Top" Width="113"/>
-        <Label Content="costumer ID:" HorizontalAlignment="Left" Margin="272,0,0,0" VerticalAlignment="Top" Width="113"/>
-        <Label Content="Order Id:" HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Top" Width="113"/>
+        <Label Content="EDI Id:" HorizontalAlignment="Left" Margin="270,0,0,0" VerticalAlignment="Top" Width="113"/>
         <Button x:Name="Search" Click="Search_Click" Content="Search" HorizontalAlignment="Left" Margin="2,65,0,0" VerticalAlignment="Top" Height="26" Width="96"/>
+        <Button x:Name="NotApprovedEDI" Click="NotApprovedEDI_Click" Content="Show not Approved" HorizontalAlignment="Left" Margin="134,65,0,0" VerticalAlignment="Top" Height="26" Width="113"/>
 
     </Grid>
 </Window>

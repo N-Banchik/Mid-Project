@@ -130,6 +130,8 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
             itemadd.ShowDialog();
             WindowState = WindowState.Normal;
             await updateItemlistAsync();
+            Categorybox.ItemsSource = await Uow_Employee.category.GetAllAsync();
+            Brandbox.ItemsSource = await Uow_Employee.brands.GetAllAsync();
         }
     }
 }

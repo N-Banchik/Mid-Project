@@ -23,6 +23,7 @@ namespace DataBase.Model_Config
             builder.Property(c => c.Password).IsRequired().HasMaxLength(100);
             builder.HasOne(a => a.Address).WithOne(a => a.employee);
             builder.HasMany(s => s.Shifts).WithOne(e => e.Employee).HasForeignKey(e => e.Employee_ID);
+            builder.HasMany(i => i.EDIs).WithOne(i => i.employee).HasForeignKey(i => i.EDI_Id);
 
         }
     }

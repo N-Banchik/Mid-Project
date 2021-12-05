@@ -21,7 +21,6 @@ namespace DataBase.Models
 
         public Categories Category { get; set; }
         public Brands Brand { get; set; }
-        public ICollection<Orderitems> Orders { get; set; }
-
+        public ICollection<EDI> EDIs { get; set; }
     }
 }

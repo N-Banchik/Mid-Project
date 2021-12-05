@@ -118,3 +118,5 @@ D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeA
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\PersonalInfoUpdate_costumer.baml
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\Neworder.g.cs
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\Neworder.baml
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Employee\EDIAccept.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Employee\EDIAccept.baml

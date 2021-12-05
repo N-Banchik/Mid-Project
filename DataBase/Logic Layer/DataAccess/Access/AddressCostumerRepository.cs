@@ -37,7 +37,7 @@ namespace Logic_Layer.DataAccess.Access
         {
             try
             {
-                return await dbSet.Where(c => c.City == city).ToListAsync();
+                return await dbSet.Where(c => c.City == city).Include(i=>i.costumer).ToListAsync();
             }
             catch (Exception)
             {
@@ -45,7 +45,10 @@ namespace Logic_Layer.DataAccess.Access
                 throw new Exception("Problem in Providing the Data");
             }
         }
-
+        public async Task<List<Address_Costumers>> GetwithuserAsync()
+        {
+            return await dbSet.Include(i => i.costumer).ToListAsync();
+        }
 
 
         public async Task UpdateAddressAsync(Address_Costumers address)

@@ -11,6 +11,7 @@ namespace Logic_Layer.DataAccess.Interfaces
     {
         public Task<IEnumerable<Address_Costumers>> GetAddresses_ByCity(string city);
         public Task UpdateAddressAsync(Address_Costumers address);
+        public Task<List<Address_Costumers>> GetwithuserAsync();
 
     }
 }

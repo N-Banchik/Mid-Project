@@ -33,16 +33,13 @@ namespace UserInterface.EmployeeAbilitys.Manager.Employeemenu
 
         private void EmpOrders_Click(object sender, RoutedEventArgs e)
         {
-            OrderMenu orderMenu = new(Uow_Employee);
-            orderMenu.OrderShow.ItemsSource = (UserShow.SelectedItem as Employees).Orders;
-            orderMenu.Show();
+            
         }
 
         private async void ShowUers_Click(object sender, RoutedEventArgs e)
         {
             Address_Employees = (List<Address_Employees>)await Uow_Employee.addressEmployee.GetAllAsync();
             employees = (List<Employees>)await Uow_Employee.employee.GetAllAsync();
-            await Uow_Employee.orders.GetAllAsync();
             if (IDBox.Text != string.Empty)
             {
                 UserShow.ItemsSource = employees.Where(i => i.ID == int.Parse(IDBox.Text));
@@ -72,7 +69,8 @@ namespace UserInterface.EmployeeAbilitys.Manager.Employeemenu
 
         private void NewEmp_Click(object sender, RoutedEventArgs e)
         {
-
+            EmployeeReg employeeReg = new EmployeeReg();
+            employeeReg.Show();
         }
 
         

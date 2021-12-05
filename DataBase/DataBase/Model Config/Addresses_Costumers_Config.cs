@@ -21,6 +21,7 @@ namespace DataBase.Model_Config
             builder.Property(s => s.Apartment_Number).HasColumnName("Apartment Number").IsRequired();
             builder.Property(s => s.Zipcode).HasColumnName("Zipcode").IsRequired();
             builder.Property(s => s.City).HasColumnName("City").IsRequired();
+            
         }
     }
 }

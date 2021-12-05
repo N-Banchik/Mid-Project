@@ -16,9 +16,7 @@ using System.Windows.Shapes;
 
 namespace UserInterface.EmployeeAbilitys.Manager
 {
-    /// <summary>
-    /// Interaction logic for OrderMenu.xaml
-    /// </summary>
+    
     public partial class OrderMenu : Window
     {
         private UnitOfWork_Employee Uow_Employee;
@@ -32,25 +30,17 @@ namespace UserInterface.EmployeeAbilitys.Manager
         {
             try
             {
-                List<Orders> orders = await Uow_Employee.orders.GetAllAsync() as List<Orders>;
                 DateTime? dateTimestart = StartDate.SelectedDate == null ? StartDate.SelectedDate = DateTime.MinValue : StartDate.SelectedDate.Value;
                 DateTime? dateTimeend = EndDate.SelectedDate == null ? dateTimestart : EndDate.SelectedDate.Value;
+               
 
-                if (ById.Text != string.Empty)
+                if (EDIid.Text != string.Empty)
                 {
-
-                    OrderShow.ItemsSource = orders.Where(i => i.Order_Date.Date >= dateTimestart && i.Order_Date <= dateTimeend && i.Costumer_ID == int.Parse(ById.Text));
-
-                }
-                else if (orderid.Text != string.Empty)
-                {
-                    OrderShow.ItemsSource = orders.Where(i => i.Order_Date.Date >= dateTimestart && i.Order_Date <= dateTimeend && i.Order_ID == int.Parse(orderid.Text));
-
+                    OrderShow.ItemsSource = (System.Collections.IEnumerable)await Uow_Employee.EDI.GetById(int.Parse(EDIid.Text));
                 }
                 else
                 {
-                    OrderShow.ItemsSource = orders.Where(i => i.Order_Date.Date >= dateTimestart && i.Order_Date <= dateTimeend);
-
+                    OrderShow.ItemsSource = await Uow_Employee.EDI.GetbyDateAsync(dateTimestart.Value, dateTimeend.Value);
                 }
             }
             catch (Exception ex)
@@ -60,14 +50,24 @@ namespace UserInterface.EmployeeAbilitys.Manager
             }
         }
 
-        private async void ShowOrderDetails_Click(object sender, RoutedEventArgs e)
+        private async void NotApprovedEDI_Click(object sender, RoutedEventArgs e)
         {
-            //Ordershow_manager os = new(Uow_Employee, OrderShow.SelectedItem as Orders);
-            //os.ShowDialog();
+            try
+            {
+                OrderShow.ItemsSource = await Uow_Employee.EDI.GetnotapprovedAsync();
+            }
+            catch (Exception ex)
+            {
 
-           await Uow_Employee.orders.NewOrderAsync(4,0,0,"Aaa");
-           await Uow_Employee.CompleteAsync();
-
+                MessageBox.Show(ex.Message);
+            }
         }
+        
+
+        private void ShowEDIDetails_Click(object sender, RoutedEventArgs e)
+        {
+            Ordershow_manager ordershow_Manager = new(Uow_Employee,OrderShow.SelectedItem as EDI);
+        }
+
     }
 }

@@ -15,16 +15,18 @@ namespace DataBase
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            string hello = "hello World";
-            Console.WriteLine(Enscryption(hello,hello));
+            FactoryDbContext context = new FactoryDbContext();
 
-           
+            List<Items> items = await context.Items.Include(i => i.Brand).Include(i => i.Category).ToListAsync();
+            await context.EDIs.AddAsync(new EDI { Date=DateTime.Now,Items=new List<Items> { items[1],items[1],items[0], items[1], items[1], items[0],items[2] },Total_Items=7,Total_Weight=45});
+            await context.SaveChangesAsync();
+
         }
         public static Task<string> Enscryption(string password, string salt)
         {
-            return Task.Factory.StartNew(() =>HashString(password, salt));
+            return Task.Factory.StartNew(() => HashString(password, salt));
         }
         public static string HashString(string password, string salt)
         {

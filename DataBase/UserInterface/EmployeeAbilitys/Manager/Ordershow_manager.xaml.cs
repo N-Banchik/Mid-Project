@@ -21,25 +21,24 @@ namespace UserInterface.EmployeeAbilitys.Manager
     /// </summary>
     public partial class Ordershow_manager : Window
     {
-        private Orders _order;
         private UnitOfWork_Employee unit;
+        private EDI _EDI;
 
-        public Ordershow_manager(UnitOfWork_Employee _unit, Orders order)
+        public Ordershow_manager(UnitOfWork_Employee _unit, EDI edi)
         {
             unit = _unit;
-            _order = order;
+            _EDI = edi;
             InitializeComponent();
-
+            ContentRendered += Showitems;
 
         }
-        private async void PrintDetails(object sender, EventArgs e)
+
+        private void Showitems(object sender, EventArgs e)
         {
-            _order.items = await unit.orderitems.GetByCondition(i => i.Order_id == _order.Order_ID);
-            _order.Total_Cost = await unit.orderitems.GetTotalCostAsync(_order.Order_ID);
-            _order.Total_Weiget = await unit.orderitems.GetTotalWeightAsync(_order.Order_ID);
-            ItemsShow.ItemsSource = _order.items;
-        }
 
-        
+            ItemsShow.ItemsSource = _EDI.Items.GroupBy(n => n.Item_Name)
+                    .Select(c => new { Key = c.Key, total = c.Count() });
+
+        }
     }
 }

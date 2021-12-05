@@ -5,14 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager"
         mc:Ignorable="d"
-        Title="Ordershow_manager" Height="350" Width="800" ContentRendered="PrintDetails">
+        Title="Ordershow_manager" Height="350" Width="800" >
     <Grid>
-        <DataGrid x:Name="ItemsShow" AutoGenerateColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Item_Id}" />
-                <DataGridTextColumn Header="Item Name" Binding="{Binding Item.Item_Name}" />
-                <DataGridTextColumn Header="Quantity" Binding="{Binding items.Quantity}"/>
-            </DataGrid.Columns>
+        <DataGrid x:Name="ItemsShow" IsReadOnly="True">
+
         </DataGrid>
     </Grid>
 </Window>

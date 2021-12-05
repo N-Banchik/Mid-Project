@@ -15,7 +15,6 @@ namespace DataBase.Model_Config
         public void Configure(EntityTypeBuilder<Orderitems> builder)
         {
             builder.HasKey(k => k.ID);
-            builder.HasOne(i => i.Item).WithMany(o => o.Orders).HasForeignKey(i => i.Itme_Id);
             builder.HasOne(o => o.Order).WithMany(i => i.items).HasForeignKey(o => o.Order_id);
         }
     }

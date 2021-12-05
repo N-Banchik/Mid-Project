@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="EmployeeAbilitys\Employee\EDIAccept.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="EmployeeAbilitys\Manager\BCMenu\BrandAdd.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -84,6 +87,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="EmployeeAbilitys\Employee\EDIAccept.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="EmployeeAbilitys\Manager\BCMenu\BrandAdd.xaml">
       <SubType>Designer</SubType>
     </Page>

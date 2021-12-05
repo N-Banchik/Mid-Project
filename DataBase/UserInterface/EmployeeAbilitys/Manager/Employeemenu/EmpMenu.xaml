@@ -9,7 +9,7 @@
     <Grid>
         <DataGrid x:Name="UserShow" Margin="0,140,0,0" AutoGenerateColumns="False" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Costumer_ID}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
                 <DataGridTextColumn Header="First Name" Binding="{Binding First_Name}" />
                 <DataGridTextColumn Header="Last Name" Binding="{Binding last_Name}"/>
                 <DataGridTextColumn Header="Date of Birth" Binding="{Binding Birthdate}"/>
@@ -44,7 +44,7 @@
         <TextBox x:Name="Phonebox" HorizontalAlignment="Center" Margin="0,42,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Height="23" FontSize="14"/>
         <Label Content="By Email:" HorizontalAlignment="Left" Margin="486,10,0,0" VerticalAlignment="Top" Height="27" Width="128" FontSize="14"/>
         <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="486,42,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Height="23" FontSize="14"/>
-        <Button x:Name="NewEmp" Click="NewEmp_Click" Content="Show Users" HorizontalAlignment="Left" Margin="550,88,0,0" VerticalAlignment="Top" Height="34" Width="87"/>
+        <Button x:Name="NewEmp" Click="NewEmp_Click" Content="New Users" HorizontalAlignment="Left" Margin="550,88,0,0" VerticalAlignment="Top" Height="34" Width="87"/>
 
     </Grid>
 </Window>

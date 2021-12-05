@@ -35,10 +35,7 @@ namespace UserInterface.UserAbilitys
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Items = (List<Items>)await unitOfWork_.items.GetAllAsync();
-            Categories = (List<Categories>)await unitOfWork_.category.GetAllAsync();
-            Brands = (List<Brands>)await unitOfWork_.brands.GetAllAsync();
-            
+           
         }
 
         private void deleteBtn_Click(object sender, RoutedEventArgs e)

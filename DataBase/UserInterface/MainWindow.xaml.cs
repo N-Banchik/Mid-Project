@@ -13,9 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Logic_Layer.Log_in;
+using UserInterface.EmployeeAbilitys.Manager.Employeemenu;
 using UserInterface.LogIn;
-
-
+using UserInterface.Main;
 
 namespace UserInterface
 {

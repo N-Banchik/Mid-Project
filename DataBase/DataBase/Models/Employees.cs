@@ -21,9 +21,9 @@ namespace DataBase.Models
         public string Email { get; set; }
         public int Is_Manager { get; set; }
         bool Manager;
-        public ICollection<Shifts> Shifts { get; set; }
         public Address_Employees Address { get; set; }
-        public ICollection<Orders> Orders { get; set; }
+        public ICollection<Shifts> Shifts { get; set; }
+        public ICollection<EDI> EDIs { get; set; }
 
 
     }

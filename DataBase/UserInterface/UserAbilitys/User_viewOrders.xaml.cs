@@ -25,10 +25,7 @@ namespace UserInterface.UserAbilitys
         private UnitOfWork_Costumer unitOfWork_;
         public User_viewOrders(UnitOfWork_Costumer unit, Costumers costumers)
         {
-            costumer = costumers;
-            unitOfWork_ = unit;
-            InitializeComponent();
-            OrderViewer.ItemsSource = costumer.Orders;
+            
         }
 
         private void Details_Click(object sender, RoutedEventArgs e)

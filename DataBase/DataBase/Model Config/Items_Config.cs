@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataBase.Models;
+using DataBase.Models.Connactions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -22,7 +23,7 @@ namespace DataBase.Model_Config
             builder.Property(i => i.Minimum_Units_In_Inventory).IsRequired().HasColumnName("Minimum Units In inventory");
             builder.Property(i => i.Weight).IsRequired().HasColumnName("Weight").HasColumnType("float");
             builder.Property(i => i.Price).IsRequired().HasColumnName("Unit Price").HasColumnType("smallmoney");
-
+            builder.HasMany(i => i.EDIs).WithMany(i => i.Items);
             builder.HasOne(c => c.Category).WithMany(i => i.item).HasForeignKey(i => i.Category_Id);
             builder.HasOne(c => c.Brand).WithMany(i => i.Items).HasForeignKey(i => i.Brand_Id);
         }

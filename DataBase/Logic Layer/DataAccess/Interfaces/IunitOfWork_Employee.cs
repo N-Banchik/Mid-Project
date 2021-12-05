@@ -16,9 +16,8 @@ namespace Logic_Layer.DataAccess.Interfaces
         IEmployeeRepository employee { get; }
         ICostumerRepository costumer { get; }
         IItemsRepository items { get; }
-        IorderRepository orders { get; }
         IShiftsRepository shifts { get; }
-        IorderItemsRepository orderitems { get; }
+        IEDIREpository EDI { get; }
 
 
 

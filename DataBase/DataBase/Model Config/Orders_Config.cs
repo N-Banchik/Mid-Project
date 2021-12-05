@@ -23,8 +23,7 @@ namespace DataBase.Model_Config
             builder.Property(o => o.Total_Weiget).HasColumnName("Total Weight").HasColumnType("float");
             builder.Property(o => o.Costumer_Email).HasColumnName("Costumer E-mail").HasColumnType("Nvarchar").HasMaxLength(50);
             builder.Property(o => o.Costumer_Address).HasColumnName("Costumer Address").HasColumnType("Nvarchar").HasMaxLength(70);
-            builder.HasOne(e => e.employee).WithMany(e => e.Orders).HasForeignKey(e => e.Employee_ID);
-            builder.HasOne(e => e.costumer).WithMany(e => e.Orders).HasForeignKey(e => e.Costumer_ID);
+           
 
         }
     }

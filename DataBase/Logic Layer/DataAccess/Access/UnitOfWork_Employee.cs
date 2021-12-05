@@ -11,7 +11,7 @@ namespace Logic_Layer.DataAccess.Access
 {
    public class UnitOfWork_Employee : IunitOfWork_Employee, IAsyncDisposable
     {
-        private readonly DbContext context;
+         readonly DbContext context;
 
         public UnitOfWork_Employee()
         {
@@ -21,11 +21,10 @@ namespace Logic_Layer.DataAccess.Access
             this.category = new CategoryRepository(context);
             this.employee = new EmployeeRepository(context);
             this.items = new ItemsRepository(context);
-            this.orders = new OrdersRepository(context);
             this.shifts = new ShiftsRepository(context);
-            this.orderitems = new OrderitemsRepository(context);
             this.costumer = new CostumerRepository(context);
             this.addressCostumer = new AddressCostumerRepository(context);
+            this.EDI = new EDIRepository(context);
         }
 
         public IAddressEmployeeRepository addressEmployee { get; private set; }
@@ -33,16 +32,12 @@ namespace Logic_Layer.DataAccess.Access
         public ICategoryRepository category { get; private set; }
         public IEmployeeRepository employee { get; private set; }
         public IItemsRepository items { get; private set; }
-        public IorderRepository orders { get; private set; }
         public IShiftsRepository shifts { get; private set; }
-
-        public IorderItemsRepository orderitems { get; private set; }
-
         public ICostumerRepository costumer { get; private set; }
-
         public IAddressCostumerRepository addressCostumer { get; private set; }
+        public IEDIREpository EDI { get; private set; }
 
-    public async Task CompleteAsync()
+        public async Task CompleteAsync()
         {
             await context.SaveChangesAsync();
         }

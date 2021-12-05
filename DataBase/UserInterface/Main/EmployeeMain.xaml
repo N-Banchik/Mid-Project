@@ -9,7 +9,7 @@
     <Grid>
         <TextBox x:Name="HelloBox" BorderThickness="2" Loaded="HelloBox_Loaded" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="800" TextAlignment="Center" FontSize="16"/>
         <Button x:Name="GetShifts" Content="See all my shifts" Click="GetShifts_Click" HorizontalAlignment="Left" Margin="656,30,0,0" VerticalAlignment="Top" Height="68" Width="134"/>
-        <Button x:Name="Orderwork" Content="Fulfill next Order" Click="Orderwork_Click" HorizontalAlignment="Left" Margin="360,30,0,0" VerticalAlignment="Top" Height="68" Width="134"/>
+        <Button x:Name="Orderwork" Content="Fulfill next EDI" Click="Orderwork_Click" HorizontalAlignment="Left" Margin="360,30,0,0" VerticalAlignment="Top" Height="68" Width="134"/>
         <Button x:Name="Close" Content="Close and end Shift" Click="Close_Click" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="53" Width="113" Background="#FFF17E7E"/>
         <DataGrid x:Name="Shiftdata" VerticalAlignment="Top" Height="290" Margin="0,191,0,0">
 

@@ -186,6 +186,28 @@ namespace DataBase.Migrations
                     b.ToTable("Costumers");
                 });
 
+            modelBuilder.Entity("DataBase.Models.EDI", b =>
+                {
+                    b.Property<int>("EDI_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Approved_By")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Total_Items")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Total_Weight")
+                        .HasColumnType("float");
+
+                    b.HasKey("EDI_Id");
+
+                    b.ToTable("EDIs");
+                });
+
             modelBuilder.Entity("DataBase.Models.Employees", b =>
                 {
                     b.Property<int>("ID")
@@ -277,82 +299,6 @@ namespace DataBase.Migrations
                     b.ToTable("Items");
                 });
 
-            modelBuilder.Entity("DataBase.Models.Orderitems", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Itme_Id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Order_id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("Itme_Id");
-
-                    b.HasIndex("Order_id");
-
-                    b.ToTable("Orderitems");
-                });
-
-            modelBuilder.Entity("DataBase.Models.Orders", b =>
-                {
-                    b.Property<int>("Order_ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Order Id")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Costumer_Address")
-                        .HasMaxLength(70)
-                        .HasColumnType("Nvarchar(70)")
-                        .HasColumnName("Costumer Address");
-
-                    b.Property<string>("Costumer_Email")
-                        .HasMaxLength(50)
-                        .HasColumnType("Nvarchar(50)")
-                        .HasColumnName("Costumer E-mail");
-
-                    b.Property<int>("Costumer_ID")
-                        .HasColumnType("int")
-                        .HasColumnName("Costumer Id");
-
-                    b.Property<int>("Employee_ID")
-                        .HasColumnType("int")
-                        .HasColumnName("Employee Id");
-
-                    b.Property<DateTime>("Order_Date")
-                        .HasColumnType("smalldatetime")
-                        .HasColumnName("Order Date");
-
-                    b.Property<DateTime>("Ship_Date")
-                        .HasColumnType("smalldatetime")
-                        .HasColumnName("Ship Date");
-
-                    b.Property<double>("Total_Cost")
-                        .HasColumnType("float")
-                        .HasColumnName("Total Cost");
-
-                    b.Property<double>("Total_Weiget")
-                        .HasColumnType("float")
-                        .HasColumnName("Total Weight");
-
-                    b.HasKey("Order_ID");
-
-                    b.HasIndex("Costumer_ID");
-
-                    b.HasIndex("Employee_ID");
-
-                    b.ToTable("Orders");
-                });
-
             modelBuilder.Entity("DataBase.Models.Shifts", b =>
                 {
                     b.Property<int>("Shift_ID")
@@ -381,6 +327,21 @@ namespace DataBase.Migrations
                     b.ToTable("Shifts");
                 });
 
+            modelBuilder.Entity("EDIItems", b =>
+                {
+                    b.Property<int>("EDIsEDI_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ItemsItem_ID")
+                        .HasColumnType("int");
+
+                    b.HasKey("EDIsEDI_Id", "ItemsItem_ID");
+
+                    b.HasIndex("ItemsItem_ID");
+
+                    b.ToTable("EDIItems");
+                });
+
             modelBuilder.Entity("DataBase.Models.Address_Costumers", b =>
                 {
                     b.HasOne("DataBase.Models.Costumers", "costumer")
@@ -390,6 +351,17 @@ namespace DataBase.Migrations
                         .IsRequired();
 
                     b.Navigation("costumer");
+                });
+
+            modelBuilder.Entity("DataBase.Models.EDI", b =>
+                {
+                    b.HasOne("DataBase.Models.Employees", "employee")
+                        .WithMany("EDIs")
+                        .HasForeignKey("EDI_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("employee");
                 });
 
             modelBuilder.Entity("DataBase.Models.Employees", b =>
@@ -422,44 +394,6 @@ namespace DataBase.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("DataBase.Models.Orderitems", b =>
-                {
-                    b.HasOne("DataBase.Models.Items", "Item")
-                        .WithMany("Orders")
-                        .HasForeignKey("Itme_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DataBase.Models.Orders", "Order")
-                        .WithMany("items")
-                        .HasForeignKey("Order_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Item");
-
-                    b.Navigation("Order");
-                });
-
-            modelBuilder.Entity("DataBase.Models.Orders", b =>
-                {
-                    b.HasOne("DataBase.Models.Costumers", "costumer")
-                        .WithMany("Orders")
-                        .HasForeignKey("Costumer_ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DataBase.Models.Employees", "employee")
-                        .WithMany("Orders")
-                        .HasForeignKey("Employee_ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("costumer");
-
-                    b.Navigation("employee");
-                });
-
             modelBuilder.Entity("DataBase.Models.Shifts", b =>
                 {
                     b.HasOne("DataBase.Models.Employees", "Employee")
@@ -469,6 +403,21 @@ namespace DataBase.Migrations
                         .IsRequired();
 
                     b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("EDIItems", b =>
+                {
+                    b.HasOne("DataBase.Models.EDI", null)
+                        .WithMany()
+                        .HasForeignKey("EDIsEDI_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataBase.Models.Items", null)
+                        .WithMany()
+                        .HasForeignKey("ItemsItem_ID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DataBase.Models.Address_Employees", b =>
@@ -489,25 +438,13 @@ namespace DataBase.Migrations
             modelBuilder.Entity("DataBase.Models.Costumers", b =>
                 {
                     b.Navigation("Address");
-
-                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("DataBase.Models.Employees", b =>
                 {
-                    b.Navigation("Orders");
+                    b.Navigation("EDIs");
 
                     b.Navigation("Shifts");
-                });
-
-            modelBuilder.Entity("DataBase.Models.Items", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("DataBase.Models.Orders", b =>
-                {
-                    b.Navigation("items");
                 });
 #pragma warning restore 612, 618
         }
