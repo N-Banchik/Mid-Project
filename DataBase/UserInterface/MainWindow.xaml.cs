@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Logic_Layer.DataAccess.Access;
 using Logic_Layer.Log_in;
 using UserInterface.EmployeeAbilitys.Manager.Employeemenu;
 using UserInterface.LogIn;
@@ -46,6 +47,10 @@ namespace UserInterface
             this.WindowState = WindowState.Minimized;
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EmpMenu empMenu = new EmpMenu(new UnitOfWork_Employee());
+            empMenu.ShowDialog();
+        }
     }
 }

@@ -10,6 +10,7 @@
         <Button x:Name="EmployeeLogInButton" Content="Employee" HorizontalAlignment="Left" Click="EmployeeLogInButton_Click" Margin="59,274,0,0" VerticalAlignment="Top" Height="58" Width="135"/>
         <Button x:Name="CostumerLogInButton" Content="Costumer" HorizontalAlignment="Left" Click="CostumerLogInButton_Click" Margin="242,274,0,0" VerticalAlignment="Top" Height="58" Width="135"/>
         <Label Content="Are you a Costumer or Employee?"  HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.505,1.042" FontSize="14"/>
+        <Button Content="Button" Click="Button_Click" HorizontalAlignment="Left" Margin="83,377,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

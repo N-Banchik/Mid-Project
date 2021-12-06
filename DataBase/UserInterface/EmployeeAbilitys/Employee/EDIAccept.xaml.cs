@@ -35,7 +35,7 @@ namespace UserInterface.EmployeeAbilitys.Employee
         {
 
             EDI edi = await Uow_Employee.EDI.GetNextEDIAsync();
-            ViewGrid.ItemsSource = edi.Items.GroupBy(n => n.Item_Name)
+            ViewGrid.ItemsSource = edi.Items.GroupBy(n => n)
                     .Select(c => new { Key = c.Key, total = c.Count() }).ToDictionary(k => k.Key, t => t.total);
             EmployeeName.Text = $"{_employee.First_Name} {_employee.last_Name}";
             eduid.Text = edi.EDI_Id.ToString();

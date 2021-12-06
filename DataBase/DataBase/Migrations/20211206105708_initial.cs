@@ -58,7 +58,7 @@ namespace DataBase.Migrations
                 columns: table => new
                 {
                     CostumerId = table.Column<int>(name: "Costumer Id", type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1000, 1"),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(name: "First Name", type: "nvarchar(25)", maxLength: 25, nullable: false),
                     LastName = table.Column<string>(name: "Last Name", type: "nvarchar(25)", maxLength: 25, nullable: false),
                     Birthdate = table.Column<DateTime>(type: "smalldatetime", nullable: false),
@@ -155,7 +155,8 @@ namespace DataBase.Migrations
                 name: "EDIs",
                 columns: table => new
                 {
-                    EDI_Id = table.Column<int>(type: "int", nullable: false),
+                    EDI_Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Total_Weight = table.Column<double>(type: "float", nullable: false),
                     Total_Items = table.Column<int>(type: "int", nullable: false),
@@ -165,11 +166,11 @@ namespace DataBase.Migrations
                 {
                     table.PrimaryKey("PK_EDIs", x => x.EDI_Id);
                     table.ForeignKey(
-                        name: "FK_EDIs_Employees_EDI_Id",
-                        column: x => x.EDI_Id,
+                        name: "FK_EDIs_Employees_Approved_By",
+                        column: x => x.Approved_By,
                         principalTable: "Employees",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -227,6 +228,11 @@ namespace DataBase.Migrations
                 name: "IX_EDIItems_ItemsItem_ID",
                 table: "EDIItems",
                 column: "ItemsItem_ID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EDIs_Approved_By",
+                table: "EDIs",
+                column: "Approved_By");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Items_Brand Id",

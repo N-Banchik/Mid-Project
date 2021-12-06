@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using DataBase.Models;
 using System.ComponentModel;
 using UserInterface.EmployeeAbilitys;
+using UserInterface.EmployeeAbilitys.Employee;
 
 namespace UserInterface.Main
 {
@@ -46,10 +47,7 @@ namespace UserInterface.Main
             Shiftdata.ItemsSource = ME.Shifts;
         }
 
-        private void Orderwork_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private async void Close_Click(object sender, RoutedEventArgs e)
         {
@@ -62,6 +60,12 @@ namespace UserInterface.Main
         {
             PersonalInfoEdit_Employee personalInfo = new(Uow_Employee, ME);
             personalInfo.ShowDialog();
+        }
+
+        private  void NextOrder_Click(object sender, RoutedEventArgs e)
+        {
+            EDIAccept eDIAccept = new(Uow_Employee,ME);
+            eDIAccept.ShowDialog();
         }
     }
 }

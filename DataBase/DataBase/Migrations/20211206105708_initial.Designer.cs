@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataBase.Migrations
 {
     [DbContext(typeof(FactoryDbContext))]
-    [Migration("20211205144931_initial")]
+    [Migration("20211206105708_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -191,7 +191,9 @@ namespace DataBase.Migrations
             modelBuilder.Entity("DataBase.Models.EDI", b =>
                 {
                     b.Property<int>("EDI_Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int?>("Approved_By")
                         .HasColumnType("int");
@@ -206,6 +208,8 @@ namespace DataBase.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("EDI_Id");
+
+                    b.HasIndex("Approved_By");
 
                     b.ToTable("EDIs");
                 });
@@ -359,9 +363,7 @@ namespace DataBase.Migrations
                 {
                     b.HasOne("DataBase.Models.Employees", "employee")
                         .WithMany("EDIs")
-                        .HasForeignKey("EDI_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Approved_By");
 
                     b.Navigation("employee");
                 });
