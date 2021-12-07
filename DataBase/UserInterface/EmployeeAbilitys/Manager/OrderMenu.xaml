@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="EDi" Height="500" Width="900" SizeToContent="Width" >
     <Grid>
-        <DataGrid x:Name="OrderShow" Margin="0,114,0,0" FontSize="14">
+        <DataGrid x:Name="OrderShow" Margin="0,114,0,0" FontSize="14" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="EDI ID" Binding="{Binding Order_ID}" />
-                <DataGridTextColumn Header="EDI Date" Binding="{Binding Order_Date}" />
-                <DataGridTextColumn Header="Handling Employee" Binding="{Binding Employee_ID}" />
-                <DataGridTextColumn Header="Total Cost" Binding="{Binding Total_Cost}" />
-                <DataGridTextColumn Header="Total Wight" Binding="{Binding Total_Weiget}" />
+                <DataGridTextColumn Header="EDI ID" Binding="{Binding EDI_Id}" />
+                <DataGridTextColumn Header="EDI Date" Binding="{Binding Date}" />
+                <DataGridTextColumn Header="Handling Employee" Binding="{Binding employee.ID}" />
+                <DataGridTextColumn Header="Total Items" Binding="{Binding Total_Items}" />
+                <DataGridTextColumn Header="Total Wight" Binding="{Binding Total_Weight}" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>

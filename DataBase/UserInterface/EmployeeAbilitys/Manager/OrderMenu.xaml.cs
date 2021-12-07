@@ -30,13 +30,13 @@ namespace UserInterface.EmployeeAbilitys.Manager
         {
             try
             {
-                DateTime? dateTimestart = StartDate.SelectedDate == null ? StartDate.SelectedDate = DateTime.MinValue : StartDate.SelectedDate.Value;
-                DateTime? dateTimeend = EndDate.SelectedDate == null ? dateTimestart : EndDate.SelectedDate.Value;
+                DateTime? dateTimestart = StartDate.SelectedDate == null ? StartDate.SelectedDate = DateTime.Today : StartDate.SelectedDate.Value;
+                DateTime? dateTimeend = EndDate.SelectedDate == null ? StartDate.SelectedDate = DateTime.Today : EndDate.SelectedDate.Value;
                
 
                 if (EDIid.Text != string.Empty)
                 {
-                    OrderShow.ItemsSource = (System.Collections.IEnumerable)await Uow_Employee.EDI.GetById(int.Parse(EDIid.Text));
+                    OrderShow.ItemsSource = await Uow_Employee.EDI.GetByCondition(i=>i.EDI_Id==int.Parse(EDIid.Text));
                 }
                 else
                 {
@@ -54,7 +54,7 @@ namespace UserInterface.EmployeeAbilitys.Manager
         {
             try
             {
-                OrderShow.ItemsSource = await Uow_Employee.EDI.GetnotapprovedAsync();
+                OrderShow.ItemsSource = await Uow_Employee.EDI.GetAllNotapprovedAsync();
             }
             catch (Exception ex)
             {
@@ -67,6 +67,7 @@ namespace UserInterface.EmployeeAbilitys.Manager
         private void ShowEDIDetails_Click(object sender, RoutedEventArgs e)
         {
             Ordershow_manager ordershow_Manager = new(Uow_Employee,OrderShow.SelectedItem as EDI);
+            ordershow_Manager.ShowDialog();
         }
 
     }

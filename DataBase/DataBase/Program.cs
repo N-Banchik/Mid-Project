@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using System.Formats;
 using System.Text;
 using System.Threading.Tasks;
+using DataBase.Models.Connactions;
 
 namespace DataBase
 {
@@ -20,8 +21,14 @@ namespace DataBase
             FactoryDbContext context = new FactoryDbContext();
 
             List<Items> items = await context.Items.Include(i => i.Brand).Include(i => i.Category).ToListAsync();
-            await context.EDIs.AddAsync(new EDI { Date=DateTime.Now,Items=new List<Items> { items[1],items[1],items[0], items[1], items[1], items[0],items[2] },Total_Items=7,Total_Weight=45});
+            List<EDIItems> EItems = new List<EDIItems> { new EDIItems { Items = items[1], Quantity = 4 }, new EDIItems { Items = items[0], Quantity = 10 } };
+            await context.EDIs.AddAsync(new EDI { Date = DateTime.Now, Items = EItems, Total_Items = EItems.Sum(i => i.Quantity), Total_Weight = EItems.Sum(i => i.Items.Weight * i.Quantity) });
             await context.SaveChangesAsync();
+            //EDI eDI = await context.EDIs.Include(i => i.Items).ThenInclude(i => i.Items).OrderBy(i => i.Date).LastAsync();
+            //foreach (var item in eDI.Items)
+            //{
+            //    Console.WriteLine(item.Items.Item_Name);
+            //}
 
         }
         public static Task<string> Enscryption(string password, string salt)

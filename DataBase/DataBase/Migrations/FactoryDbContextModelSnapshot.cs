@@ -143,6 +143,27 @@ namespace DataBase.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("DataBase.Models.Connactions.EDIItems", b =>
+                {
+                    b.Property<int>("EDI_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Item_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("QuantityArrived")
+                        .HasColumnType("int");
+
+                    b.HasKey("EDI_Id", "Item_Id");
+
+                    b.HasIndex("Item_Id");
+
+                    b.ToTable("EIs");
+                });
+
             modelBuilder.Entity("DataBase.Models.Costumers", b =>
                 {
                     b.Property<int>("Costumer_ID")
@@ -331,21 +352,6 @@ namespace DataBase.Migrations
                     b.ToTable("Shifts");
                 });
 
-            modelBuilder.Entity("EDIItems", b =>
-                {
-                    b.Property<int>("EDIsEDI_Id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ItemsItem_ID")
-                        .HasColumnType("int");
-
-                    b.HasKey("EDIsEDI_Id", "ItemsItem_ID");
-
-                    b.HasIndex("ItemsItem_ID");
-
-                    b.ToTable("EDIItems");
-                });
-
             modelBuilder.Entity("DataBase.Models.Address_Costumers", b =>
                 {
                     b.HasOne("DataBase.Models.Costumers", "costumer")
@@ -355,6 +361,25 @@ namespace DataBase.Migrations
                         .IsRequired();
 
                     b.Navigation("costumer");
+                });
+
+            modelBuilder.Entity("DataBase.Models.Connactions.EDIItems", b =>
+                {
+                    b.HasOne("DataBase.Models.EDI", "EDI")
+                        .WithMany("Items")
+                        .HasForeignKey("EDI_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DataBase.Models.Items", "Items")
+                        .WithMany("EDIs")
+                        .HasForeignKey("Item_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EDI");
+
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("DataBase.Models.EDI", b =>
@@ -407,21 +432,6 @@ namespace DataBase.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("EDIItems", b =>
-                {
-                    b.HasOne("DataBase.Models.EDI", null)
-                        .WithMany()
-                        .HasForeignKey("EDIsEDI_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DataBase.Models.Items", null)
-                        .WithMany()
-                        .HasForeignKey("ItemsItem_ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("DataBase.Models.Address_Employees", b =>
                 {
                     b.Navigation("employee");
@@ -442,11 +452,21 @@ namespace DataBase.Migrations
                     b.Navigation("Address");
                 });
 
+            modelBuilder.Entity("DataBase.Models.EDI", b =>
+                {
+                    b.Navigation("Items");
+                });
+
             modelBuilder.Entity("DataBase.Models.Employees", b =>
                 {
                     b.Navigation("EDIs");
 
                     b.Navigation("Shifts");
+                });
+
+            modelBuilder.Entity("DataBase.Models.Items", b =>
+                {
+                    b.Navigation("EDIs");
                 });
 #pragma warning restore 612, 618
         }

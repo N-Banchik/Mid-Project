@@ -90,10 +90,8 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
             try
             {
 
-                WindowState = WindowState.Minimized;
                 ItemUpdate itemUpdate = new(Uow_Employee, ItemsShow.SelectedItem as Items);
                 itemUpdate.ShowDialog();
-                WindowState = WindowState.Normal;
                 await updateItemlistAsync();
             }
             catch (Exception ex)
@@ -126,9 +124,7 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
         private async void Additembtn_Click(object sender, RoutedEventArgs e)
         {
             Itemadd itemadd = new(Uow_Employee);
-            WindowState = WindowState.Minimized;
             itemadd.ShowDialog();
-            WindowState = WindowState.Normal;
             await updateItemlistAsync();
             Categorybox.ItemsSource = await Uow_Employee.category.GetAllAsync();
             Brandbox.ItemsSource = await Uow_Employee.brands.GetAllAsync();

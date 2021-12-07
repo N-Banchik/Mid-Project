@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using DataBase.Models.Connactions;
+
 namespace DataBase.Models
 {
    public class Items
@@ -21,6 +23,6 @@ namespace DataBase.Models
 
         public Categories Category { get; set; }
         public Brands Brand { get; set; }
-        public ICollection<EDI> EDIs { get; set; }
+        public ICollection<EDIItems> EDIs { get; set; }
     }
 }

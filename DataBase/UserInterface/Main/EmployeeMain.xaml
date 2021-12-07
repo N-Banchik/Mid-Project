@@ -11,8 +11,12 @@
         <Button x:Name="GetShifts" Content="See all my shifts" Click="GetShifts_Click" HorizontalAlignment="Left" Margin="656,30,0,0" VerticalAlignment="Top" Height="68" Width="134"/>
         <Button x:Name="NextOrder" Content="Fulfill next EDI" Click="NextOrder_Click" HorizontalAlignment="Left" Margin="360,30,0,0" VerticalAlignment="Top" Height="68" Width="134"/>
         <Button x:Name="Close" Content="Close and end Shift" Click="Close_Click" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Height="53" Width="113" Background="#FFF17E7E"/>
-        <DataGrid x:Name="Shiftdata" VerticalAlignment="Top" Height="290" Margin="0,191,0,0">
-
+        <DataGrid x:Name="Shiftdata" VerticalAlignment="Top" Height="290" Margin="0,191,0,0" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Shift start" Binding="{Binding Shift_Start, Mode=OneWay}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Shift_End" Binding="{Binding Shift_End}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Total_Time" Binding="{Binding Total_Time}" IsReadOnly="True" />
+            </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="EditInfo" Content="Edit personal info" Click="EditInfo_Click" HorizontalAlignment="Left" Margin="508,30,0,0" VerticalAlignment="Top" Height="68" Width="134"/>
 

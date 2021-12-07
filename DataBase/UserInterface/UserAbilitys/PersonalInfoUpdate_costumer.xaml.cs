@@ -65,7 +65,7 @@ namespace UserInterface.UserAbilitys
                     }
                 }
 
-                
+
 
 
 
@@ -94,7 +94,13 @@ namespace UserInterface.UserAbilitys
         {
             try
             {
-                await unitOfWork_.addressCostumer.Delete((Addressgrid.SelectedItem as Address_Costumers).Address_ID);
+                Address_Costumers del = Addressgrid.SelectedItem as Address_Costumers;
+                if (del==null)
+                {
+                    MessageBox.Show("Cannot delete an empty address");
+                    return;
+                }
+                await unitOfWork_.addressCostumer.Delete(del.Address_ID);
                 await unitOfWork_.CompleteAsync();
                 Addressgrid.ItemsSource = null;
                 Addressgrid.ItemsSource = ME.Address;
@@ -111,7 +117,13 @@ namespace UserInterface.UserAbilitys
         {
             try
             {
-                await unitOfWork_.addressCostumer.UpdateAddressAsync(Addressgrid.SelectedItem as Address_Costumers);
+                Address_Costumers update = Addressgrid.SelectedItem as Address_Costumers;
+                if (update == null)
+                {
+                    MessageBox.Show("Cannot update an empty address");
+                    return;
+                }
+                await unitOfWork_.addressCostumer.UpdateAddressAsync(update);
                 await unitOfWork_.CompleteAsync();
                 Addressgrid.ItemsSource = null;
                 Addressgrid.ItemsSource = ME.Address;
@@ -131,6 +143,16 @@ namespace UserInterface.UserAbilitys
             {
 
                 Address_Costumers toadd = Addressgrid.SelectedItem as Address_Costumers;
+                if (toadd==null)
+                {
+                    MessageBox.Show("Cannot update an empty address");
+                    return;
+                }
+                if (toadd.Street_Name==null|| toadd.Street_Name==string.Empty||toadd.City==null|| toadd.City == string.Empty)
+                {
+                    MessageBox.Show("not all fields are full. please try again");
+                    return;
+                }
                 ME.Address.Add(toadd);
                 await unitOfWork_.CompleteAsync();
             }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DataBase.Models;
 using DataBase.Model_Config;
+using DataBase.Models.Connactions;
 
 namespace DataBase.Context
 {
@@ -25,6 +26,7 @@ namespace DataBase.Context
         public DbSet<Items> Items { get; set; }
         public DbSet<Shifts> Shifts { get; set; }
         public DbSet<EDI> EDIs { get; set; }
+        public DbSet<EDIItems> EIs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -49,6 +51,7 @@ namespace DataBase.Context
             modelBuilder.ApplyConfiguration(new Items_Config());
             modelBuilder.ApplyConfiguration(new Shifts_config());
             modelBuilder.ApplyConfiguration(new EDI_Config());
+            modelBuilder.ApplyConfiguration(new EI_Config());
         }
     }
 

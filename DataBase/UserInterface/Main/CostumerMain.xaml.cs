@@ -38,21 +38,21 @@ namespace UserInterface.Main
 
         private void Neworder_Click(object sender, RoutedEventArgs e)
         {
-            Neworder order = new Neworder(unitOfWork_,ME);
-            order.ShowDialog();
+            MessageBox.Show("Sorry :( not implemented ");
+
         }
 
-        private async void Showorders_Click(object sender, RoutedEventArgs e)
+        private void Showorders_Click(object sender, RoutedEventArgs e)
         {
             try
             {
 
-               
+                MessageBox.Show("Sorry :( not implemented ");
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
+
             }
 
         }
@@ -66,7 +66,8 @@ namespace UserInterface.Main
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Thank you come again");
+            Close();
         }
     }
 }

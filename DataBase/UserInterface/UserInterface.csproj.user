@@ -73,9 +73,6 @@
     <Compile Update="Main\ManagerMain.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserAbilitys\Neworder.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="UserAbilitys\OrderShow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -154,9 +151,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Main\ManagerMain.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="UserAbilitys\Neworder.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserAbilitys\OrderShow.xaml">

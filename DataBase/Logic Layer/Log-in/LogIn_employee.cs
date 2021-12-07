@@ -19,12 +19,12 @@ namespace Logic_Layer.Log_in
             this.employee = new UnitOfWork_Employee();
         }
 
-        public async Task<bool> ChackIfExsistsAsync(string Username)
+        public async Task<bool> ChackIfExsistsAsync(string Email)
         {
             try
             {
-                return int.TryParse(Username, out int id)
-                    ? await employee.employee.GetById(int.Parse(Username)) != null
+                return int.TryParse(Email, out int id)
+                    ? await employee.employee.GetById(int.Parse(Email)) != null
                     : throw new Exception("ID not a number!");
 
             }
@@ -58,11 +58,11 @@ namespace Logic_Layer.Log_in
             }
         }
 
-        public async Task<Employees> LogInAsync(string Username, string password)
+        public async Task<Employees> LogInAsync(string Email, string password)
         {
             try
             {
-                return await employee.employee.GetOneByCondition(i => i.Email == Username && i.Password == Enscryption(password, Username));
+                return await employee.employee.GetOneByCondition(i => i.Email == Email && i.Password == Enscryption(password, Email));
 
             }
             catch (Exception)

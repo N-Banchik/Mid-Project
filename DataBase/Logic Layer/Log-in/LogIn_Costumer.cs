@@ -19,12 +19,12 @@ namespace Logic_Layer.Log_in
             this.costumer = new UnitOfWork_Costumer();
         }
 
-        public async Task<Costumers> LogInAsync(string Username, string password)
+        public async Task<Costumers> LogInAsync(string Email, string password)
         {
             try
             {
 
-                return await costumer.costumer.GetOneByCondition(i => i.Email == Username && i.Password == Enscryption(password, Username));
+                return await costumer.costumer.GetOneByCondition(i => i.Email == Email && i.Password == Enscryption(password, Email));
 
             }
 
@@ -35,12 +35,12 @@ namespace Logic_Layer.Log_in
             }
         }
 
-        public async Task<bool> ChackIfExsistsAsync(string Username)
+        public async Task<bool> ChackIfExsistsAsync(string Email)
         {
             try
             {
 
-                return await costumer.costumer.GetOneByCondition(i => i.Email == Username) != null;
+                return await costumer.costumer.GetOneByCondition(i => i.Email == Email) != null;
 
             }
             catch (Exception)
@@ -50,9 +50,9 @@ namespace Logic_Layer.Log_in
             }
         }
 
-        public async Task RegistarAsync(string streetname, int housenumber, int apt, int zipcode, string city, string first, string last, DateTime Birth, string Pass, string phone, bool manager, string email)
+        public async Task RegistarAsync(string streetname, int housenumber, int apt, int zipcode, string city, string first, string last, DateTime Birth, string Pass, string phone, bool manager, string Email)
         {
-            await costumer.costumer.AddnewCostumer(first, last, Birth, email, Enscryption(Pass, email), phone, costumer.addressCostumer.AddNewAddressAsync(streetname, housenumber, apt, zipcode, city));
+            await costumer.costumer.AddnewCostumer(first, last, Birth, Email, Enscryption(Pass, Email), phone, costumer.addressCostumer.AddNewAddressAsync(streetname, housenumber, apt, zipcode, city));
             await costumer.CompleteAsync();
 
         }
@@ -62,13 +62,13 @@ namespace Logic_Layer.Log_in
             return new ToHash().HashString(password, salt);
         }
 
-        public async Task ChangePasswordasync(string email, string newpass)
+        public async Task ChangePasswordasync(string Email, string newpass)
         {
             try
             {
                 
 
-                    await costumer.costumer.UpdatePasswordAsync(email, Enscryption(newpass, email));
+                    await costumer.costumer.UpdatePasswordAsync(Email, Enscryption(newpass, Email));
 
                 
                 

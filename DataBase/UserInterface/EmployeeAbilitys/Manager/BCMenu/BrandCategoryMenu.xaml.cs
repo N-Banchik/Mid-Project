@@ -34,34 +34,26 @@ namespace UserInterface.EmployeeAbilitys.Manager.BCMenu
         private void updateBtnBrand_Click(object sender, RoutedEventArgs e)
         {
             BrandUpdate brandUpdate = new(Uow_Employee, Brands.SelectedItem as Brands);
-            WindowState = WindowState.Minimized;
             brandUpdate.ShowDialog();
-            WindowState = WindowState.Normal;
 
         }
 
         private void updateBtnCategory_Click(object sender, RoutedEventArgs e)
         {
             CategoryUpdate categoryUpdate = new(Uow_Employee, Category.SelectedItem as Categories);
-            WindowState = WindowState.Minimized;
             categoryUpdate.ShowDialog();
-            WindowState = WindowState.Normal;
         }
 
         private void AddBrands_Click(object sender, RoutedEventArgs e)
         {
             BrandAdd BrandAdd = new(Uow_Employee, new Brands());
-            WindowState = WindowState.Minimized;
             BrandAdd.ShowDialog();
-            WindowState = WindowState.Normal;
         }
 
         private void Addcategory_Click(object sender, RoutedEventArgs e)
         {
             CategoryAdd categoryAdd = new(Uow_Employee, new Categories());
-            WindowState = WindowState.Minimized;
             categoryAdd.ShowDialog();
-            WindowState = WindowState.Normal;
         }
 
         private async void SeeBrands_Click(object sender, RoutedEventArgs e)

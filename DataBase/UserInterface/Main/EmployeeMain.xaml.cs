@@ -17,6 +17,7 @@ using DataBase.Models;
 using System.ComponentModel;
 using UserInterface.EmployeeAbilitys;
 using UserInterface.EmployeeAbilitys.Employee;
+using System.Collections.ObjectModel;
 
 namespace UserInterface.Main
 {
@@ -44,7 +45,7 @@ namespace UserInterface.Main
 
         private  void GetShifts_Click(object sender, RoutedEventArgs e)
         {
-            Shiftdata.ItemsSource = ME.Shifts;
+            Shiftdata.ItemsSource = ME.Shifts.ToList().Where(i=>i.Shift_Start.Month==DateTime.Today.Month);
         }
 
         

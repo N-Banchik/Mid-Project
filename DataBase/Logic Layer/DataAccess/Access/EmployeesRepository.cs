@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using DataBase.Models;
@@ -24,6 +25,19 @@ namespace Logic_Layer.DataAccess.Access
             await base.Add(Toadd);
 
 
+        }
+        public override async Task<ICollection<Employees>> GetByCondition(Expression<Func<Employees, bool>> predicate)
+        {
+            return await dbSet.Include(i => i.Address).Include(i => i.Shifts).Where(predicate).ToListAsync();
+        }
+
+        public override async Task<ICollection<Employees>> GetAllAsync()
+        {
+            return await dbSet.Include(i => i.Address).Include(i => i.Shifts).ToListAsync();
+        }
+        public override async Task<Employees> GetOneByCondition(Expression<Func<Employees, bool>> predicate)
+        {
+            return await dbSet.Include(i => i.Address).Include(i => i.Shifts).Where(predicate).FirstOrDefaultAsync();
         }
 
         public async Task UpdatePasswordAsync(string email, string newpass)

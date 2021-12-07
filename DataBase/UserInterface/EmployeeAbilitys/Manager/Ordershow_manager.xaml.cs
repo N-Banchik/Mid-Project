@@ -1,7 +1,9 @@
 ﻿using DataBase.Models;
+using DataBase.Models.Connactions;
 using Logic_Layer.DataAccess.Access;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,9 +37,8 @@ namespace UserInterface.EmployeeAbilitys.Manager
 
         private void Showitems(object sender, EventArgs e)
         {
-
-            ItemsShow.ItemsSource = _EDI.Items.GroupBy(n => n.Item_Name)
-                    .Select(c => new { Key = c.Key, total = c.Count() });
+            ObservableCollection<EDIItems> itm = new ObservableCollection<EDIItems>(_EDI.Items.ToList());
+            ItemsShow.ItemsSource =itm;
 
         }
     }

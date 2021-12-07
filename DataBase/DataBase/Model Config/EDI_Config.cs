@@ -16,7 +16,7 @@ namespace DataBase.Model_Config
         {
             builder.HasKey(i => i.EDI_Id);
             builder.HasOne(i => i.employee).WithMany(i => i.EDIs).HasForeignKey(i=>i.Approved_By);
-            builder.HasMany(i => i.Items).WithMany(i => i.EDIs);
+            
         }
     }
 }

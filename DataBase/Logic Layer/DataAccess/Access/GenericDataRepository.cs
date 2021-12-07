@@ -50,7 +50,7 @@ namespace Logic_Layer.DataAccess.Access
             return await dbSet.FindAsync(Id);
         }
 
-        public async Task<T> GetOneByCondition(Expression<Func<T, bool>> predicate)
+        public virtual async Task<T> GetOneByCondition(Expression<Func<T, bool>> predicate)
         {
             return await dbSet.Where(predicate).FirstOrDefaultAsync();
         }

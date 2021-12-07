@@ -54,7 +54,7 @@ namespace UserInterface.LogIn
                     }
                     else
                     {
-                        MessageBox.Show("Username and Password combination is incorrect,please try again", "Information Error", MessageBoxButton.OK);
+                        MessageBox.Show("Email and Password combination is incorrect,please try again", "Information Error", MessageBoxButton.OK);
                     }
                 }
                 catch (Exception ex)
