@@ -40,7 +40,7 @@ namespace UserInterface.EmployeeAbilitys.Manager
             {
 
                 List<Items> items = (List<Items>)await Unit_Employee.items.GetItemsToOrderAsync();
-                items.ForEach(i => ToView.Add(new EDIItems { Items = i, Quantity = 0 }));
+                items.ForEach(i => ToView.Add(new EDIItems { Items = i, Quantity = i.Minimum_Units_In_Inventory-i.Units_In_Inventory }));
                 Restockgrid.ItemsSource = ToView;
 
             }
@@ -86,7 +86,7 @@ namespace UserInterface.EmployeeAbilitys.Manager
                 ToView = null;
                 await Unit_Employee.EDI.NewEDIAsync(ToOrder);
                 await Unit_Employee.CompleteAsync();
-
+                Close();
             }
             catch (Exception ex)
             {

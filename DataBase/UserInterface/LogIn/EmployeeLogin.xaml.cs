@@ -42,7 +42,15 @@ namespace UserInterface.LogIn
             {
                 try
                 {
-                    var employee = await log.LogInAsync(UsernameText.Text, passwordText.Password);
+                    foreach (var Tbox in WinGrid.Children.OfType<TextBox>())
+                    {
+                        if (Tbox.Text == string.Empty)
+                        {
+                            MessageBox.Show("Email and Password Cannot be empty");
+                            return;
+                        }
+                    }
+                    var employee = await log.LogInAsync(Email_Text.Text, passwordText.Password);
                     if (employee != null)
                     {
                         if (employee.Is_Manager == 1)
@@ -61,7 +69,7 @@ namespace UserInterface.LogIn
                     }
                     else
                     {
-                        MessageBox.Show("Username and Password combination is incorrect,please try again", "Information Error", MessageBoxButton.OK);
+                        MessageBox.Show("Email and Password combination is incorrect,please try again", "Information Error", MessageBoxButton.OK);
                     }
                 }
                 catch (Exception ex)

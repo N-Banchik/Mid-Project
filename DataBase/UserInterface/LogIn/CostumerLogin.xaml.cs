@@ -44,7 +44,15 @@ namespace UserInterface.LogIn
             {
                 try
                 {
-                    var costumer = await log.LogInAsync(UsernameText.Text, passwordText.Password);
+                    foreach (var Tbox in WinGrid.Children.OfType<TextBox>())
+                    {
+                        if (Tbox.Text == string.Empty)
+                        {
+                            MessageBox.Show("Email and Password Cannot be empty");
+                            return;
+                        }
+                    }
+                    var costumer = await log.LogInAsync(Email_Text.Text, passwordText.Password);
                     if (costumer!=null)
                     {
                         CostumerMain main = new(log.costumer, costumer);

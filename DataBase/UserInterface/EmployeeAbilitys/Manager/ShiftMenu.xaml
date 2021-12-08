@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager"
         mc:Ignorable="d"
-        Title="ShiftMenu" Height="450" Width="800">
+        Title="Shifts Menu" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="ShiftShow" Margin="0,151,0,0" FontSize="14" AutoGenerateColumns="False" >
+        <DataGrid x:Name="ShiftShow" Margin="0,151,0,0" FontSize="14" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Employee.ID}" />
                 <DataGridTextColumn Header="First Name" Binding="{Binding Employee.First_Name}" />

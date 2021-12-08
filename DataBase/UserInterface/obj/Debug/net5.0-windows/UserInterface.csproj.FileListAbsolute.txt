@@ -86,10 +86,6 @@ D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbili
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\User_viewOrders.baml
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\ShiftMenu.g.cs
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\ShiftMenu.baml
-D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\OrderMenu.g.cs
-D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\Ordershow_manager.g.cs
-D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\OrderMenu.baml
-D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\Ordershow_manager.baml
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\ItemsMenu\Itemmenu.g.cs
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\ItemsMenu\Itemmenu.baml
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\ItemsMenu\Itemadd.g.cs
@@ -120,3 +116,7 @@ D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeA
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Employee\EDIAccept.baml
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\RestockMenu.g.cs
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\RestockMenu.baml
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\EDIMenu.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\EDIShow_manager.g.cs
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\EDIMenu.baml
+D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\EDIShow_manager.baml

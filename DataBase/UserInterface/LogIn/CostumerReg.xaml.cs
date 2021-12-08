@@ -39,16 +39,30 @@ namespace UserInterface.LogIn
                 }
                 else
                 {
-                    await log.RegistarAsync(Streetname.Text,int.Parse(Housenumber.Text), int.Parse(APT.Text), int.Parse(Zip.Text),City.Text,Firstname.Text,Lastname.Text,Bdate.SelectedDate.Value.Date,Password.Password,Phonenumber.Text,false,Email.Text);
-                    MessageBox.Show($"User Created! Please log in now","Congratulation",MessageBoxButton.OK);
+                    if (Password.Password.Length < 8 || Password.Password.Length > 12)
+                    {
+                        MessageBox.Show("Password Must be between 8-12 characters! ");
+                        Password.Clear();
+                        return;
+                    }
+                    foreach (var Tbox in WinGrid.Children.OfType<TextBox>())
+                    {
+                        if (Tbox.Text == string.Empty)
+                        {
+                            MessageBox.Show("Cannot leave empty fields!");
+                            return;
+                        }
+                    }
+                    await log.RegistarAsync(Streetname.Text, int.Parse(Housenumber.Text), int.Parse(APT.Text), int.Parse(Zip.Text), City.Text, Firstname.Text, Lastname.Text, Bdate.SelectedDate.Value.Date, Password.Password, Phonenumber.Text, false, Email.Text);
+                    MessageBox.Show($"User Created! Please log in now", "Congratulation", MessageBoxButton.OK);
                     Close();
-                    
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                
+
             }
         }
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Employee"
         mc:Ignorable="d"
-        Title="EDIAccept" Height="450" Width="590">
+        Title="EDI Accept" Height="450" Width="590">
     <Grid>
         <DataGrid x:Name="ViewGrid" Margin="0,94,0,0" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" Background="White">
             <DataGrid.Columns>

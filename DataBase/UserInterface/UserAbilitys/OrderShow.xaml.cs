@@ -18,14 +18,14 @@ using Logic_Layer.DataAccess.Access;
 namespace UserInterface.UserAbilitys
 {
     /// <summary>
-    /// Interaction logic for OrderShow.xaml
+    /// Interaction logic for EDIShow.xaml
     /// </summary>
-    public partial class OrderShow : Page
+    public partial class EDIShow : Page
     {
         private Orders order;
         private UnitOfWork_Costumer unit;
 
-        public OrderShow(UnitOfWork_Costumer _unit, Orders order)
+        public EDIShow(UnitOfWork_Costumer _unit, Orders order)
         {
             unit = _unit;
             this.order = order;

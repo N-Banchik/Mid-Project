@@ -37,10 +37,10 @@
     <Compile Update="EmployeeAbilitys\Manager\ItemsMenu\ItemUpdate.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EmployeeAbilitys\Manager\OrderMenu.xaml.cs">
+    <Compile Update="EmployeeAbilitys\Manager\EDIMenu.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EmployeeAbilitys\Manager\Ordershow_manager.xaml.cs">
+    <Compile Update="EmployeeAbilitys\Manager\EDIShow_manager.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EmployeeAbilitys\Manager\RestockMenu.xaml.cs">
@@ -117,10 +117,10 @@
     <Page Update="EmployeeAbilitys\Manager\ItemsMenu\ItemUpdate.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="EmployeeAbilitys\Manager\OrderMenu.xaml">
+    <Page Update="EmployeeAbilitys\Manager\EDIMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="EmployeeAbilitys\Manager\Ordershow_manager.xaml">
+    <Page Update="EmployeeAbilitys\Manager\EDIShow_manager.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EmployeeAbilitys\Manager\RestockMenu.xaml">

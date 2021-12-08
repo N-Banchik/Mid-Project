@@ -25,7 +25,7 @@ namespace Logic_Layer.DataAccess.Access
 
         public async Task<List<EDI>> GetbyDateAsync(DateTime fromdate, DateTime TO)
         {
-            return await dbSet.Include(i => i.employee).Include(i => i.Items).ThenInclude(i => i.Items).Where(i => i.Date >= fromdate && i.Date >= TO).ToListAsync();
+            return await dbSet.Include(i => i.employee).Include(i => i.Items).ThenInclude(i => i.Items).Where(i => i.Date.Date >= fromdate.Date && i.Date.Date <= TO.Date).ToListAsync();
         }
         public async override Task<EDI> GetById(int Id)
         {

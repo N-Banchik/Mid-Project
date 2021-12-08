@@ -1,13 +1,13 @@
-﻿<Window x:Class="UserInterface.EmployeeAbilitys.Manager.OrderMenu"
+﻿<Window x:Class="UserInterface.EmployeeAbilitys.Manager.EDIMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager"
         mc:Ignorable="d"
-        Title="EDi" Height="500" Width="900" SizeToContent="Width" >
+        Title="EDI Menu" Height="500" Width="900" SizeToContent="Width" >
     <Grid>
-        <DataGrid x:Name="OrderShow" Margin="0,114,0,0" FontSize="14" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="EDIShow" Margin="0,114,0,0" FontSize="14" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="EDI ID" Binding="{Binding EDI_Id}" />
                 <DataGridTextColumn Header="EDI Date" Binding="{Binding Date}" />

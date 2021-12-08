@@ -26,9 +26,32 @@ namespace UserInterface.EmployeeAbilitys.Manager.Employeemenu
         {
             try
             {
-                await log.RegistarAsync(Streetname.Text, int.Parse(Housenumber.Text), int.Parse(APT.Text), int.Parse(Zip.Text), City.Text, Firstname.Text, Lastname.Text, Bdate.SelectedDate.Value.Date, Password.Password, Phonenumber.Text, CheckManager.IsChecked.Value, Email.Text);
-                MessageBox.Show($"User Created");
-                Close();
+                if (await log.ChackIfExsistsAsync(Email.Text))
+                {
+                    MessageBox.Show("Costumer already exists with this Email");
+
+                }
+                else
+                {
+                    if (Password.Password.Length < 8 || Password.Password.Length > 12)
+                    {
+                        MessageBox.Show("Password Must be between 8-12 characters! ");
+                        Password.Clear();
+                        return;
+                    }
+                    foreach (var Tbox in WinGrid.Children.OfType<TextBox>())
+                    {
+                        if (Tbox.Text == string.Empty)
+                        {
+                            MessageBox.Show("Cannot leave empty fields!");
+                            return;
+                        }
+                    }
+                    await log.RegistarAsync(Streetname.Text, int.Parse(Housenumber.Text), int.Parse(APT.Text), int.Parse(Zip.Text)
+                    , City.Text, Firstname.Text, Lastname.Text, Bdate.SelectedDate.Value.Date, Password.Password, Phonenumber.Text, CheckManager.IsChecked.Value, Email.Text);
+                    MessageBox.Show($"User Created");
+                    Close();
+                }
             }
             catch (Exception ex)
             {

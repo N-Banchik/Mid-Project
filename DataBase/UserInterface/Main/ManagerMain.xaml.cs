@@ -45,10 +45,10 @@ namespace UserInterface.Main
             shift.ShowDialog();
         }
 
-        private void OrderMenu_Click(object sender, RoutedEventArgs e)
+        private void EDIMenu_Click(object sender, RoutedEventArgs e)
         {
-            OrderMenu orderMenu = new(Unit_Employee);
-            orderMenu.ShowDialog();
+            EDIMenu EDIMenu = new(Unit_Employee);
+            EDIMenu.ShowDialog();
         }
 
         private void ItemMenu_Click(object sender, RoutedEventArgs e)

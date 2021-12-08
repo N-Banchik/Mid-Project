@@ -33,7 +33,7 @@ namespace UserInterface.UserAbilitys
             try
             {
 
-                OrderShow order = new(unitOfWork_, OrderViewer.SelectedCells as Orders);
+                EDIShow order = new(unitOfWork_, OrderViewer.SelectedCells as Orders);
                 Window temp = new();
                 temp.Content = order;
                 temp.ShowDialog();

@@ -76,10 +76,17 @@ namespace UserInterface.EmployeeAbilitys.Manager
 
         private async void Employeeinfo_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
-            EmpMenu empMenu = new(Unit_Employee);
-            empMenu.IDBox.Text = (ShiftShow.SelectedItem as Employees).ID.ToString();
-            empMenu.UserShow.ItemsSource = (await Unit_Employee.employee.GetByCondition(i => i.ID == (ShiftShow.SelectedItem as Employees).ID));
+                PersonalInfoEdit_Employee PE = new(Unit_Employee, await Unit_Employee.employee.GetById((ShiftShow.SelectedItem as Shifts).Employee_ID));
+                PE.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

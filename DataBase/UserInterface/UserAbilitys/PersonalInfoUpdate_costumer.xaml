@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.UserAbilitys"
         mc:Ignorable="d"
-        Title="PersonalInfoUpdate_costumer" Height="450" Width="800" ContentRendered="Window_ContentRendered">
-    <Grid>
+        Title="Update Personal Info" Height="450" Width="800" ContentRendered="Window_ContentRendered">
+    <Grid x:Name="WinGrid">
         <TextBox x:Name="FirstNamebox" HorizontalAlignment="Left" Margin="164,31,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="19"/>
         <TextBox x:Name="Lastnamebox" HorizontalAlignment="Left" Margin="164,70,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="18"/>
         <TextBox x:Name="Emailbox" HorizontalAlignment="Left" Margin="164,101,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Height="18"/>

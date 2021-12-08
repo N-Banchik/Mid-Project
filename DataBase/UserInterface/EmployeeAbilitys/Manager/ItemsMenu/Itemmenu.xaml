@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager.ItemsMenu"
         mc:Ignorable="d"
-        Title="Itemmenu" Height="450" Width="800">
+        Title="Item Menu" Height="450" Width="800">
     <Grid>
         <ComboBox x:Name="Categorybox" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" Width="120" Loaded="Categorybox_Loaded" DisplayMemberPath="Category_Name" SelectedValuePath="Category_Name" />
         <ComboBox x:Name="Brandbox" HorizontalAlignment="Left" Margin="164,49,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Brand_Name" SelectedValuePath="Brand_Name"/>
@@ -14,7 +14,7 @@
         <Label Content="Brand" HorizontalAlignment="Left" Margin="164,18,0,0" VerticalAlignment="Top" Width="67"/>
         <TextBox x:Name="Itemname" HorizontalAlignment="Left" Margin="333,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22" BorderBrush="Black"/>
         <Button x:Name="search" Click="search_Click" Content="search" HorizontalAlignment="Left" Margin="30,95,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="ItemsShow" Margin="0,141,0,0" AutoGenerateColumns="False" >
+        <DataGrid x:Name="ItemsShow" Margin="0,141,0,0" AutoGenerateColumns="False" CanUserAddRows="False" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Item ID" Binding="{Binding Item_ID}" />
                 <DataGridTextColumn Header="item name" Binding="{Binding Item_Name}" />

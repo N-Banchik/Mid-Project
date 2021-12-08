@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager.Employeemenu"
         mc:Ignorable="d"
-        Title="EmpMenu" Height="450" Width="800">
+        Title="Employees Menu" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="UserShow" Margin="0,140,0,0" AutoGenerateColumns="False"  CanUserAddRows="False" >
             <DataGrid.Columns>

@@ -31,9 +31,12 @@ namespace UserInterface.EmployeeAbilitys.Manager.Employeemenu
         }
 
 
-        private void EmpOrders_Click(object sender, RoutedEventArgs e)
+        private async void EmpOrders_Click(object sender, RoutedEventArgs e)
         {
+            EDIMenu eDI = new(Unit_Employee);
 
+            eDI.EDIShow.ItemsSource = await Unit_Employee.EDI.GetByCondition(i => i.employee.ID == (UserShow.SelectedItem as Employees).ID);
+            eDI.Show();
         }
 
         private async void ShowUers_Click(object sender, RoutedEventArgs e)

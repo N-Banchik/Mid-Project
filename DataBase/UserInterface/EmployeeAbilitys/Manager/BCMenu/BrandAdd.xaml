@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager.BCMenu"
         mc:Ignorable="d"
-        Title="BrandAdd" Height="350" Width="300">
+        Title="Add Brand" Height="350" Width="300">
     <Grid>
         <Button x:Name="Add" Content="Add" HorizontalAlignment="Center" Click="Add_Click" Margin="0,235,0,0" VerticalAlignment="Top" Height="43" Width="102"/>
         <Label Content="Brand Name" HorizontalAlignment="Left" Margin="65,61,0,0" VerticalAlignment="Top" Height="33" Width="100"/>

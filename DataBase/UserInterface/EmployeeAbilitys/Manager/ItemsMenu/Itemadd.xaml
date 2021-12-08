@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager.ItemsMenu"
         mc:Ignorable="d"
-        Title="Item add" Height="450" Width="362">
-    <Grid HorizontalAlignment="Center" >
+        Title="Add Item" Height="450" Width="362">
+    <Grid x:Name="WinGrid" HorizontalAlignment="Center" >
         <ComboBox x:Name="Categorybox" Loaded="Categorybox_Loaded" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Category_Name"/>
         <ComboBox x:Name="Brandbox" HorizontalAlignment="Left" Margin="196,265,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Brand_Name" />
         <TextBox x:Name="Name" HorizontalAlignment="Left" Margin="10,65,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

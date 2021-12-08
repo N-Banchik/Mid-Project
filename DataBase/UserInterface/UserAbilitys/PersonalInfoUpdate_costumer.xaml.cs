@@ -81,6 +81,14 @@ namespace UserInterface.UserAbilitys
 
         private async void Updatebtn_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var Tbox in WinGrid.Children.OfType<TextBox>())
+            {
+                if (Tbox.Text == string.Empty)
+                {
+                    MessageBox.Show("Cannot leave empty fields!");
+                    return;
+                }
+            }
             ME.First_Name = FirstNamebox.Text;
             ME.last_Name = Lastnamebox.Text;
             ME.Email = Emailbox.Text;

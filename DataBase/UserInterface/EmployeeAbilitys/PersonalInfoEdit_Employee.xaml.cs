@@ -46,7 +46,7 @@ namespace UserInterface.EmployeeAbilitys
 
         private async void Updatebtn_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var Tbox in MYGrid.Children.OfType<TextBox>())
+            foreach (var Tbox in WinGrid.Children.OfType<TextBox>())
             {
                 if (Tbox.Text==string.Empty)
                 {

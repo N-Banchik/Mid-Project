@@ -42,6 +42,14 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
         {
             try
             {
+                foreach (var Tbox in WinGrid.Children.OfType<TextBox>())
+                {
+                    if (Tbox.Text == string.Empty)
+                    {
+                        MessageBox.Show("Cannot leave empty fields!");
+                        return;
+                    }
+                }
                 _Item.Item_Name = Name.Text;
                 _Item.Price = double.Parse(Price.Text);
                 _Item.Weight = double.Parse(Wight.Text);

@@ -19,14 +19,14 @@ using System.Windows.Shapes;
 namespace UserInterface.EmployeeAbilitys.Manager
 {
     /// <summary>
-    /// Interaction logic for Ordershow_manager.xaml
+    /// Interaction logic for EDIShow_manager.xaml
     /// </summary>
-    public partial class Ordershow_manager : Window
+    public partial class EDIShow_manager : Window
     {
         private UnitOfWork_Employee unit;
         private EDI _EDI;
 
-        public Ordershow_manager(UnitOfWork_Employee _unit, EDI edi)
+        public EDIShow_manager(UnitOfWork_Employee _unit, EDI edi)
         {
             unit = _unit;
             _EDI = edi;
