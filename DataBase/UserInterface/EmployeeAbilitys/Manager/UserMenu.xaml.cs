@@ -21,12 +21,12 @@ namespace UserInterface.EmployeeAbilitys.Manager
     /// </summary>
     public partial class UserMenu : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         List<Address_Costumers> _Address_Costumers;
         List<Costumers> _costumers;
         public UserMenu(UnitOfWork_Employee Employee)
         {
-            Uow_Employee = Employee;
+            Unit_Employee = Employee;
             InitializeComponent();
         }
 
@@ -38,8 +38,8 @@ namespace UserInterface.EmployeeAbilitys.Manager
 
         private async void ShowUers_Click(object sender, RoutedEventArgs e)
         {
-            _Address_Costumers = (List<Address_Costumers>)await Uow_Employee.addressCostumer.GetAllAsync();
-            _costumers = (List<Costumers>)await Uow_Employee.costumer.GetAllAsync();
+            _Address_Costumers = (List<Address_Costumers>)await Unit_Employee.addressCostumer.GetAllAsync();
+            _costumers = (List<Costumers>)await Unit_Employee.costumer.GetAllAsync();
             if (IDBox.Text != string.Empty)
             {
                 UserShow.ItemsSource = _costumers.Where(i => i.Costumer_ID == int.Parse(IDBox.Text));

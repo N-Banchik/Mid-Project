@@ -24,7 +24,7 @@ namespace UserInterface.EmployeeAbilitys.Employee
     /// </summary>
     public partial class EDIAccept : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         private Employees _employee;
         private EDI edi;
         private ObservableCollection<EDIItems> _items = new ObservableCollection<EDIItems>();
@@ -32,7 +32,7 @@ namespace UserInterface.EmployeeAbilitys.Employee
         public EDIAccept(UnitOfWork_Employee UoWemployee, Employees employee)
         {
             InitializeComponent();
-            Uow_Employee = UoWemployee;
+            Unit_Employee = UoWemployee;
             _employee = employee;
             ContentRendered += Getedi;
             ViewGrid.BeginningEdit += Beginedit;
@@ -60,7 +60,7 @@ namespace UserInterface.EmployeeAbilitys.Employee
             try
             {
 
-                edi = await Uow_Employee.EDI.GetNextWorkEDIAsync();
+                edi = await Unit_Employee.EDI.GetNextWorkEDIAsync();
                 edi.Items.ToList().ForEach((i) => itm.Add(i));
                 ViewGrid.ItemsSource = itm;
                 EmployeeName.Text = $"{_employee.First_Name} {_employee.last_Name}";
@@ -86,10 +86,10 @@ namespace UserInterface.EmployeeAbilitys.Employee
                 }
                 foreach (EDIItems item in _items)
                 {
-                    await Uow_Employee.items.UpdateInventoryAsync(item.Item_Id, item.QuantityArrived.Value);
+                    await Unit_Employee.items.UpdateInventoryAsync(item.Item_Id, item.QuantityArrived.Value);
                 }
                 edi.employee = _employee;
-                await Uow_Employee.CompleteAsync();
+                await Unit_Employee.CompleteAsync();
                 Close();
 
             }
@@ -120,8 +120,12 @@ namespace UserInterface.EmployeeAbilitys.Employee
                     }
                 }
                 _items.Add(ViewGrid.SelectedItem as EDIItems);
-                Button button = (Button)e.Source;
-                button.IsEnabled = false;
+                DataGridRow row = null;
+                foreach (EDIItems dataobject in this.ViewGrid.SelectedItems)
+                {
+                    row = this.ViewGrid.ItemContainerGenerator.ContainerFromItem(dataobject) as DataGridRow;
+                    row.IsEnabled = false;
+                }
 
             }
             catch (Exception ex)

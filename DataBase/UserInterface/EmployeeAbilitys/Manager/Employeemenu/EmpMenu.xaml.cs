@@ -21,49 +21,58 @@ namespace UserInterface.EmployeeAbilitys.Manager.Employeemenu
     /// </summary>
     public partial class EmpMenu : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         private List<Employees> employees;
         private List<Address_Employees> Address_Employees;
         public EmpMenu(UnitOfWork_Employee Employee)
         {
-            Uow_Employee = Employee;
+            Unit_Employee = Employee;
             InitializeComponent();
         }
 
 
         private void EmpOrders_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private async void ShowUers_Click(object sender, RoutedEventArgs e)
         {
-            Address_Employees = (List<Address_Employees>)await Uow_Employee.addressEmployee.GetAllAsync();
-            employees = (List<Employees>)await Uow_Employee.employee.GetAllAsync();
-            if (IDBox.Text != string.Empty)
+            try
             {
-                UserShow.ItemsSource = employees.Where(i => i.ID == int.Parse(IDBox.Text));
-                IDBox.Clear();
-            }
-            else if (NameBox.Text != string.Empty)
-            {
-                UserShow.ItemsSource = employees.Where(i => i.First_Name.Contains(NameBox.Text) || i.last_Name.Contains(NameBox.Text));
-                NameBox.Clear();
-            }
-            else if (Phonebox.Text != string.Empty)
-            {
-                UserShow.ItemsSource = employees.Where(i => i.Phone_Number == Phonebox.Text);
-                Phonebox.Clear();
-            }
-            else if (EmailBox.Text != string.Empty)
-            {
-                UserShow.ItemsSource = employees.Where(i => i.Email == EmailBox.Text);
-                EmailBox.Clear();
-            }
-            else
-            {
-                UserShow.ItemsSource = employees;
+                Address_Employees = (List<Address_Employees>)await Unit_Employee.addressEmployee.GetAllAsync();
+                employees = (List<Employees>)await Unit_Employee.employee.GetAllAsync();
+                if (IDBox.Text != string.Empty)
+                {
+                    UserShow.ItemsSource = employees.Where(i => i.ID == int.Parse(IDBox.Text));
+                    IDBox.Clear();
+                }
+                else if (NameBox.Text != string.Empty)
+                {
+                    UserShow.ItemsSource = employees.Where(i => i.First_Name.Contains(NameBox.Text) || i.last_Name.Contains(NameBox.Text));
+                    NameBox.Clear();
+                }
+                else if (Phonebox.Text != string.Empty)
+                {
+                    UserShow.ItemsSource = employees.Where(i => i.Phone_Number == Phonebox.Text);
+                    Phonebox.Clear();
+                }
+                else if (EmailBox.Text != string.Empty)
+                {
+                    UserShow.ItemsSource = employees.Where(i => i.Email == EmailBox.Text);
+                    EmailBox.Clear();
+                }
+                else
+                {
+                    UserShow.ItemsSource = employees;
 
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
@@ -73,6 +82,6 @@ namespace UserInterface.EmployeeAbilitys.Manager.Employeemenu
             employeeReg.Show();
         }
 
-        
+
     }
 }

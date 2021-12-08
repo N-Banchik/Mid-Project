@@ -22,11 +22,11 @@ namespace UserInterface.EmployeeAbilitys.Manager.BCMenu
     /// </summary>
     public partial class CategoryAdd : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         private Categories _Category;
-        public CategoryAdd(UnitOfWork_Employee _Uow_Employee, Categories Category)
+        public CategoryAdd(UnitOfWork_Employee _Unit_Employee, Categories Category)
         {
-            Uow_Employee = _Uow_Employee;
+            Unit_Employee = _Unit_Employee;
             _Category = Category;
 
             InitializeComponent();
@@ -41,8 +41,8 @@ namespace UserInterface.EmployeeAbilitys.Manager.BCMenu
                 _Category.Category_Name = Name.Text;
                 _Category.Description = Description.Text;
 
-                await Uow_Employee.category.Add(_Category);
-                await Uow_Employee.CompleteAsync();
+                await Unit_Employee.category.Add(_Category);
+                await Unit_Employee.CompleteAsync();
                 MessageBox.Show("Category added!");
                 Close();
             }

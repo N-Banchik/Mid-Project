@@ -7,16 +7,16 @@
         mc:Ignorable="d"
         Title="EmpMenu" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="UserShow" Margin="0,140,0,0" AutoGenerateColumns="False" >
+        <DataGrid x:Name="UserShow" Margin="0,140,0,0" AutoGenerateColumns="False"  CanUserAddRows="False" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
-                <DataGridTextColumn Header="First Name" Binding="{Binding First_Name}" />
-                <DataGridTextColumn Header="Last Name" Binding="{Binding last_Name}"/>
-                <DataGridTextColumn Header="Date of Birth" Binding="{Binding Birthdate}"/>
-                <DataGridTextColumn Header="Hire Date" Binding="{Binding Hire_Date}"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
-                <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone_Number}"/>
-                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" IsReadOnly="True" />
+                <DataGridTextColumn Header="First Name" Binding="{Binding First_Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding last_Name}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Date of Birth" Binding="{Binding Birthdate}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Hire Date" Binding="{Binding Hire_Date}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone_Number}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}" IsReadOnly="True"/>
 
                 <DataGridTemplateColumn >
                     <DataGridTemplateColumn.HeaderTemplate>

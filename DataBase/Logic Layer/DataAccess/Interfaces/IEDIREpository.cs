@@ -18,9 +18,5 @@ namespace Logic_Layer.DataAccess.Interfaces
         public Task<List<EDI>> GetAllNotapprovedAsync();
         public Task<EDI> GetNextWorkEDIAsync();
         public void ApproveEDIAsync(EDI toapprove,Employees employee);
-        public List<EDIItems> CreateEDIItemsList(ConcurrentDictionary<Items, int> itemquantity);
-
-
-
     }
 }

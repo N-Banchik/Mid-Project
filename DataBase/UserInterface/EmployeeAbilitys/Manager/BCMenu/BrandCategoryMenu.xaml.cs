@@ -21,50 +21,102 @@ namespace UserInterface.EmployeeAbilitys.Manager.BCMenu
     /// </summary>
     public partial class BrandCategoryMenu : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
-        
+        private UnitOfWork_Employee Unit_Employee;
 
 
-        public BrandCategoryMenu(UnitOfWork_Employee _Uow_Employee)
+
+        public BrandCategoryMenu(UnitOfWork_Employee _Unit_Employee)
         {
-            Uow_Employee = _Uow_Employee;
+            Unit_Employee = _Unit_Employee;
             InitializeComponent();
         }
 
         private void updateBtnBrand_Click(object sender, RoutedEventArgs e)
         {
-            BrandUpdate brandUpdate = new(Uow_Employee, Brands.SelectedItem as Brands);
-            brandUpdate.ShowDialog();
+            try
+            {
+                BrandUpdate brandUpdate = new(Unit_Employee, Brands.SelectedItem as Brands);
+                brandUpdate.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
         private void updateBtnCategory_Click(object sender, RoutedEventArgs e)
         {
-            CategoryUpdate categoryUpdate = new(Uow_Employee, Category.SelectedItem as Categories);
-            categoryUpdate.ShowDialog();
+            try
+            {
+                CategoryUpdate categoryUpdate = new(Unit_Employee, Category.SelectedItem as Categories);
+                categoryUpdate.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void AddBrands_Click(object sender, RoutedEventArgs e)
         {
-            BrandAdd BrandAdd = new(Uow_Employee, new Brands());
-            BrandAdd.ShowDialog();
+            try
+            {
+                BrandAdd BrandAdd = new(Unit_Employee, new Brands());
+                BrandAdd.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void Addcategory_Click(object sender, RoutedEventArgs e)
         {
-            CategoryAdd categoryAdd = new(Uow_Employee, new Categories());
-            categoryAdd.ShowDialog();
+            try
+            {
+                CategoryAdd categoryAdd = new(Unit_Employee, new Categories());
+                categoryAdd.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private async void SeeBrands_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
-            Brands.ItemsSource = await Uow_Employee.brands.GetAllAsync();
+                Brands.ItemsSource = await Unit_Employee.brands.GetAllAsync();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private async void SeeCategories_Click(object sender, RoutedEventArgs e)
         {
-            Category.ItemsSource = await Uow_Employee.category.GetAllAsync();
+            try
+            {
+
+                Category.ItemsSource = await Unit_Employee.category.GetAllAsync();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

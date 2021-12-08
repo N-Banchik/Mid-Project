@@ -1,0 +1,35 @@
+﻿<Window x:Class="UserInterface.EmployeeAbilitys.Manager.RestockMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager"
+        mc:Ignorable="d"
+        Title="Restock Menu" Height="450" Width="300" ContentRendered="Window_ContentRendered" SizeToContent="Width" >
+    <Grid>
+        <DataGrid x:Name="Restockgrid" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,0,0,40">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Item Id" Binding="{Binding Items.Item_ID, Mode=OneWay}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Items.Item_Name,Mode=OneWay}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Quantity in Inventory" Binding="{Binding Items.Units_In_Inventory}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Quantity to order" Binding="{Binding Quantity,Mode=TwoWay}"  />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Action" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="insertBtn" Content="Insert" Click="insertBtn_Click" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="Finishorderbtn" Click="Finishorderbtn_Click" Content="Finish order" HorizontalAlignment="Center" Margin="0,394,0,0" VerticalAlignment="Top" Height="40" Width="300"/>
+
+    </Grid>
+</Window>

@@ -21,11 +21,11 @@ namespace UserInterface.EmployeeAbilitys.Manager.BCMenu
     /// </summary>
     public partial class BrandAdd : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         private Brands _Brand;
-        public BrandAdd(UnitOfWork_Employee _Uow_Employee, Brands Category)
+        public BrandAdd(UnitOfWork_Employee _Unit_Employee, Brands Category)
         {
-            Uow_Employee = _Uow_Employee;
+            Unit_Employee = _Unit_Employee;
             _Brand = Category;
 
             InitializeComponent();
@@ -40,8 +40,8 @@ namespace UserInterface.EmployeeAbilitys.Manager.BCMenu
                 _Brand.Brand_Name = Name.Text;
                 _Brand.Manufacturing_Country = Manufacturingcountry.Text;
 
-                await Uow_Employee.brands.Add(_Brand);
-                await Uow_Employee.CompleteAsync();
+                await Unit_Employee.brands.Add(_Brand);
+                await Unit_Employee.CompleteAsync();
                 MessageBox.Show("Brand added!");
                 Close();
             }

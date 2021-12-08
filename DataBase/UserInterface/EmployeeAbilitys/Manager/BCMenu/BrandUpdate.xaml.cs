@@ -21,11 +21,11 @@ namespace UserInterface.EmployeeAbilitys.Manager.BCMenu
     /// </summary>
     public partial class BrandUpdate : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         private Brands _brand;
-        public BrandUpdate(UnitOfWork_Employee _Uow_Employee, Brands brand)
+        public BrandUpdate(UnitOfWork_Employee _Unit_Employee, Brands brand)
         {
-            Uow_Employee = _Uow_Employee;
+            Unit_Employee = _Unit_Employee;
             _brand = brand;
             InitializeComponent();
         }
@@ -36,8 +36,8 @@ namespace UserInterface.EmployeeAbilitys.Manager.BCMenu
             {
                 _brand.Brand_Name = Name.Text;
                 _brand.Manufacturing_Country = Manufacturingcountry.Text;
-                await Uow_Employee.brands.Add(_brand);
-                await Uow_Employee.CompleteAsync();
+                await Unit_Employee.brands.Add(_brand);
+                await Unit_Employee.CompleteAsync();
                 Close();
                 MessageBox.Show("Brand Updated!");
                 Close();

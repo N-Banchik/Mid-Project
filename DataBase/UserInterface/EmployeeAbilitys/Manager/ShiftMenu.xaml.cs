@@ -22,12 +22,12 @@ namespace UserInterface.EmployeeAbilitys.Manager
     /// </summary>
     public partial class ShiftMenu : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         private Employees _employee;
         public ShiftMenu(UnitOfWork_Employee UoWemployee, Employees employee)
         {
             InitializeComponent();
-            Uow_Employee = UoWemployee;
+            Unit_Employee = UoWemployee;
             _employee = employee;
 
         }
@@ -39,7 +39,7 @@ namespace UserInterface.EmployeeAbilitys.Manager
 
             try
             {
-                ShiftShow.ItemsSource = await Uow_Employee.shifts.GetByCondition(i => i.Shift_Start.Date == DateTime.Today && i.Shift_End < i.Shift_Start);
+                ShiftShow.ItemsSource = await Unit_Employee.shifts.GetByCondition(i => i.Shift_Start.Date == DateTime.Today && i.Shift_End < i.Shift_Start);
             }
             catch (Exception ex)
             {
@@ -57,12 +57,12 @@ namespace UserInterface.EmployeeAbilitys.Manager
                 if (ById.Text != string.Empty)
                 {
 
-                    ShiftShow.ItemsSource = await Uow_Employee.shifts.GetByCondition(i => i.Shift_Start.Date >= dateTimestart && i.Shift_End <= dateTimeend && i.Employee_ID == int.Parse(ById.Text));
+                    ShiftShow.ItemsSource = await Unit_Employee.shifts.GetByCondition(i => i.Shift_Start.Date >= dateTimestart && i.Shift_End <= dateTimeend && i.Employee_ID == int.Parse(ById.Text));
 
                 }
                 else
                 {
-                    ShiftShow.ItemsSource = await Uow_Employee.shifts.GetByCondition(i => i.Shift_Start.Date >= dateTimestart && i.Shift_End <= dateTimeend);
+                    ShiftShow.ItemsSource = await Unit_Employee.shifts.GetByCondition(i => i.Shift_Start.Date >= dateTimestart && i.Shift_End <= dateTimeend);
 
                 }
 
@@ -77,9 +77,9 @@ namespace UserInterface.EmployeeAbilitys.Manager
         private async void Employeeinfo_Click(object sender, RoutedEventArgs e)
         {
 
-            EmpMenu empMenu = new(Uow_Employee);
+            EmpMenu empMenu = new(Unit_Employee);
             empMenu.IDBox.Text = (ShiftShow.SelectedItem as Employees).ID.ToString();
-            empMenu.UserShow.ItemsSource = (await Uow_Employee.employee.GetByCondition(i => i.ID == (ShiftShow.SelectedItem as Employees).ID));
+            empMenu.UserShow.ItemsSource = (await Unit_Employee.employee.GetByCondition(i => i.ID == (ShiftShow.SelectedItem as Employees).ID));
         }
     }
 }

@@ -22,10 +22,10 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
     /// </summary>
     public partial class Itemadd : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         public Itemadd(UnitOfWork_Employee UoWemployee)
         {
-            Uow_Employee = UoWemployee;
+            Unit_Employee = UoWemployee;
 
             InitializeComponent();
         }
@@ -36,8 +36,8 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
             {
                 if (Categorybox.SelectedValue != null && Brandbox.SelectedValue != null)
                 {
-                    await Uow_Employee.items.AddNewItemAsync(Name.Text, (Categories)Categorybox.SelectedValue, (Brands)Brandbox.SelectedValue, double.Parse(Wight.Text), int.Parse(Inventory.Text), int.Parse(Mininv.Text), double.Parse(Price.Text));
-                    await Uow_Employee.CompleteAsync();
+                    await Unit_Employee.items.AddNewItemAsync(Name.Text, (Categories)Categorybox.SelectedValue, (Brands)Brandbox.SelectedValue, double.Parse(Wight.Text), int.Parse(Inventory.Text), int.Parse(Mininv.Text), double.Parse(Price.Text));
+                    await Unit_Employee.CompleteAsync();
                     MessageBox.Show("Item Added Successfully");
                     Close();
                     
@@ -58,22 +58,22 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
 
         private async void Categorybox_Loaded(object sender, RoutedEventArgs e)
         {
-            Categorybox.ItemsSource = await Uow_Employee.category.GetAllAsync();
-            Brandbox.ItemsSource = await Uow_Employee.brands.GetAllAsync();
+            Categorybox.ItemsSource = await Unit_Employee.category.GetAllAsync();
+            Brandbox.ItemsSource = await Unit_Employee.brands.GetAllAsync();
         }
 
         private async void NewCategory_Click(object sender, RoutedEventArgs e)
         {
-            CategoryAdd categoryAdd = new(Uow_Employee, new());
+            CategoryAdd categoryAdd = new(Unit_Employee, new());
             categoryAdd.ShowDialog();
-            Categorybox.ItemsSource = await Uow_Employee.category.GetAllAsync();
+            Categorybox.ItemsSource = await Unit_Employee.category.GetAllAsync();
         }
 
         private async void NewBrand_Click(object sender, RoutedEventArgs e)
         {
-            BrandAdd BrandAdd = new(Uow_Employee, new());
+            BrandAdd BrandAdd = new(Unit_Employee, new());
             BrandAdd.ShowDialog();
-            Brandbox.ItemsSource = await Uow_Employee.brands.GetAllAsync();
+            Brandbox.ItemsSource = await Unit_Employee.brands.GetAllAsync();
 
         }
     }

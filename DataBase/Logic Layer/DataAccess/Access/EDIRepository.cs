@@ -53,17 +53,6 @@ namespace Logic_Layer.DataAccess.Access
             Update(update);
         }
 
-        public List<EDIItems> CreateEDIItemsList(ConcurrentDictionary<Items, int> itemquantity)
-        {
-            ConcurrentBag<EDIItems> topass = new ConcurrentBag<EDIItems>();
-
-            Parallel.ForEach(itemquantity, item =>
-            {
-                topass.Add(new EDIItems { Items = item.Key, Quantity = item.Value });
-
-            });
-            return topass.ToList();
-
-        }
+        
     }
 }

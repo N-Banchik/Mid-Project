@@ -26,21 +26,21 @@ namespace UserInterface.Main
     /// </summary>
     public partial class EmployeeMain : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         private Employees ME;
 
         public EmployeeMain(UnitOfWork_Employee UoWemployee, Employees employee)
         {
             InitializeComponent();
-            Uow_Employee = UoWemployee;
+            Unit_Employee = UoWemployee;
             ME = employee;
         }
         private async void HelloBox_Loaded(object sender, RoutedEventArgs e)
         {
 
             HelloBox.Text = $"Hello {ME.First_Name}";
-            await Uow_Employee.shifts.NewShiftAsync(ME.ID);
-            await Uow_Employee.CompleteAsync();
+            await Unit_Employee.shifts.NewShiftAsync(ME.ID);
+            await Unit_Employee.CompleteAsync();
         }
 
         private  void GetShifts_Click(object sender, RoutedEventArgs e)
@@ -52,20 +52,20 @@ namespace UserInterface.Main
 
         private async void Close_Click(object sender, RoutedEventArgs e)
         {
-            await Uow_Employee.shifts.UpdateLastShiftAsync(ME.ID);
-            await Uow_Employee.CompleteAsync();
+            await Unit_Employee.shifts.UpdateLastShiftAsync(ME.ID);
+            await Unit_Employee.CompleteAsync();
             Close();
         }
 
         private void EditInfo_Click(object sender, RoutedEventArgs e)
         {
-            PersonalInfoEdit_Employee personalInfo = new(Uow_Employee, ME);
+            PersonalInfoEdit_Employee personalInfo = new(Unit_Employee, ME);
             personalInfo.ShowDialog();
         }
 
         private  void NextOrder_Click(object sender, RoutedEventArgs e)
         {
-            EDIAccept eDIAccept = new(Uow_Employee,ME);
+            EDIAccept eDIAccept = new(Unit_Employee,ME);
             eDIAccept.ShowDialog();
         }
     }

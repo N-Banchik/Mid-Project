@@ -22,13 +22,13 @@ namespace UserInterface.EmployeeAbilitys
     /// </summary>
     public partial class PersonalInfoEdit_Employee : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         private Employees ME;
 
         public PersonalInfoEdit_Employee(UnitOfWork_Employee UoWemployee, Employees employee)
         {
             InitializeComponent();
-            Uow_Employee = UoWemployee;
+            Unit_Employee = UoWemployee;
             ME = employee;
         }
         private void Window_ContentRendered(object sender, EventArgs e)
@@ -46,6 +46,14 @@ namespace UserInterface.EmployeeAbilitys
 
         private async void Updatebtn_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var Tbox in MYGrid.Children.OfType<TextBox>())
+            {
+                if (Tbox.Text==string.Empty)
+                {
+                    MessageBox.Show("Cannot leave empty fields!");
+                    return;
+                }
+            }
             ME.First_Name = FirstNamebox.Text;
             ME.last_Name = Lastnamebox.Text;
             ME.Email = Emailbox.Text;
@@ -55,8 +63,8 @@ namespace UserInterface.EmployeeAbilitys
             ME.Address.Apartment_Number = int.Parse(Aptbox.Text);
             ME.Address.Zipcode = int.Parse(Zipbox.Text);
             ME.Address.City = Citybox.Text;
-            await Uow_Employee.employee.Upsert(ME);
-            await Uow_Employee.CompleteAsync();
+            await Unit_Employee.employee.Upsert(ME);
+            await Unit_Employee.CompleteAsync();
             MessageBox.Show("User updated");
             Close();
 
@@ -78,8 +86,8 @@ namespace UserInterface.EmployeeAbilitys
                 else
                 {
                     MessageBox.Show("Password Changed successfully");
-                    await Uow_Employee.employee.UpdatePasswordAsync(ME.Email, Passwordbox.Password);
-                    await Uow_Employee.CompleteAsync();
+                    await Unit_Employee.employee.UpdatePasswordAsync(ME.Email, Passwordbox.Password);
+                    await Unit_Employee.CompleteAsync();
                 }
             }
 

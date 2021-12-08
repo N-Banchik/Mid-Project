@@ -43,6 +43,9 @@
     <Compile Update="EmployeeAbilitys\Manager\Ordershow_manager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="EmployeeAbilitys\Manager\RestockMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="EmployeeAbilitys\Manager\ShiftMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -118,6 +121,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EmployeeAbilitys\Manager\Ordershow_manager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EmployeeAbilitys\Manager\RestockMenu.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EmployeeAbilitys\Manager\ShiftMenu.xaml">

@@ -19,11 +19,11 @@ namespace UserInterface.EmployeeAbilitys.Manager
     
     public partial class OrderMenu : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         public OrderMenu(UnitOfWork_Employee UoWemployee)
         {
             InitializeComponent();
-            Uow_Employee = UoWemployee;
+            Unit_Employee = UoWemployee;
         }
 
         private async void Search_Click(object sender, RoutedEventArgs e)
@@ -36,11 +36,11 @@ namespace UserInterface.EmployeeAbilitys.Manager
 
                 if (EDIid.Text != string.Empty)
                 {
-                    OrderShow.ItemsSource = await Uow_Employee.EDI.GetByCondition(i=>i.EDI_Id==int.Parse(EDIid.Text));
+                    OrderShow.ItemsSource = await Unit_Employee.EDI.GetByCondition(i=>i.EDI_Id==int.Parse(EDIid.Text));
                 }
                 else
                 {
-                    OrderShow.ItemsSource = await Uow_Employee.EDI.GetbyDateAsync(dateTimestart.Value, dateTimeend.Value);
+                    OrderShow.ItemsSource = await Unit_Employee.EDI.GetbyDateAsync(dateTimestart.Value, dateTimeend.Value);
                 }
             }
             catch (Exception ex)
@@ -54,7 +54,7 @@ namespace UserInterface.EmployeeAbilitys.Manager
         {
             try
             {
-                OrderShow.ItemsSource = await Uow_Employee.EDI.GetAllNotapprovedAsync();
+                OrderShow.ItemsSource = await Unit_Employee.EDI.GetAllNotapprovedAsync();
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ namespace UserInterface.EmployeeAbilitys.Manager
 
         private void ShowEDIDetails_Click(object sender, RoutedEventArgs e)
         {
-            Ordershow_manager ordershow_Manager = new(Uow_Employee,OrderShow.SelectedItem as EDI);
+            Ordershow_manager ordershow_Manager = new(Unit_Employee,OrderShow.SelectedItem as EDI);
             ordershow_Manager.ShowDialog();
         }
 

@@ -22,27 +22,28 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
     /// </summary>
     public partial class Itemmenu : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         private Items _items;
 
         private List<Items> itemlist;
 
         public Itemmenu(UnitOfWork_Employee UoWemployee)
         {
-            Uow_Employee = UoWemployee;
+            Unit_Employee = UoWemployee;
             InitializeComponent();
         }
 
         private async void Categorybox_Loaded(object sender, RoutedEventArgs e)
         {
-            Categorybox.ItemsSource = await Uow_Employee.category.GetAllAsync();
-            Brandbox.ItemsSource = await Uow_Employee.brands.GetAllAsync();
+            Categorybox.ItemsSource = await Unit_Employee.category.GetAllAsync();
+            Brandbox.ItemsSource = await Unit_Employee.brands.GetAllAsync();
 
 
         }
         private async Task updateItemlistAsync()
         {
-            itemlist = (List<Items>)await Uow_Employee.items.GetAllAsync();
+
+            itemlist = (List<Items>)await Unit_Employee.items.GetAllAsync();
             ItemsShow.ItemsSource = null;
             ItemsShow.ItemsSource = itemlist;
 
@@ -90,7 +91,7 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
             try
             {
 
-                ItemUpdate itemUpdate = new(Uow_Employee, ItemsShow.SelectedItem as Items);
+                ItemUpdate itemUpdate = new(Unit_Employee, ItemsShow.SelectedItem as Items);
                 itemUpdate.ShowDialog();
                 await updateItemlistAsync();
             }
@@ -108,8 +109,8 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
             try
             {
                 _items = ItemsShow.SelectedItem as Items;
-                await Uow_Employee.items.Delete(_items.Item_ID);
-                await Uow_Employee.CompleteAsync();
+                await Unit_Employee.items.Delete(_items.Item_ID);
+                await Unit_Employee.CompleteAsync();
                 _items = null;
                 await updateItemlistAsync();
 
@@ -123,11 +124,11 @@ namespace UserInterface.EmployeeAbilitys.Manager.ItemsMenu
 
         private async void Additembtn_Click(object sender, RoutedEventArgs e)
         {
-            Itemadd itemadd = new(Uow_Employee);
+            Itemadd itemadd = new(Unit_Employee);
             itemadd.ShowDialog();
             await updateItemlistAsync();
-            Categorybox.ItemsSource = await Uow_Employee.category.GetAllAsync();
-            Brandbox.ItemsSource = await Uow_Employee.brands.GetAllAsync();
+            Categorybox.ItemsSource = await Unit_Employee.category.GetAllAsync();
+            Brandbox.ItemsSource = await Unit_Employee.brands.GetAllAsync();
         }
     }
 }

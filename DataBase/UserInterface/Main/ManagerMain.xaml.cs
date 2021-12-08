@@ -26,13 +26,13 @@ namespace UserInterface.Main
     /// </summary>
     public partial class ManagerMain : Window
     {
-        private UnitOfWork_Employee Uow_Employee;
+        private UnitOfWork_Employee Unit_Employee;
         private Employees ME;
 
         public ManagerMain(UnitOfWork_Employee UoWemployee, Employees employee)
         {
             InitializeComponent();
-            Uow_Employee = UoWemployee;
+            Unit_Employee = UoWemployee;
             ME = employee;
 
         }
@@ -41,56 +41,62 @@ namespace UserInterface.Main
 
         private void ShiftMenu_Click(object sender, RoutedEventArgs e)
         {
-            ShiftMenu shift = new(Uow_Employee, ME);
+            ShiftMenu shift = new(Unit_Employee, ME);
             shift.ShowDialog();
         }
 
         private void OrderMenu_Click(object sender, RoutedEventArgs e)
         {
-            OrderMenu orderMenu = new(Uow_Employee);
+            OrderMenu orderMenu = new(Unit_Employee);
             orderMenu.ShowDialog();
         }
 
         private void ItemMenu_Click(object sender, RoutedEventArgs e)
         {
-            Itemmenu item = new(Uow_Employee);
+            Itemmenu item = new(Unit_Employee);
             item.ShowDialog();
         }
 
         private void UsersMenu_Click(object sender, RoutedEventArgs e)
         {
-            UserMenu userMenu = new(Uow_Employee);
+            UserMenu userMenu = new(Unit_Employee);
             userMenu.ShowDialog();
         }
         private void BrnadCategory_Click(object sender, RoutedEventArgs e)
         {
-            BrandCategoryMenu brandCategory = new(Uow_Employee);
+            BrandCategoryMenu brandCategory = new(Unit_Employee);
             brandCategory.ShowDialog();
         }
 
         private async void HelloBox_Loaded(object sender, RoutedEventArgs e)
         {
             HelloBox.Text = $"Hello {ME.First_Name} {ME.last_Name}";
-            await Uow_Employee.shifts.NewShiftAsync(ME.ID);
-            await Uow_Employee.CompleteAsync();
+            await Unit_Employee.shifts.NewShiftAsync(ME.ID);
+            await Unit_Employee.CompleteAsync();
         }
         private void EmployeeMenubtn_Click(object sender, RoutedEventArgs e)
         {
-            EmpMenu empMenu = new(Uow_Employee);
+            EmpMenu empMenu = new(Unit_Employee);
             empMenu.ShowDialog();
         }
 
         private async void Close_Click(object sender, RoutedEventArgs e)
         {
-            await Uow_Employee.shifts.UpdateLastShiftAsync(ME.ID);
-            await Uow_Employee.CompleteAsync();
+            await Unit_Employee.shifts.UpdateLastShiftAsync(ME.ID);
+            await Unit_Employee.CompleteAsync();
             Close();
         }
 
         private void EditInfo_Click(object sender, RoutedEventArgs e)
         {
-            PersonalInfoEdit_Employee personalInfo = new(Uow_Employee, ME);
+            PersonalInfoEdit_Employee personalInfo = new(Unit_Employee, ME);
             personalInfo.ShowDialog();
+        }
+
+        private void Restockbtn_Click(object sender, RoutedEventArgs e)
+        {
+            RestockMenu restockMenu = new(Unit_Employee);
+            restockMenu.ShowDialog();
         }
     }
 }
