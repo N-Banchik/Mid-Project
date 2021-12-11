@@ -5,13 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserInterface.EmployeeAbilitys.Manager"
         mc:Ignorable="d"
-        Title="Restock Menu" Height="450" Width="300" ContentRendered="Window_ContentRendered" SizeToContent="WidthAndHeight" >
+        Title="Restock Menu" Height="450" Width="350" ContentRendered="Window_ContentRendered" SizeToContent="WidthAndHeight" >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="Restockgrid" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,0,0,40" Grid.ColumnSpan="2">
+        <DataGrid x:Name="Restockgrid" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,0,0,40">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Item Id" Binding="{Binding Items.Item_ID, Mode=OneWay}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Items.Item_Name,Mode=OneWay}" IsReadOnly="True" />
@@ -34,7 +33,8 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Finishorderbtn" Click="Finishorderbtn_Click" Content="Finish order" HorizontalAlignment="Left" Margin="0,394,0,0" VerticalAlignment="Top" Height="40" Width="300" Grid.ColumnSpan="2"/>
+        <Button x:Name="Finishorderbtn" Click="Finishorderbtn_Click" Content="Finish order" HorizontalAlignment="Left" Margin="0,394,0,0" VerticalAlignment="Top" Height="40" Width="175"/>
+        <Button x:Name="acceptall" Click="acceptall_Click" Content="Accept all to order" HorizontalAlignment="Left" Margin="175,394,0,0" VerticalAlignment="Top" Height="40" Width="175"/>
 
     </Grid>
 </Window>

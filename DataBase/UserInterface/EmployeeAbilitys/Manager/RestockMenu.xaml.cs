@@ -40,7 +40,7 @@ namespace UserInterface.EmployeeAbilitys.Manager
             {
 
                 List<Items> items = (List<Items>)await Unit_Employee.items.GetItemsToOrderAsync();
-                items.ForEach(i => ToView.Add(new EDIItems { Items = i, Quantity = i.Minimum_Units_In_Inventory-i.Units_In_Inventory }));
+                items.ForEach(i => ToView.Add(new EDIItems { Items = i, Quantity = i.Minimum_Units_In_Inventory - i.Units_In_Inventory }));
                 Restockgrid.ItemsSource = ToView;
 
             }
@@ -94,5 +94,57 @@ namespace UserInterface.EmployeeAbilitys.Manager
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private async void acceptall_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Restockgrid.CommitEdit();
+                foreach (var item in ToView)
+                {
+                    if (item.Quantity == 0)
+                    {
+                        MessageBox.Show("Item cannot have 0 quantity to order");
+                        return;
+                    }
+                    if (ToOrder.Contains(item))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        ToOrder.Add(item);
+                    }
+
+                }
+                Restockgrid.SelectAll();
+                DataGridRow row = null;
+                foreach (EDIItems dataobject in this.Restockgrid.SelectedItems)
+                {
+                    row = this.Restockgrid.ItemContainerGenerator.ContainerFromItem(dataobject) as DataGridRow;
+                    row.IsEnabled = false;
+                }
+                try
+                {
+                    ToView = null;
+                    await Unit_Employee.EDI.NewEDIAsync(ToOrder);
+                    await Unit_Employee.CompleteAsync();
+                    Close();
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
     }
 }

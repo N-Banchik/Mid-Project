@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataBase.Models;
+using DataBase.Models.Connactions;
 using Logic_Layer.DataAccess.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -58,7 +59,26 @@ namespace Logic_Layer.DataAccess.Access
         {
             try
             {
-                return await GetByCondition(i => i.Units_In_Inventory < i.Minimum_Units_In_Inventory);
+                //                select*
+                //from Items i
+                //where i.[Item Id] not in (select i.[Item Id]
+                //from Items i
+                //left
+                //join EIs e
+                //on i.[Item Id] = e.Item_Id
+                //left
+                //join EDIs es
+                //on e.EDI_Id = es.EDI_Id
+                //where es.Approved_By is null )
+
+
+                List<Items> itms = await dbSet.FromSqlRaw("select * from Items i where i.[Item Id] not in (select i.[Item Id] from Items i join EIs e on i.[Item Id]=e.Item_Id join EDIs es on e.EDI_Id = es.EDI_Id where i.[Units In inventory]<i.[Minimum Units In inventory] and es.Approved_By is null )").ToListAsync();
+
+
+
+
+
+                    return itms /*GetByCondition(i => i.Units_In_Inventory < i.Minimum_Units_In_Inventory)*/;
 
             }
             catch (Exception)
@@ -81,7 +101,7 @@ namespace Logic_Layer.DataAccess.Access
                 throw;
             }
         }
-        
+
 
     }
 }
