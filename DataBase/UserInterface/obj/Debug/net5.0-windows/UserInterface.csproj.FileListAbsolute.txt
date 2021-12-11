@@ -80,10 +80,6 @@ D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\Main\Empl
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\Main\ManagerMain.g.cs
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\Main\EmployeeMain.baml
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\Main\ManagerMain.baml
-D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\OrderShow.g.cs
-D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\User_viewOrders.g.cs
-D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\OrderShow.baml
-D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\UserAbilitys\User_viewOrders.baml
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\ShiftMenu.g.cs
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\ShiftMenu.baml
 D:\Hackeru\Mid Project\DataBase\UserInterface\obj\Debug\net5.0-windows\EmployeeAbilitys\Manager\ItemsMenu\Itemmenu.g.cs

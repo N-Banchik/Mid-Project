@@ -69,7 +69,7 @@ namespace UserInterface.UserAbilitys {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserInterface;V1.0.0.0;component/userabilitys/ordershow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserInterface;component/userabilitys/ordershow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserAbilitys\OrderShow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -15,7 +15,7 @@
                 <DataGridTextColumn Header="Item Id" Binding="{Binding Items.Item_ID, Mode=OneWay}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Items.Item_Name,Mode=OneWay}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Quantity in Inventory" Binding="{Binding Items.Units_In_Inventory}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Minumum Quantity in Inventory" Binding="{Binding Items.Minimum_Units_In_Inventory}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Minimum Quantity in Inventory" Binding="{Binding Items.Minimum_Units_In_Inventory}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Quantity to order" Binding="{Binding Quantity,Mode=TwoWay}"  />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.HeaderTemplate>

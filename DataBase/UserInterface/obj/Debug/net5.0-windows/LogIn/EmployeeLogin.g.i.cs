@@ -85,7 +85,7 @@ namespace UserInterface.LogIn {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserInterface;V1.0.0.0;component/login/employeelogin.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserInterface;component/login/employeelogin.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\LogIn\EmployeeLogin.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

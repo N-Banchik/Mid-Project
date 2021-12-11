@@ -42,7 +42,7 @@ namespace Logic_Layer.DataAccess.Access
                 {
                     
                     temp.Shift_End = DateTime.Now;
-                    temp.Total_Time = temp.Shift_End.Subtract(temp.Shift_Start).Duration().TotalMinutes / 60;
+                    temp.Total_Time = temp.Shift_End.Value.Subtract(temp.Shift_Start).Duration().TotalMinutes / 60;
 
 
                     return true;

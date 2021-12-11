@@ -165,8 +165,7 @@ namespace UserInterface.EmployeeAbilitys {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserInterface;V1.0.0.0;component/employeeabilitys/personalinfoedit_employee.xaml" +
-                    "", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserInterface;component/employeeabilitys/personalinfoedit_employee.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\EmployeeAbilitys\PersonalInfoEdit_Employee.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
