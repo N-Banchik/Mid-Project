@@ -133,7 +133,7 @@ namespace UserInterface.UserAbilitys {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserInterface;component/userabilitys/personalinfoupdate_costumer.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserInterface;V1.0.0.0;component/userabilitys/personalinfoupdate_costumer.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserAbilitys\PersonalInfoUpdate_costumer.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

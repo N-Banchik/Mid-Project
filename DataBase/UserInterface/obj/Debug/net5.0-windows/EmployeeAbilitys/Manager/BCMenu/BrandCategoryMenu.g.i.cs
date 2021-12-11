@@ -101,7 +101,8 @@ namespace UserInterface.EmployeeAbilitys.Manager.BCMenu {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserInterface;component/employeeabilitys/manager/bcmenu/brandcategorymenu.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserInterface;V1.0.0.0;component/employeeabilitys/manager/bcmenu/brandcategoryme" +
+                    "nu.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\EmployeeAbilitys\Manager\BCMenu\BrandCategoryMenu.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

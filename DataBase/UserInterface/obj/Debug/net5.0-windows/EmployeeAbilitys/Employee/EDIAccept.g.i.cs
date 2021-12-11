@@ -93,7 +93,7 @@ namespace UserInterface.EmployeeAbilitys.Employee {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserInterface;component/employeeabilitys/employee/ediaccept.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserInterface;V1.0.0.0;component/employeeabilitys/employee/ediaccept.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\EmployeeAbilitys\Employee\EDIAccept.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

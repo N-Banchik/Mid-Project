@@ -61,7 +61,7 @@ namespace UserInterface.EmployeeAbilitys.Manager {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/UserInterface;component/employeeabilitys/manager/edishow_manager.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/UserInterface;V1.0.0.0;component/employeeabilitys/manager/edishow_manager.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\EmployeeAbilitys\Manager\EDIShow_manager.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
